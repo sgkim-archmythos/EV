@@ -32,9 +32,9 @@ namespace VisionSystem
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tablePanel9 = new DevExpress.Utils.Layout.TablePanel();
             this.listAlarmMsg = new DevComponents.DotNetBar.Controls.RichTextBoxEx();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
@@ -46,17 +46,6 @@ namespace VisionSystem
             this.btnSetCam = new DevExpress.XtraEditors.SimpleButton();
             this.imageCollection1 = new DevExpress.Utils.ImageCollection(this.components);
             this.highlighter1 = new DevComponents.DotNetBar.Validator.Highlighter();
-            this.txtTcpPort = new DevExpress.XtraEditors.TextEdit();
-            this.txtClientIP = new DevExpress.XtraEditors.TextEdit();
-            this.txtSlavePort = new DevExpress.XtraEditors.TextEdit();
-            this.txtSlaveIP = new DevExpress.XtraEditors.TextEdit();
-            this.txtReadCnt = new DevExpress.XtraEditors.TextEdit();
-            this.txtLotNo = new DevExpress.XtraEditors.TextEdit();
-            this.txtModel = new DevExpress.XtraEditors.TextEdit();
-            this.txtCamStatus = new DevExpress.XtraEditors.TextEdit();
-            this.txtInspStart = new DevExpress.XtraEditors.TextEdit();
-            this.txtParamChangeAddr = new DevExpress.XtraEditors.TextEdit();
-            this.txtInspEnd = new DevExpress.XtraEditors.TextEdit();
             this.txtID = new DevExpress.XtraEditors.TextEdit();
             this.txtPW = new DevExpress.XtraEditors.TextEdit();
             this.txtUser = new DevExpress.XtraEditors.TextEdit();
@@ -69,7 +58,6 @@ namespace VisionSystem
             this.bntSetComm = new DevExpress.XtraEditors.SimpleButton();
             this.bntRecord = new DevExpress.XtraEditors.SimpleButton();
             this.btnReset = new DevExpress.XtraEditors.SimpleButton();
-            this.btnSetModbus = new DevExpress.XtraEditors.SimpleButton();
             this.btnImgSet = new DevExpress.XtraEditors.SimpleButton();
             this.flyAdmin = new DevExpress.Utils.FlyoutPanel();
             this.lblMenu = new DevExpress.XtraEditors.LabelControl();
@@ -89,17 +77,13 @@ namespace VisionSystem
             this.lblNGRate = new DevExpress.XtraEditors.LabelControl();
             this.lblOKRate = new DevExpress.XtraEditors.LabelControl();
             this.tablePanel7 = new DevExpress.Utils.Layout.TablePanel();
-            this.btnProgClose = new DevExpress.XtraEditors.SimpleButton();
             this.btnLog = new DevExpress.XtraEditors.SimpleButton();
-            this.btnHome = new DevExpress.XtraEditors.SimpleButton();
             this.btnMenu = new DevExpress.XtraEditors.SimpleButton();
             this.tablePanel10 = new DevExpress.Utils.Layout.TablePanel();
-            this.lblRobot = new DevExpress.XtraEditors.LabelControl();
             this.lblLight = new DevExpress.XtraEditors.LabelControl();
             this.lblLic = new DevExpress.XtraEditors.LabelControl();
             this.lblPLC = new DevExpress.XtraEditors.LabelControl();
             this.lblIO = new DevExpress.XtraEditors.LabelControl();
-            this.lblConnectMode = new DevExpress.XtraEditors.LabelControl();
             this.lblResult = new DevExpress.XtraEditors.LabelControl();
             this.lblView = new DevExpress.XtraEditors.LabelControl();
             this.flyImageSet = new DevExpress.Utils.FlyoutPanel();
@@ -184,34 +168,6 @@ namespace VisionSystem
             this.cogDispResult = new Cognex.VisionPro.CogRecordDisplay();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.flyModbus = new DevExpress.Utils.FlyoutPanel();
-            this.flyoutPanelControl13 = new DevExpress.Utils.FlyoutPanelControl();
-            this.grpResImg = new DevExpress.XtraEditors.GroupControl();
-            this.labelControl68 = new DevExpress.XtraEditors.LabelControl();
-            this.radTcp = new System.Windows.Forms.RadioButton();
-            this.radNetwork = new System.Windows.Forms.RadioButton();
-            this.labelControl69 = new DevExpress.XtraEditors.LabelControl();
-            this.grpClient = new DevExpress.XtraEditors.GroupControl();
-            this.labelControl71 = new DevExpress.XtraEditors.LabelControl();
-            this.btnClientpath = new DevExpress.XtraEditors.SimpleButton();
-            this.grpServer = new DevExpress.XtraEditors.GroupControl();
-            this.labelControl73 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl74 = new DevExpress.XtraEditors.LabelControl();
-            this.grpRead = new DevExpress.XtraEditors.GroupControl();
-            this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
-            this.txtGrabStart = new DevExpress.XtraEditors.TextEdit();
-            this.txtGrabEnd = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl50 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl76 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl78 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl80 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl84 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl87 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl88 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl89 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl90 = new DevExpress.XtraEditors.LabelControl();
-            this.btnModbusClose = new DevExpress.XtraEditors.SimpleButton();
-            this.btnModbusSave = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl72 = new DevExpress.XtraEditors.LabelControl();
             this.txtProcName = new DevExpress.XtraEditors.TextEdit();
             this.flyImgList = new DevExpress.Utils.FlyoutPanel();
@@ -430,17 +386,6 @@ namespace VisionSystem
             this.tablePanel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTcpPort.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtClientIP.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSlavePort.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSlaveIP.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtReadCnt.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtLotNo.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtModel.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtCamStatus.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtInspStart.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtParamChangeAddr.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtInspEnd.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtID.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPW.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtUser.Properties)).BeginInit();
@@ -511,20 +456,6 @@ namespace VisionSystem
             this.tablePanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cogDispOrigin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cogDispResult)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.flyModbus)).BeginInit();
-            this.flyModbus.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.flyoutPanelControl13)).BeginInit();
-            this.flyoutPanelControl13.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grpResImg)).BeginInit();
-            this.grpResImg.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grpClient)).BeginInit();
-            this.grpClient.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grpServer)).BeginInit();
-            this.grpServer.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grpRead)).BeginInit();
-            this.grpRead.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtGrabStart.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtGrabEnd.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtProcName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.flyImgList)).BeginInit();
             this.flyImgList.SuspendLayout();
@@ -822,128 +753,6 @@ namespace VisionSystem
             this.highlighter1.FocusHighlightColor = DevComponents.DotNetBar.Validator.eHighlightColor.Orange;
             this.highlighter1.LicenseKey = "F962CEC7-CD8F-4911-A9E9-CAB39962FC1F";
             // 
-            // txtTcpPort
-            // 
-            this.highlighter1.SetHighlightOnFocus(this.txtTcpPort, true);
-            this.txtTcpPort.Location = new System.Drawing.Point(337, 57);
-            this.txtTcpPort.Name = "txtTcpPort";
-            this.txtTcpPort.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold);
-            this.txtTcpPort.Properties.Appearance.Options.UseFont = true;
-            this.txtTcpPort.Properties.Appearance.Options.UseTextOptions = true;
-            this.txtTcpPort.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.txtTcpPort.Size = new System.Drawing.Size(92, 24);
-            this.txtTcpPort.TabIndex = 2;
-            // 
-            // txtClientIP
-            // 
-            this.txtClientIP.Location = new System.Drawing.Point(62, 30);
-            this.txtClientIP.Name = "txtClientIP";
-            this.txtClientIP.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold);
-            this.txtClientIP.Properties.Appearance.Options.UseFont = true;
-            this.txtClientIP.Properties.Appearance.Options.UseTextOptions = true;
-            this.txtClientIP.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.txtClientIP.Size = new System.Drawing.Size(187, 24);
-            this.txtClientIP.TabIndex = 0;
-            // 
-            // txtSlavePort
-            // 
-            this.txtSlavePort.Location = new System.Drawing.Point(334, 30);
-            this.txtSlavePort.Name = "txtSlavePort";
-            this.txtSlavePort.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold);
-            this.txtSlavePort.Properties.Appearance.Options.UseFont = true;
-            this.txtSlavePort.Properties.Appearance.Options.UseTextOptions = true;
-            this.txtSlavePort.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.txtSlavePort.Size = new System.Drawing.Size(124, 24);
-            this.txtSlavePort.TabIndex = 1;
-            // 
-            // txtSlaveIP
-            // 
-            this.txtSlaveIP.Location = new System.Drawing.Point(62, 29);
-            this.txtSlaveIP.Name = "txtSlaveIP";
-            this.txtSlaveIP.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold);
-            this.txtSlaveIP.Properties.Appearance.Options.UseFont = true;
-            this.txtSlaveIP.Properties.Appearance.Options.UseTextOptions = true;
-            this.txtSlaveIP.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.txtSlaveIP.Size = new System.Drawing.Size(187, 24);
-            this.txtSlaveIP.TabIndex = 0;
-            // 
-            // txtReadCnt
-            // 
-            this.txtReadCnt.Location = new System.Drawing.Point(337, 29);
-            this.txtReadCnt.Name = "txtReadCnt";
-            this.txtReadCnt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold);
-            this.txtReadCnt.Properties.Appearance.Options.UseFont = true;
-            this.txtReadCnt.Properties.Appearance.Options.UseTextOptions = true;
-            this.txtReadCnt.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.txtReadCnt.Size = new System.Drawing.Size(92, 24);
-            this.txtReadCnt.TabIndex = 0;
-            // 
-            // txtLotNo
-            // 
-            this.txtLotNo.Location = new System.Drawing.Point(337, 122);
-            this.txtLotNo.Name = "txtLotNo";
-            this.txtLotNo.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold);
-            this.txtLotNo.Properties.Appearance.Options.UseFont = true;
-            this.txtLotNo.Properties.Appearance.Options.UseTextOptions = true;
-            this.txtLotNo.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.txtLotNo.Size = new System.Drawing.Size(92, 24);
-            this.txtLotNo.TabIndex = 3;
-            // 
-            // txtModel
-            // 
-            this.txtModel.Location = new System.Drawing.Point(337, 91);
-            this.txtModel.Name = "txtModel";
-            this.txtModel.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold);
-            this.txtModel.Properties.Appearance.Options.UseFont = true;
-            this.txtModel.Properties.Appearance.Options.UseTextOptions = true;
-            this.txtModel.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.txtModel.Size = new System.Drawing.Size(92, 24);
-            this.txtModel.TabIndex = 2;
-            // 
-            // txtCamStatus
-            // 
-            this.txtCamStatus.Location = new System.Drawing.Point(337, 60);
-            this.txtCamStatus.Name = "txtCamStatus";
-            this.txtCamStatus.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold);
-            this.txtCamStatus.Properties.Appearance.Options.UseFont = true;
-            this.txtCamStatus.Properties.Appearance.Options.UseTextOptions = true;
-            this.txtCamStatus.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.txtCamStatus.Size = new System.Drawing.Size(92, 24);
-            this.txtCamStatus.TabIndex = 1;
-            // 
-            // txtInspStart
-            // 
-            this.txtInspStart.Location = new System.Drawing.Point(337, 215);
-            this.txtInspStart.Name = "txtInspStart";
-            this.txtInspStart.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold);
-            this.txtInspStart.Properties.Appearance.Options.UseFont = true;
-            this.txtInspStart.Properties.Appearance.Options.UseTextOptions = true;
-            this.txtInspStart.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.txtInspStart.Size = new System.Drawing.Size(92, 24);
-            this.txtInspStart.TabIndex = 4;
-            // 
-            // txtParamChangeAddr
-            // 
-            this.txtParamChangeAddr.Location = new System.Drawing.Point(337, 278);
-            this.txtParamChangeAddr.Name = "txtParamChangeAddr";
-            this.txtParamChangeAddr.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold);
-            this.txtParamChangeAddr.Properties.Appearance.Options.UseFont = true;
-            this.txtParamChangeAddr.Properties.Appearance.Options.UseTextOptions = true;
-            this.txtParamChangeAddr.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.txtParamChangeAddr.Size = new System.Drawing.Size(92, 24);
-            this.txtParamChangeAddr.TabIndex = 6;
-            // 
-            // txtInspEnd
-            // 
-            this.txtInspEnd.Location = new System.Drawing.Point(337, 246);
-            this.txtInspEnd.Name = "txtInspEnd";
-            this.txtInspEnd.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold);
-            this.txtInspEnd.Properties.Appearance.Options.UseFont = true;
-            this.txtInspEnd.Properties.Appearance.Options.UseTextOptions = true;
-            this.txtInspEnd.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.txtInspEnd.Size = new System.Drawing.Size(92, 24);
-            this.txtInspEnd.TabIndex = 5;
-            // 
             // txtID
             // 
             this.txtID.Location = new System.Drawing.Point(228, 22);
@@ -1026,7 +835,6 @@ namespace VisionSystem
             this.tablePanel14.Controls.Add(this.bntRecord);
             this.tablePanel14.Controls.Add(this.btnReset);
             this.tablePanel14.Controls.Add(this.btnSetModel);
-            this.tablePanel14.Controls.Add(this.btnSetModbus);
             this.tablePanel14.Controls.Add(this.btnImgSet);
             this.tablePanel14.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tablePanel14.Location = new System.Drawing.Point(2, 2);
@@ -1102,7 +910,7 @@ namespace VisionSystem
             this.tablePanel14.SetColumn(this.btnLightSetting, 0);
             this.btnLightSetting.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnLightSetting.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.btnLightSetting.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnRobot.ImageOptions.SvgImage")));
+            this.btnLightSetting.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnLightSetting.ImageOptions.SvgImage")));
             this.btnLightSetting.Location = new System.Drawing.Point(3, 58);
             this.btnLightSetting.Name = "btnLightSetting";
             this.tablePanel14.SetRow(this.btnLightSetting, 1);
@@ -1187,31 +995,6 @@ namespace VisionSystem
             this.btnReset.ToolTip = "Screen and count initialization";
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
-            // btnSetModbus
-            // 
-            this.btnSetModbus.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold);
-            this.btnSetModbus.Appearance.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.Information;
-            this.btnSetModbus.Appearance.Options.UseFont = true;
-            this.btnSetModbus.Appearance.Options.UseForeColor = true;
-            this.btnSetModbus.Appearance.Options.UseTextOptions = true;
-            this.btnSetModbus.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.btnSetModbus.AppearanceHovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.btnSetModbus.AppearanceHovered.ForeColor = System.Drawing.Color.White;
-            this.btnSetModbus.AppearanceHovered.Options.UseBackColor = true;
-            this.btnSetModbus.AppearanceHovered.Options.UseForeColor = true;
-            this.tablePanel14.SetColumn(this.btnSetModbus, 4);
-            this.btnSetModbus.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnSetModbus.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSetModbus.ImageOptions.Image")));
-            this.btnSetModbus.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.btnSetModbus.Location = new System.Drawing.Point(682, 58);
-            this.btnSetModbus.Name = "btnSetModbus";
-            this.tablePanel14.SetRow(this.btnSetModbus, 1);
-            this.btnSetModbus.Size = new System.Drawing.Size(164, 49);
-            this.btnSetModbus.TabIndex = 8;
-            this.btnSetModbus.Text = "Modub Setting";
-            this.btnSetModbus.ToolTip = "Setting";
-            this.btnSetModbus.Click += new System.EventHandler(this.btnSetModbus_Click);
-            // 
             // btnImgSet
             // 
             this.btnImgSet.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold);
@@ -1265,11 +1048,11 @@ namespace VisionSystem
             // 
             this.tablePanel5.Columns.AddRange(new DevExpress.Utils.Layout.TablePanelColumn[] {
             new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 100F),
-            new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 150F),
+            new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 200F),
             new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 200F),
             new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 100F),
             new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 180F),
-            new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 200F)});
+            new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 100F)});
             this.tablePanel5.Controls.Add(this.tablePanel12);
             this.tablePanel5.Controls.Add(this.tablePanel11);
             this.tablePanel5.Controls.Add(this.tablePanel8);
@@ -1292,13 +1075,13 @@ namespace VisionSystem
             this.tablePanel12.Controls.Add(this.Bar1);
             this.tablePanel12.Controls.Add(this.Bar2);
             this.tablePanel12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tablePanel12.Location = new System.Drawing.Point(471, 3);
+            this.tablePanel12.Location = new System.Drawing.Point(521, 3);
             this.tablePanel12.Name = "tablePanel12";
             this.tablePanel5.SetRow(this.tablePanel12, 0);
             this.tablePanel12.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] {
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 100F),
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 100F)});
-            this.tablePanel12.Size = new System.Drawing.Size(144, 101);
+            this.tablePanel12.Size = new System.Drawing.Size(194, 101);
             this.tablePanel12.TabIndex = 6;
             // 
             // Bar1
@@ -1313,7 +1096,7 @@ namespace VisionSystem
             this.Bar1.Location = new System.Drawing.Point(3, 3);
             this.Bar1.Name = "Bar1";
             this.tablePanel12.SetRow(this.Bar1, 0);
-            this.Bar1.Size = new System.Drawing.Size(138, 45);
+            this.Bar1.Size = new System.Drawing.Size(188, 45);
             this.Bar1.TabIndex = 4;
             this.Bar1.Text = "D : 0.0%";
             this.Bar1.TextVisible = true;
@@ -1331,7 +1114,7 @@ namespace VisionSystem
             this.Bar2.Location = new System.Drawing.Point(3, 54);
             this.Bar2.Name = "Bar2";
             this.tablePanel12.SetRow(this.Bar2, 1);
-            this.Bar2.Size = new System.Drawing.Size(138, 44);
+            this.Bar2.Size = new System.Drawing.Size(188, 44);
             this.Bar2.TabIndex = 3;
             this.Bar2.Text = "D : 0.0%";
             this.Bar2.TextVisible = true;
@@ -1342,7 +1125,7 @@ namespace VisionSystem
             this.tablePanel5.SetColumn(this.tablePanel11, 0);
             this.tablePanel11.Columns.AddRange(new DevExpress.Utils.Layout.TablePanelColumn[] {
             new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 110F),
-            new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 350F),
+            new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 444F),
             new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 100F)});
             this.tablePanel11.Controls.Add(this.lblModel);
             this.tablePanel11.Controls.Add(this.lblLotNo);
@@ -1355,7 +1138,7 @@ namespace VisionSystem
             this.tablePanel11.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] {
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 100F),
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 100F)});
-            this.tablePanel11.Size = new System.Drawing.Size(462, 101);
+            this.tablePanel11.Size = new System.Drawing.Size(512, 101);
             this.tablePanel11.TabIndex = 5;
             // 
             // lblModel
@@ -1372,7 +1155,7 @@ namespace VisionSystem
             this.lblModel.Location = new System.Drawing.Point(113, 3);
             this.lblModel.Name = "lblModel";
             this.tablePanel11.SetRow(this.lblModel, 0);
-            this.lblModel.Size = new System.Drawing.Size(344, 45);
+            this.lblModel.Size = new System.Drawing.Size(438, 45);
             this.lblModel.TabIndex = 3;
             this.lblModel.Text = "-";
             this.lblModel.Click += new System.EventHandler(this.lblModel_Click);
@@ -1391,7 +1174,7 @@ namespace VisionSystem
             this.lblLotNo.Location = new System.Drawing.Point(113, 54);
             this.lblLotNo.Name = "lblLotNo";
             this.tablePanel11.SetRow(this.lblLotNo, 1);
-            this.lblLotNo.Size = new System.Drawing.Size(344, 44);
+            this.lblLotNo.Size = new System.Drawing.Size(438, 44);
             this.lblLotNo.TabIndex = 2;
             this.lblLotNo.Text = "-";
             // 
@@ -1439,7 +1222,7 @@ namespace VisionSystem
             this.tablePanel8.Controls.Add(this.lblNGRate);
             this.tablePanel8.Controls.Add(this.lblOKRate);
             this.tablePanel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tablePanel8.Location = new System.Drawing.Point(921, 3);
+            this.tablePanel8.Location = new System.Drawing.Point(1021, 3);
             this.tablePanel8.Name = "tablePanel8";
             this.tablePanel5.SetRow(this.tablePanel8, 0);
             this.tablePanel8.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] {
@@ -1553,37 +1336,18 @@ namespace VisionSystem
             // 
             this.tablePanel5.SetColumn(this.tablePanel7, 5);
             this.tablePanel7.Columns.AddRange(new DevExpress.Utils.Layout.TablePanelColumn[] {
-            new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 100F),
             new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 100F)});
-            this.tablePanel7.Controls.Add(this.btnProgClose);
             this.tablePanel7.Controls.Add(this.btnLog);
-            this.tablePanel7.Controls.Add(this.btnHome);
             this.tablePanel7.Controls.Add(this.btnMenu);
             this.tablePanel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tablePanel7.Location = new System.Drawing.Point(1101, 3);
+            this.tablePanel7.Location = new System.Drawing.Point(1201, 3);
             this.tablePanel7.Name = "tablePanel7";
             this.tablePanel5.SetRow(this.tablePanel7, 0);
             this.tablePanel7.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] {
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 100F),
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 100F)});
-            this.tablePanel7.Size = new System.Drawing.Size(194, 101);
+            this.tablePanel7.Size = new System.Drawing.Size(94, 101);
             this.tablePanel7.TabIndex = 2;
-            // 
-            // btnProgClose
-            // 
-            this.btnProgClose.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProgClose.Appearance.Options.UseFont = true;
-            this.tablePanel7.SetColumn(this.btnProgClose, 1);
-            this.btnProgClose.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnProgClose.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.btnProgClose.ImageOptions.ImageUri.Uri = "Cancel";
-            this.btnProgClose.Location = new System.Drawing.Point(100, 54);
-            this.btnProgClose.Name = "btnProgClose";
-            this.tablePanel7.SetRow(this.btnProgClose, 1);
-            this.btnProgClose.Size = new System.Drawing.Size(91, 44);
-            this.btnProgClose.TabIndex = 3;
-            this.btnProgClose.Text = "CLOSE";
-            this.btnProgClose.Click += new System.EventHandler(this.btnProgClose_Click);
             // 
             // btnLog
             // 
@@ -1596,26 +1360,10 @@ namespace VisionSystem
             this.btnLog.Location = new System.Drawing.Point(3, 54);
             this.btnLog.Name = "btnLog";
             this.tablePanel7.SetRow(this.btnLog, 1);
-            this.btnLog.Size = new System.Drawing.Size(91, 44);
+            this.btnLog.Size = new System.Drawing.Size(88, 44);
             this.btnLog.TabIndex = 2;
             this.btnLog.Text = "LOG";
             this.btnLog.Click += new System.EventHandler(this.btnLog_Click);
-            // 
-            // btnHome
-            // 
-            this.btnHome.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHome.Appearance.Options.UseFont = true;
-            this.tablePanel7.SetColumn(this.btnHome, 1);
-            this.btnHome.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnHome.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.btnHome.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnHome.ImageOptions.SvgImage")));
-            this.btnHome.Location = new System.Drawing.Point(100, 3);
-            this.btnHome.Name = "btnHome";
-            this.tablePanel7.SetRow(this.btnHome, 0);
-            this.btnHome.Size = new System.Drawing.Size(91, 45);
-            this.btnHome.TabIndex = 0;
-            this.btnHome.Text = "HOME";
-            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
             // 
             // btnMenu
             // 
@@ -1628,7 +1376,7 @@ namespace VisionSystem
             this.btnMenu.Location = new System.Drawing.Point(3, 3);
             this.btnMenu.Name = "btnMenu";
             this.tablePanel7.SetRow(this.btnMenu, 0);
-            this.btnMenu.Size = new System.Drawing.Size(91, 45);
+            this.btnMenu.Size = new System.Drawing.Size(88, 45);
             this.btnMenu.TabIndex = 1;
             this.btnMenu.Text = "MENU";
             this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
@@ -1639,42 +1387,18 @@ namespace VisionSystem
             this.tablePanel10.Columns.AddRange(new DevExpress.Utils.Layout.TablePanelColumn[] {
             new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 100F),
             new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 100F)});
-            this.tablePanel10.Controls.Add(this.lblRobot);
             this.tablePanel10.Controls.Add(this.lblLight);
             this.tablePanel10.Controls.Add(this.lblLic);
             this.tablePanel10.Controls.Add(this.lblPLC);
             this.tablePanel10.Controls.Add(this.lblIO);
-            this.tablePanel10.Controls.Add(this.lblConnectMode);
-            this.tablePanel10.Location = new System.Drawing.Point(621, 3);
+            this.tablePanel10.Location = new System.Drawing.Point(721, 3);
             this.tablePanel10.Name = "tablePanel10";
             this.tablePanel5.SetRow(this.tablePanel10, 0);
             this.tablePanel10.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] {
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 100F),
-            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 100F),
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 100F)});
             this.tablePanel10.Size = new System.Drawing.Size(194, 101);
             this.tablePanel10.TabIndex = 4;
-            // 
-            // lblRobot
-            // 
-            this.lblRobot.Appearance.BackColor = System.Drawing.Color.Gray;
-            this.lblRobot.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRobot.Appearance.Options.UseBackColor = true;
-            this.lblRobot.Appearance.Options.UseFont = true;
-            this.lblRobot.Appearance.Options.UseTextOptions = true;
-            this.lblRobot.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.lblRobot.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.lblRobot.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.tablePanel10.SetColumn(this.lblRobot, 1);
-            this.lblRobot.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblRobot.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.TopCenter;
-            this.lblRobot.Location = new System.Drawing.Point(100, 71);
-            this.lblRobot.Name = "lblRobot";
-            this.tablePanel10.SetRow(this.lblRobot, 2);
-            this.lblRobot.Size = new System.Drawing.Size(91, 27);
-            this.lblRobot.TabIndex = 5;
-            this.lblRobot.Text = "ROBOT";
-            this.lblRobot.Visible = false;
             // 
             // lblLight
             // 
@@ -1686,12 +1410,12 @@ namespace VisionSystem
             this.lblLight.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.lblLight.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.lblLight.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.tablePanel10.SetColumn(this.lblLight, 0);
+            this.tablePanel10.SetColumn(this.lblLight, 1);
             this.lblLight.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblLight.Location = new System.Drawing.Point(3, 71);
+            this.lblLight.Location = new System.Drawing.Point(100, 54);
             this.lblLight.Name = "lblLight";
-            this.tablePanel10.SetRow(this.lblLight, 2);
-            this.lblLight.Size = new System.Drawing.Size(91, 27);
+            this.tablePanel10.SetRow(this.lblLight, 1);
+            this.lblLight.Size = new System.Drawing.Size(91, 44);
             this.lblLight.TabIndex = 4;
             this.lblLight.Text = "LIGHT";
             this.lblLight.Visible = false;
@@ -1712,7 +1436,7 @@ namespace VisionSystem
             this.lblLic.Location = new System.Drawing.Point(3, 3);
             this.lblLic.Name = "lblLic";
             this.tablePanel10.SetRow(this.lblLic, 0);
-            this.lblLic.Size = new System.Drawing.Size(91, 28);
+            this.lblLic.Size = new System.Drawing.Size(91, 45);
             this.lblLic.TabIndex = 0;
             this.lblLic.Text = "LICENSE";
             this.lblLic.Visible = false;
@@ -1731,10 +1455,10 @@ namespace VisionSystem
             this.tablePanel10.SetColumn(this.lblPLC, 0);
             this.lblPLC.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblPLC.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.TopCenter;
-            this.lblPLC.Location = new System.Drawing.Point(3, 37);
+            this.lblPLC.Location = new System.Drawing.Point(3, 54);
             this.lblPLC.Name = "lblPLC";
             this.tablePanel10.SetRow(this.lblPLC, 1);
-            this.lblPLC.Size = new System.Drawing.Size(91, 28);
+            this.lblPLC.Size = new System.Drawing.Size(91, 44);
             this.lblPLC.TabIndex = 1;
             this.lblPLC.Text = "PLC";
             this.lblPLC.Visible = false;
@@ -1754,30 +1478,10 @@ namespace VisionSystem
             this.lblIO.Location = new System.Drawing.Point(100, 3);
             this.lblIO.Name = "lblIO";
             this.tablePanel10.SetRow(this.lblIO, 0);
-            this.lblIO.Size = new System.Drawing.Size(91, 28);
+            this.lblIO.Size = new System.Drawing.Size(91, 45);
             this.lblIO.TabIndex = 3;
             this.lblIO.Text = "I/O";
             this.lblIO.Visible = false;
-            // 
-            // lblConnectMode
-            // 
-            this.lblConnectMode.Appearance.BackColor = System.Drawing.Color.Gray;
-            this.lblConnectMode.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblConnectMode.Appearance.Options.UseBackColor = true;
-            this.lblConnectMode.Appearance.Options.UseFont = true;
-            this.lblConnectMode.Appearance.Options.UseTextOptions = true;
-            this.lblConnectMode.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.lblConnectMode.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.lblConnectMode.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.tablePanel10.SetColumn(this.lblConnectMode, 1);
-            this.lblConnectMode.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblConnectMode.Location = new System.Drawing.Point(100, 37);
-            this.lblConnectMode.Name = "lblConnectMode";
-            this.tablePanel10.SetRow(this.lblConnectMode, 1);
-            this.lblConnectMode.Size = new System.Drawing.Size(91, 28);
-            this.lblConnectMode.TabIndex = 2;
-            this.lblConnectMode.Text = "SERVER";
-            this.lblConnectMode.Visible = false;
             // 
             // lblResult
             // 
@@ -1790,7 +1494,7 @@ namespace VisionSystem
             this.lblResult.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.tablePanel5.SetColumn(this.lblResult, 3);
             this.lblResult.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblResult.Location = new System.Drawing.Point(821, 3);
+            this.lblResult.Location = new System.Drawing.Point(921, 3);
             this.lblResult.Name = "lblResult";
             this.tablePanel5.SetRow(this.lblResult, 0);
             this.lblResult.Size = new System.Drawing.Size(94, 101);
@@ -1811,7 +1515,7 @@ namespace VisionSystem
             // 
             this.flyImageSet.AutoSize = true;
             this.flyImageSet.Controls.Add(this.flyoutPanelControl4);
-            this.flyImageSet.Location = new System.Drawing.Point(630, 249);
+            this.flyImageSet.Location = new System.Drawing.Point(1057, 187);
             this.flyImageSet.Name = "flyImageSet";
             this.flyImageSet.Options.AnimationType = DevExpress.Utils.Win.PopupToolWindowAnimation.Fade;
             this.flyImageSet.OptionsBeakPanel.BeakLocation = DevExpress.Utils.BeakPanelBeakLocation.Top;
@@ -2539,14 +2243,14 @@ namespace VisionSystem
             this.dgUser.AllowUserToResizeColumns = false;
             this.dgUser.AllowUserToResizeRows = false;
             this.dgUser.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgUser.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgUser.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgUser.ColumnHeadersHeight = 30;
             this.dgUser.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgUser.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -2554,23 +2258,23 @@ namespace VisionSystem
             this.dgUser.Location = new System.Drawing.Point(2, 33);
             this.dgUser.Name = "dgUser";
             this.dgUser.ReadOnly = true;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgUser.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgUser.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgUser.RowHeadersVisible = false;
             this.dgUser.RowHeadersWidth = 51;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
-            this.dgUser.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgUser.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgUser.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.dgUser.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
             this.dgUser.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -2969,399 +2673,6 @@ namespace VisionSystem
             this.labelControl2.Size = new System.Drawing.Size(634, 29);
             this.labelControl2.TabIndex = 27;
             this.labelControl2.Text = "Original Image";
-            // 
-            // flyModbus
-            // 
-            this.flyModbus.AutoSize = true;
-            this.flyModbus.Controls.Add(this.flyoutPanelControl13);
-            this.flyModbus.Location = new System.Drawing.Point(614, 602);
-            this.flyModbus.Name = "flyModbus";
-            this.flyModbus.Options.AnchorType = DevExpress.Utils.Win.PopupToolWindowAnchor.Center;
-            this.flyModbus.Options.AnimationType = DevExpress.Utils.Win.PopupToolWindowAnimation.Fade;
-            this.flyModbus.Options.CloseOnHidingOwner = false;
-            this.flyModbus.OptionsBeakPanel.BeakLocation = DevExpress.Utils.BeakPanelBeakLocation.Top;
-            this.flyModbus.OptionsBeakPanel.CloseOnOuterClick = false;
-            this.flyModbus.OptionsButtonPanel.ButtonPanelHeight = 32;
-            this.flyModbus.OwnerControl = this;
-            this.flyModbus.Size = new System.Drawing.Size(553, 639);
-            this.flyModbus.TabIndex = 122;
-            // 
-            // flyoutPanelControl13
-            // 
-            this.flyoutPanelControl13.Controls.Add(this.grpResImg);
-            this.flyoutPanelControl13.Controls.Add(this.grpClient);
-            this.flyoutPanelControl13.Controls.Add(this.btnClientpath);
-            this.flyoutPanelControl13.Controls.Add(this.grpServer);
-            this.flyoutPanelControl13.Controls.Add(this.grpRead);
-            this.flyoutPanelControl13.Controls.Add(this.labelControl90);
-            this.flyoutPanelControl13.Controls.Add(this.btnModbusClose);
-            this.flyoutPanelControl13.Controls.Add(this.btnModbusSave);
-            this.flyoutPanelControl13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flyoutPanelControl13.FlyoutPanel = this.flyModbus;
-            this.flyoutPanelControl13.Location = new System.Drawing.Point(0, 0);
-            this.flyoutPanelControl13.Name = "flyoutPanelControl13";
-            this.flyoutPanelControl13.Size = new System.Drawing.Size(553, 639);
-            this.flyoutPanelControl13.TabIndex = 0;
-            // 
-            // grpResImg
-            // 
-            this.grpResImg.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpResImg.AppearanceCaption.Options.UseFont = true;
-            this.grpResImg.Controls.Add(this.labelControl68);
-            this.grpResImg.Controls.Add(this.radTcp);
-            this.grpResImg.Controls.Add(this.radNetwork);
-            this.grpResImg.Controls.Add(this.labelControl69);
-            this.grpResImg.Controls.Add(this.txtTcpPort);
-            this.grpResImg.Location = new System.Drawing.Point(6, 491);
-            this.grpResImg.Name = "grpResImg";
-            this.grpResImg.Size = new System.Drawing.Size(540, 89);
-            this.grpResImg.TabIndex = 30;
-            this.grpResImg.Text = "Result Image Road";
-            // 
-            // labelControl68
-            // 
-            this.labelControl68.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold);
-            this.labelControl68.Appearance.Options.UseFont = true;
-            this.labelControl68.Appearance.Options.UseTextOptions = true;
-            this.labelControl68.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.labelControl68.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl68.Location = new System.Drawing.Point(122, 29);
-            this.labelControl68.Name = "labelControl68";
-            this.labelControl68.Size = new System.Drawing.Size(204, 19);
-            this.labelControl68.TabIndex = 37;
-            this.labelControl68.Text = "Result Imag Load Type :";
-            // 
-            // radTcp
-            // 
-            this.radTcp.AutoSize = true;
-            this.radTcp.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radTcp.Location = new System.Drawing.Point(437, 29);
-            this.radTcp.Name = "radTcp";
-            this.radTcp.Size = new System.Drawing.Size(48, 20);
-            this.radTcp.TabIndex = 1;
-            this.radTcp.TabStop = true;
-            this.radTcp.Text = "TCP";
-            this.radTcp.UseVisualStyleBackColor = true;
-            this.radTcp.CheckedChanged += new System.EventHandler(this.radNetwork_CheckedChanged);
-            // 
-            // radNetwork
-            // 
-            this.radNetwork.AutoSize = true;
-            this.radNetwork.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radNetwork.Location = new System.Drawing.Point(339, 29);
-            this.radNetwork.Name = "radNetwork";
-            this.radNetwork.Size = new System.Drawing.Size(79, 20);
-            this.radNetwork.TabIndex = 0;
-            this.radNetwork.TabStop = true;
-            this.radNetwork.Text = "Network";
-            this.radNetwork.UseVisualStyleBackColor = true;
-            this.radNetwork.CheckedChanged += new System.EventHandler(this.radNetwork_CheckedChanged);
-            // 
-            // labelControl69
-            // 
-            this.labelControl69.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold);
-            this.labelControl69.Appearance.Options.UseFont = true;
-            this.labelControl69.Appearance.Options.UseTextOptions = true;
-            this.labelControl69.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.labelControl69.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl69.Location = new System.Drawing.Point(9, 60);
-            this.labelControl69.Name = "labelControl69";
-            this.labelControl69.Size = new System.Drawing.Size(317, 19);
-            this.labelControl69.TabIndex = 29;
-            this.labelControl69.Text = "TCP Port :";
-            // 
-            // grpClient
-            // 
-            this.grpClient.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpClient.AppearanceCaption.Options.UseFont = true;
-            this.grpClient.Controls.Add(this.labelControl71);
-            this.grpClient.Controls.Add(this.txtClientIP);
-            this.grpClient.Location = new System.Drawing.Point(6, 103);
-            this.grpClient.Name = "grpClient";
-            this.grpClient.Size = new System.Drawing.Size(540, 63);
-            this.grpClient.TabIndex = 28;
-            this.grpClient.Text = "About the Client connection";
-            // 
-            // labelControl71
-            // 
-            this.labelControl71.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold);
-            this.labelControl71.Appearance.Options.UseFont = true;
-            this.labelControl71.Appearance.Options.UseTextOptions = true;
-            this.labelControl71.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.labelControl71.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl71.Location = new System.Drawing.Point(14, 32);
-            this.labelControl71.Name = "labelControl71";
-            this.labelControl71.Size = new System.Drawing.Size(39, 19);
-            this.labelControl71.TabIndex = 17;
-            this.labelControl71.Text = "IP :";
-            // 
-            // btnClientpath
-            // 
-            this.btnClientpath.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClientpath.Appearance.Options.UseFont = true;
-            this.btnClientpath.Appearance.Options.UseTextOptions = true;
-            this.btnClientpath.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.btnClientpath.Location = new System.Drawing.Point(821, 805);
-            this.btnClientpath.Name = "btnClientpath";
-            this.btnClientpath.Size = new System.Drawing.Size(38, 26);
-            this.btnClientpath.TabIndex = 27;
-            this.btnClientpath.Text = "...";
-            this.btnClientpath.Visible = false;
-            // 
-            // grpServer
-            // 
-            this.grpServer.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpServer.AppearanceCaption.Options.UseFont = true;
-            this.grpServer.Controls.Add(this.labelControl73);
-            this.grpServer.Controls.Add(this.txtSlavePort);
-            this.grpServer.Controls.Add(this.labelControl74);
-            this.grpServer.Controls.Add(this.txtSlaveIP);
-            this.grpServer.Location = new System.Drawing.Point(6, 33);
-            this.grpServer.Name = "grpServer";
-            this.grpServer.Size = new System.Drawing.Size(540, 63);
-            this.grpServer.TabIndex = 26;
-            this.grpServer.Text = "About the server connection";
-            // 
-            // labelControl73
-            // 
-            this.labelControl73.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold);
-            this.labelControl73.Appearance.Options.UseFont = true;
-            this.labelControl73.Appearance.Options.UseTextOptions = true;
-            this.labelControl73.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.labelControl73.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl73.Location = new System.Drawing.Point(274, 32);
-            this.labelControl73.Name = "labelControl73";
-            this.labelControl73.Size = new System.Drawing.Size(49, 19);
-            this.labelControl73.TabIndex = 19;
-            this.labelControl73.Text = "Port :";
-            // 
-            // labelControl74
-            // 
-            this.labelControl74.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold);
-            this.labelControl74.Appearance.Options.UseFont = true;
-            this.labelControl74.Appearance.Options.UseTextOptions = true;
-            this.labelControl74.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.labelControl74.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl74.Location = new System.Drawing.Point(20, 31);
-            this.labelControl74.Name = "labelControl74";
-            this.labelControl74.Size = new System.Drawing.Size(33, 19);
-            this.labelControl74.TabIndex = 17;
-            this.labelControl74.Text = "IP :";
-            // 
-            // grpRead
-            // 
-            this.grpRead.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpRead.AppearanceCaption.Options.UseFont = true;
-            this.grpRead.Controls.Add(this.labelControl7);
-            this.grpRead.Controls.Add(this.txtGrabStart);
-            this.grpRead.Controls.Add(this.txtGrabEnd);
-            this.grpRead.Controls.Add(this.labelControl50);
-            this.grpRead.Controls.Add(this.labelControl76);
-            this.grpRead.Controls.Add(this.txtReadCnt);
-            this.grpRead.Controls.Add(this.labelControl78);
-            this.grpRead.Controls.Add(this.txtLotNo);
-            this.grpRead.Controls.Add(this.labelControl80);
-            this.grpRead.Controls.Add(this.txtModel);
-            this.grpRead.Controls.Add(this.labelControl84);
-            this.grpRead.Controls.Add(this.txtCamStatus);
-            this.grpRead.Controls.Add(this.labelControl87);
-            this.grpRead.Controls.Add(this.labelControl88);
-            this.grpRead.Controls.Add(this.txtInspStart);
-            this.grpRead.Controls.Add(this.txtParamChangeAddr);
-            this.grpRead.Controls.Add(this.txtInspEnd);
-            this.grpRead.Controls.Add(this.labelControl89);
-            this.grpRead.Location = new System.Drawing.Point(6, 171);
-            this.grpRead.Name = "grpRead";
-            this.grpRead.Size = new System.Drawing.Size(540, 311);
-            this.grpRead.TabIndex = 0;
-            this.grpRead.Text = "Read";
-            // 
-            // labelControl7
-            // 
-            this.labelControl7.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold);
-            this.labelControl7.Appearance.Options.UseFont = true;
-            this.labelControl7.Appearance.Options.UseTextOptions = true;
-            this.labelControl7.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.labelControl7.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl7.Location = new System.Drawing.Point(9, 156);
-            this.labelControl7.Name = "labelControl7";
-            this.labelControl7.Size = new System.Drawing.Size(317, 19);
-            this.labelControl7.TabIndex = 32;
-            this.labelControl7.Text = "Grab Start Addr :";
-            // 
-            // txtGrabStart
-            // 
-            this.txtGrabStart.Location = new System.Drawing.Point(337, 153);
-            this.txtGrabStart.Name = "txtGrabStart";
-            this.txtGrabStart.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold);
-            this.txtGrabStart.Properties.Appearance.Options.UseFont = true;
-            this.txtGrabStart.Properties.Appearance.Options.UseTextOptions = true;
-            this.txtGrabStart.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.txtGrabStart.Size = new System.Drawing.Size(92, 24);
-            this.txtGrabStart.TabIndex = 30;
-            // 
-            // txtGrabEnd
-            // 
-            this.txtGrabEnd.Location = new System.Drawing.Point(337, 184);
-            this.txtGrabEnd.Name = "txtGrabEnd";
-            this.txtGrabEnd.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold);
-            this.txtGrabEnd.Properties.Appearance.Options.UseFont = true;
-            this.txtGrabEnd.Properties.Appearance.Options.UseTextOptions = true;
-            this.txtGrabEnd.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.txtGrabEnd.Size = new System.Drawing.Size(92, 24);
-            this.txtGrabEnd.TabIndex = 31;
-            // 
-            // labelControl50
-            // 
-            this.labelControl50.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold);
-            this.labelControl50.Appearance.Options.UseFont = true;
-            this.labelControl50.Appearance.Options.UseTextOptions = true;
-            this.labelControl50.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.labelControl50.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl50.Location = new System.Drawing.Point(10, 186);
-            this.labelControl50.Name = "labelControl50";
-            this.labelControl50.Size = new System.Drawing.Size(317, 19);
-            this.labelControl50.TabIndex = 33;
-            this.labelControl50.Text = "Grab End Addr :";
-            // 
-            // labelControl76
-            // 
-            this.labelControl76.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold);
-            this.labelControl76.Appearance.Options.UseFont = true;
-            this.labelControl76.Appearance.Options.UseTextOptions = true;
-            this.labelControl76.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.labelControl76.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl76.Location = new System.Drawing.Point(9, 32);
-            this.labelControl76.Name = "labelControl76";
-            this.labelControl76.Size = new System.Drawing.Size(317, 19);
-            this.labelControl76.TabIndex = 29;
-            this.labelControl76.Text = "Addr Read Count :";
-            // 
-            // labelControl78
-            // 
-            this.labelControl78.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold);
-            this.labelControl78.Appearance.Options.UseFont = true;
-            this.labelControl78.Appearance.Options.UseTextOptions = true;
-            this.labelControl78.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.labelControl78.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl78.Location = new System.Drawing.Point(9, 125);
-            this.labelControl78.Name = "labelControl78";
-            this.labelControl78.Size = new System.Drawing.Size(317, 19);
-            this.labelControl78.TabIndex = 27;
-            this.labelControl78.Text = "Lot ID Addr :";
-            // 
-            // labelControl80
-            // 
-            this.labelControl80.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold);
-            this.labelControl80.Appearance.Options.UseFont = true;
-            this.labelControl80.Appearance.Options.UseTextOptions = true;
-            this.labelControl80.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.labelControl80.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl80.Location = new System.Drawing.Point(9, 94);
-            this.labelControl80.Name = "labelControl80";
-            this.labelControl80.Size = new System.Drawing.Size(317, 19);
-            this.labelControl80.TabIndex = 25;
-            this.labelControl80.Text = "Model Info Addr :";
-            // 
-            // labelControl84
-            // 
-            this.labelControl84.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold);
-            this.labelControl84.Appearance.Options.UseFont = true;
-            this.labelControl84.Appearance.Options.UseTextOptions = true;
-            this.labelControl84.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.labelControl84.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl84.Location = new System.Drawing.Point(9, 63);
-            this.labelControl84.Name = "labelControl84";
-            this.labelControl84.Size = new System.Drawing.Size(317, 19);
-            this.labelControl84.TabIndex = 21;
-            this.labelControl84.Text = "Camera Status Addr :";
-            // 
-            // labelControl87
-            // 
-            this.labelControl87.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold);
-            this.labelControl87.Appearance.Options.UseFont = true;
-            this.labelControl87.Appearance.Options.UseTextOptions = true;
-            this.labelControl87.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.labelControl87.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl87.Location = new System.Drawing.Point(9, 216);
-            this.labelControl87.Name = "labelControl87";
-            this.labelControl87.Size = new System.Drawing.Size(317, 19);
-            this.labelControl87.TabIndex = 17;
-            this.labelControl87.Text = "Inspection Start Addr :";
-            // 
-            // labelControl88
-            // 
-            this.labelControl88.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold);
-            this.labelControl88.Appearance.Options.UseFont = true;
-            this.labelControl88.Appearance.Options.UseTextOptions = true;
-            this.labelControl88.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.labelControl88.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl88.Location = new System.Drawing.Point(10, 280);
-            this.labelControl88.Name = "labelControl88";
-            this.labelControl88.Size = new System.Drawing.Size(317, 19);
-            this.labelControl88.TabIndex = 19;
-            this.labelControl88.Text = "Change Parameters Addr :";
-            // 
-            // labelControl89
-            // 
-            this.labelControl89.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold);
-            this.labelControl89.Appearance.Options.UseFont = true;
-            this.labelControl89.Appearance.Options.UseTextOptions = true;
-            this.labelControl89.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.labelControl89.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl89.Location = new System.Drawing.Point(10, 249);
-            this.labelControl89.Name = "labelControl89";
-            this.labelControl89.Size = new System.Drawing.Size(317, 19);
-            this.labelControl89.TabIndex = 17;
-            this.labelControl89.Text = "Inspection End Addr :";
-            // 
-            // labelControl90
-            // 
-            this.labelControl90.Appearance.BackColor = System.Drawing.Color.White;
-            this.labelControl90.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold);
-            this.labelControl90.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.labelControl90.Appearance.Options.UseBackColor = true;
-            this.labelControl90.Appearance.Options.UseFont = true;
-            this.labelControl90.Appearance.Options.UseForeColor = true;
-            this.labelControl90.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl90.Dock = System.Windows.Forms.DockStyle.Top;
-            this.labelControl90.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.labelControl90.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("labelControl90.ImageOptions.Image")));
-            this.labelControl90.Location = new System.Drawing.Point(2, 2);
-            this.labelControl90.Name = "labelControl90";
-            this.labelControl90.Size = new System.Drawing.Size(549, 26);
-            this.labelControl90.TabIndex = 16;
-            this.labelControl90.Text = "Modbus Setting";
-            // 
-            // btnModbusClose
-            // 
-            this.btnModbusClose.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
-            this.btnModbusClose.Appearance.Options.UseFont = true;
-            this.btnModbusClose.Appearance.Options.UseTextOptions = true;
-            this.btnModbusClose.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.btnModbusClose.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnModbusClose.ImageOptions.Image")));
-            this.btnModbusClose.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.btnModbusClose.Location = new System.Drawing.Point(280, 586);
-            this.btnModbusClose.Name = "btnModbusClose";
-            this.btnModbusClose.Size = new System.Drawing.Size(114, 47);
-            this.btnModbusClose.TabIndex = 1;
-            this.btnModbusClose.Text = "Close";
-            this.btnModbusClose.Click += new System.EventHandler(this.btnModbusClose_Click);
-            // 
-            // btnModbusSave
-            // 
-            this.btnModbusSave.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
-            this.btnModbusSave.Appearance.Options.UseFont = true;
-            this.btnModbusSave.Appearance.Options.UseTextOptions = true;
-            this.btnModbusSave.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.btnModbusSave.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnModbusSave.ImageOptions.Image")));
-            this.btnModbusSave.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.btnModbusSave.Location = new System.Drawing.Point(159, 586);
-            this.btnModbusSave.Name = "btnModbusSave";
-            this.btnModbusSave.Size = new System.Drawing.Size(114, 47);
-            this.btnModbusSave.TabIndex = 0;
-            this.btnModbusSave.Text = "Save";
-            this.btnModbusSave.Click += new System.EventHandler(this.btnModbusSave_Click);
             // 
             // labelControl72
             // 
@@ -3918,7 +3229,7 @@ namespace VisionSystem
             // 
             this.flySetting.AutoSize = true;
             this.flySetting.Controls.Add(this.flyoutPanelControl14);
-            this.flySetting.Location = new System.Drawing.Point(200, 462);
+            this.flySetting.Location = new System.Drawing.Point(6, 563);
             this.flySetting.Name = "flySetting";
             this.flySetting.Options.AnchorType = DevExpress.Utils.Win.PopupToolWindowAnchor.Center;
             this.flySetting.Options.AnimationType = DevExpress.Utils.Win.PopupToolWindowAnimation.Fade;
@@ -4284,7 +3595,7 @@ namespace VisionSystem
             // 
             this.flyIO.AutoSize = true;
             this.flyIO.Controls.Add(this.flyoutPanelControl6);
-            this.flyIO.Location = new System.Drawing.Point(491, 616);
+            this.flyIO.Location = new System.Drawing.Point(1206, 601);
             this.flyIO.Name = "flyIO";
             this.flyIO.Options.AnimationType = DevExpress.Utils.Win.PopupToolWindowAnimation.Fade;
             this.flyIO.OptionsBeakPanel.BeakLocation = DevExpress.Utils.BeakPanelBeakLocation.Top;
@@ -6407,7 +5718,7 @@ namespace VisionSystem
             // 
             this.flyLight.AutoSize = true;
             this.flyLight.Controls.Add(this.flyoutPanelControl15);
-            this.flyLight.Location = new System.Drawing.Point(494, 256);
+            this.flyLight.Location = new System.Drawing.Point(1168, 161);
             this.flyLight.Name = "flyLight";
             this.flyLight.Options.AnimationType = DevExpress.Utils.Win.PopupToolWindowAnimation.Fade;
             this.flyLight.OptionsBeakPanel.BeakLocation = DevExpress.Utils.BeakPanelBeakLocation.Top;
@@ -6985,7 +6296,6 @@ namespace VisionSystem
             this.Controls.Add(this.flyList);
             this.Controls.Add(this.pnl);
             this.Controls.Add(this.flyUserEdit);
-            this.Controls.Add(this.flyModbus);
             this.Controls.Add(this.flyResImg);
             this.Controls.Add(this.flyCamCnt);
             this.Controls.Add(this.lblPass);
@@ -7013,17 +6323,6 @@ namespace VisionSystem
             this.tablePanel9.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTcpPort.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtClientIP.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSlavePort.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSlaveIP.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtReadCnt.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtLotNo.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtModel.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtCamStatus.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtInspStart.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtParamChangeAddr.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtInspEnd.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtID.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPW.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtUser.Properties)).EndInit();
@@ -7103,21 +6402,6 @@ namespace VisionSystem
             this.tablePanel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cogDispOrigin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cogDispResult)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.flyModbus)).EndInit();
-            this.flyModbus.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.flyoutPanelControl13)).EndInit();
-            this.flyoutPanelControl13.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.grpResImg)).EndInit();
-            this.grpResImg.ResumeLayout(false);
-            this.grpResImg.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grpClient)).EndInit();
-            this.grpClient.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.grpServer)).EndInit();
-            this.grpServer.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.grpRead)).EndInit();
-            this.grpRead.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.txtGrabStart.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtGrabEnd.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtProcName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.flyImgList)).EndInit();
             this.flyImgList.ResumeLayout(false);
@@ -7302,7 +6586,6 @@ namespace VisionSystem
         private DevExpress.XtraEditors.SimpleButton btnUserEdit;
         private DevExpress.XtraEditors.LabelControl lblPass;
         private DevExpress.XtraEditors.SimpleButton btnReset;
-        private DevExpress.XtraEditors.SimpleButton btnSetModbus;
         private DevExpress.Utils.FlyoutPanel flyCamCnt;
         private DevExpress.Utils.FlyoutPanelControl flyoutPanelControl7;
         private DevExpress.XtraEditors.SimpleButton btnCamClose;
@@ -7335,43 +6618,8 @@ namespace VisionSystem
         private DevExpress.XtraEditors.TimeEdit ResetTimer;
         private DevExpress.XtraEditors.LabelControl labelControl67;
         private DevExpress.XtraEditors.SimpleButton btnOriginalDelete;
-        private DevExpress.Utils.FlyoutPanel flyModbus;
-        private DevExpress.Utils.FlyoutPanelControl flyoutPanelControl13;
-        private DevExpress.XtraEditors.GroupControl grpResImg;
-        private DevExpress.XtraEditors.LabelControl labelControl68;
-        private System.Windows.Forms.RadioButton radTcp;
-        private System.Windows.Forms.RadioButton radNetwork;
-        private DevExpress.XtraEditors.LabelControl labelControl69;
-        private DevExpress.XtraEditors.TextEdit txtTcpPort;
-        private DevExpress.XtraEditors.GroupControl grpClient;
-        private DevExpress.XtraEditors.LabelControl labelControl71;
-        private DevExpress.XtraEditors.TextEdit txtClientIP;
-        private DevExpress.XtraEditors.SimpleButton btnClientpath;
-        private DevExpress.XtraEditors.GroupControl grpServer;
         private DevExpress.XtraEditors.LabelControl labelControl72;
         private DevExpress.XtraEditors.TextEdit txtProcName;
-        private DevExpress.XtraEditors.LabelControl labelControl73;
-        private DevExpress.XtraEditors.TextEdit txtSlavePort;
-        private DevExpress.XtraEditors.LabelControl labelControl74;
-        private DevExpress.XtraEditors.TextEdit txtSlaveIP;
-        private DevExpress.XtraEditors.GroupControl grpRead;
-        private DevExpress.XtraEditors.LabelControl labelControl76;
-        private DevExpress.XtraEditors.TextEdit txtReadCnt;
-        private DevExpress.XtraEditors.LabelControl labelControl78;
-        private DevExpress.XtraEditors.TextEdit txtLotNo;
-        private DevExpress.XtraEditors.LabelControl labelControl80;
-        private DevExpress.XtraEditors.TextEdit txtModel;
-        private DevExpress.XtraEditors.LabelControl labelControl84;
-        private DevExpress.XtraEditors.TextEdit txtCamStatus;
-        private DevExpress.XtraEditors.LabelControl labelControl87;
-        private DevExpress.XtraEditors.LabelControl labelControl88;
-        private DevExpress.XtraEditors.TextEdit txtInspStart;
-        private DevExpress.XtraEditors.TextEdit txtParamChangeAddr;
-        private DevExpress.XtraEditors.TextEdit txtInspEnd;
-        private DevExpress.XtraEditors.LabelControl labelControl89;
-        private DevExpress.XtraEditors.LabelControl labelControl90;
-        private DevExpress.XtraEditors.SimpleButton btnModbusClose;
-        private DevExpress.XtraEditors.SimpleButton btnModbusSave;
         private DevExpress.Utils.FlyoutPanel flyImgList;
         private DevExpress.Utils.FlyoutPanelControl flyoutPanelControl8;
         private DevExpress.Utils.Layout.TablePanel tablePanel2;
@@ -7562,10 +6810,8 @@ namespace VisionSystem
         private DevExpress.XtraEditors.LabelControl lblNGRate;
         private DevExpress.XtraEditors.LabelControl lblOKRate;
         private DevExpress.Utils.Layout.TablePanel tablePanel7;
-        private DevExpress.XtraEditors.SimpleButton btnProgClose;
         private DevExpress.XtraEditors.SimpleButton btnLog;
         private DevExpress.XtraEditors.SimpleButton btnMenu;
-        private DevExpress.XtraEditors.SimpleButton btnHome;
         private DevExpress.Utils.Layout.TablePanel tablePanel11;
         private DevExpress.XtraEditors.LabelControl lblLotNo;
         private DevExpress.XtraEditors.LabelControl labelControl54;
@@ -7574,10 +6820,8 @@ namespace VisionSystem
         private DevExpress.XtraEditors.LabelControl lblModel;
         private DevExpress.XtraEditors.LabelControl lblLight;
         private DevExpress.XtraEditors.LabelControl lblIO;
-        private DevExpress.XtraEditors.LabelControl lblRobot;
         private DevExpress.XtraEditors.LabelControl lblLic;
         private DevExpress.XtraEditors.LabelControl lblPLC;
-        private DevExpress.XtraEditors.LabelControl lblConnectMode;
         private DevExpress.Utils.Layout.TablePanel tablePanel12;
         private DevComponents.DotNetBar.Controls.ProgressBarX Bar2;
         private DevExpress.Utils.FlyoutPanel flyList;
@@ -7592,10 +6836,6 @@ namespace VisionSystem
         private DevExpress.XtraEditors.LabelControl lblLog;
         private DevComponents.DotNetBar.Controls.ProgressBarX Bar1;
         private DevExpress.XtraEditors.LabelControl lblMenu;
-        private DevExpress.XtraEditors.LabelControl labelControl7;
-        private DevExpress.XtraEditors.TextEdit txtGrabStart;
-        private DevExpress.XtraEditors.TextEdit txtGrabEnd;
-        private DevExpress.XtraEditors.LabelControl labelControl50;
         private DevExpress.Utils.FlyoutPanel flyLight;
         private DevExpress.Utils.FlyoutPanelControl flyoutPanelControl15;
         private DevExpress.XtraEditors.TrackBarControl barValue4;

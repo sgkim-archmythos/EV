@@ -38,8 +38,7 @@
             this.fypnl = new DevExpress.Utils.FlyoutPanel();
             this.flyoutPanelControl1 = new DevExpress.Utils.FlyoutPanelControl();
             this.tablePanel1 = new DevExpress.Utils.Layout.TablePanel();
-            this.tablePanel5 = new DevExpress.Utils.Layout.TablePanel();
-            this.chkPass = new DevExpress.XtraEditors.CheckEdit();
+            this.chkCamUse = new DevExpress.XtraEditors.CheckEdit();
             this.btmImgList = new DevExpress.XtraEditors.SimpleButton();
             this.btnCamSet = new DevExpress.XtraEditors.SimpleButton();
             this.btnGrab = new DevExpress.XtraEditors.SimpleButton();
@@ -49,7 +48,6 @@
             this.btnOpenImg = new DevExpress.XtraEditors.SimpleButton();
             this.btnToolEdit = new DevExpress.XtraEditors.SimpleButton();
             this.lblMenu = new DevExpress.XtraEditors.LabelControl();
-            this.chkCamUse = new DevExpress.XtraEditors.CheckEdit();
             this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
             this.btnMoveLeft = new DevExpress.XtraEditors.SimpleButton();
             this.lblNG = new DevExpress.XtraEditors.LabelControl();
@@ -76,6 +74,7 @@
             this.tablePanel4 = new DevExpress.Utils.Layout.TablePanel();
             this.flyChk = new DevExpress.Utils.FlyoutPanel();
             this.flyoutPanelControl4 = new DevExpress.Utils.FlyoutPanelControl();
+            this.scVproBar = new DevExpress.XtraEditors.XtraScrollableControl();
             this.btnChkSave = new DevExpress.XtraEditors.SimpleButton();
             this.btnChkClose = new DevExpress.XtraEditors.SimpleButton();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -105,16 +104,13 @@
             this.toolTipController8 = new DevExpress.Utils.ToolTipController(this.components);
             this.pnlRes = new DevExpress.XtraEditors.PanelControl();
             this.cogDisp = new Cognex.VisionPro.CogRecordDisplay();
-            this.scVproBar = new DevExpress.XtraEditors.XtraScrollableControl();
+            this.chkPass = new DevExpress.XtraEditors.CheckEdit();
             ((System.ComponentModel.ISupportInitialize)(this.fypnl)).BeginInit();
             this.fypnl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.flyoutPanelControl1)).BeginInit();
             this.flyoutPanelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel1)).BeginInit();
             this.tablePanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tablePanel5)).BeginInit();
-            this.tablePanel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chkPass.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkCamUse.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel2)).BeginInit();
             this.tablePanel2.SuspendLayout();
@@ -152,6 +148,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pnlRes)).BeginInit();
             this.pnlRes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cogDisp)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkPass.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // highlighter1
@@ -191,7 +188,7 @@
             this.btnChk.Location = new System.Drawing.Point(234, 3);
             this.btnChk.Name = "btnChk";
             this.tablePanel1.SetRow(this.btnChk, 0);
-            this.btnChk.Size = new System.Drawing.Size(110, 41);
+            this.btnChk.Size = new System.Drawing.Size(110, 53);
             this.btnChk.TabIndex = 9;
             this.btnChk.Text = "Result Graphic Usage";
             this.btnChk.Click += new System.EventHandler(this.btnChk_Click);
@@ -213,7 +210,7 @@
             this.btnCamExpose.Location = new System.Drawing.Point(119, 3);
             this.btnCamExpose.Name = "btnCamExpose";
             this.tablePanel1.SetRow(this.btnCamExpose, 0);
-            this.btnCamExpose.Size = new System.Drawing.Size(110, 41);
+            this.btnCamExpose.Size = new System.Drawing.Size(110, 53);
             this.btnCamExpose.TabIndex = 10;
             this.btnCamExpose.Text = "Camera Expose";
             this.btnCamExpose.Click += new System.EventHandler(this.btnCamExpose_Click);
@@ -271,7 +268,8 @@
             new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 135.66F),
             new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 135.66F),
             new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 135.66F)});
-            this.tablePanel1.Controls.Add(this.tablePanel5);
+            this.tablePanel1.Controls.Add(this.chkCamUse);
+            this.tablePanel1.Controls.Add(this.chkPass);
             this.tablePanel1.Controls.Add(this.btmImgList);
             this.tablePanel1.Controls.Add(this.btnCamExpose);
             this.tablePanel1.Controls.Add(this.btnChk);
@@ -289,42 +287,25 @@
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 50F),
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 50F),
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 50F),
-            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 50F),
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 50F)});
             this.tablePanel1.Size = new System.Drawing.Size(347, 237);
             this.tablePanel1.TabIndex = 2;
             // 
-            // tablePanel5
+            // chkCamUse
             // 
-            this.tablePanel1.SetColumn(this.tablePanel5, 0);
-            this.tablePanel5.Columns.AddRange(new DevExpress.Utils.Layout.TablePanelColumn[] {
-            new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 55F)});
-            this.tablePanel5.Controls.Add(this.chkPass);
-            this.tablePanel5.Controls.Add(this.chkCamUse);
-            this.tablePanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tablePanel5.Location = new System.Drawing.Point(3, 191);
-            this.tablePanel5.Name = "tablePanel5";
-            this.tablePanel1.SetRow(this.tablePanel5, 4);
-            this.tablePanel5.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] {
-            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 100F),
-            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 100F)});
-            this.tablePanel5.Size = new System.Drawing.Size(110, 43);
-            this.tablePanel5.TabIndex = 77;
-            // 
-            // chkPass
-            // 
-            this.tablePanel5.SetColumn(this.chkPass, 0);
-            this.chkPass.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chkPass.Location = new System.Drawing.Point(3, 3);
-            this.chkPass.Name = "chkPass";
-            this.chkPass.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkPass.Properties.Appearance.Options.UseFont = true;
-            this.chkPass.Properties.AutoHeight = false;
-            this.chkPass.Properties.Caption = "PASS";
-            this.tablePanel5.SetRow(this.chkPass, 0);
-            this.chkPass.Size = new System.Drawing.Size(104, 16);
-            this.chkPass.TabIndex = 21;
-            this.chkPass.CheckedChanged += new System.EventHandler(this.chkPass_CheckedChanged);
+            this.chkCamUse.AutoSizeInLayoutControl = true;
+            this.tablePanel1.SetColumn(this.chkCamUse, 1);
+            this.chkCamUse.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chkCamUse.Location = new System.Drawing.Point(119, 180);
+            this.chkCamUse.Name = "chkCamUse";
+            this.chkCamUse.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkCamUse.Properties.Appearance.Options.UseFont = true;
+            this.chkCamUse.Properties.Caption = "사용 안함";
+            this.tablePanel1.SetRow(this.chkCamUse, 3);
+            this.chkCamUse.Size = new System.Drawing.Size(110, 54);
+            this.chkCamUse.TabIndex = 20;
+            this.chkCamUse.ToolTip = "사용 안함";
+            this.chkCamUse.CheckedChanged += new System.EventHandler(this.chkCamUse_CheckedChanged);
             // 
             // btmImgList
             // 
@@ -337,10 +318,10 @@
             this.btmImgList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btmImgList.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
             this.btmImgList.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btmImgList.ImageOptions.SvgImage")));
-            this.btmImgList.Location = new System.Drawing.Point(234, 144);
+            this.btmImgList.Location = new System.Drawing.Point(234, 180);
             this.btmImgList.Name = "btmImgList";
             this.tablePanel1.SetRow(this.btmImgList, 3);
-            this.btmImgList.Size = new System.Drawing.Size(110, 41);
+            this.btmImgList.Size = new System.Drawing.Size(110, 54);
             this.btmImgList.TabIndex = 22;
             this.btmImgList.Text = "Result Image List";
             this.btmImgList.ToolTip = "Result Image List";
@@ -360,7 +341,7 @@
             this.btnCamSet.Location = new System.Drawing.Point(3, 3);
             this.btnCamSet.Name = "btnCamSet";
             this.tablePanel1.SetRow(this.btnCamSet, 0);
-            this.btnCamSet.Size = new System.Drawing.Size(110, 41);
+            this.btnCamSet.Size = new System.Drawing.Size(110, 53);
             this.btnCamSet.TabIndex = 6;
             this.btnCamSet.Text = "Camera Setting";
             this.btnCamSet.ToolTip = "Camera Setting";
@@ -377,10 +358,10 @@
             this.btnGrab.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnGrab.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnGrab.ImageOptions.Image")));
             this.btnGrab.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.btnGrab.Location = new System.Drawing.Point(3, 97);
+            this.btnGrab.Location = new System.Drawing.Point(3, 121);
             this.btnGrab.Name = "btnGrab";
             this.tablePanel1.SetRow(this.btnGrab, 2);
-            this.btnGrab.Size = new System.Drawing.Size(110, 41);
+            this.btnGrab.Size = new System.Drawing.Size(110, 53);
             this.btnGrab.TabIndex = 3;
             this.btnGrab.Text = "Manual Grab";
             this.btnGrab.ToolTip = "Manual Grab";
@@ -397,10 +378,10 @@
             this.btnLive.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnLive.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnLive.ImageOptions.Image")));
             this.btnLive.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.btnLive.Location = new System.Drawing.Point(119, 97);
+            this.btnLive.Location = new System.Drawing.Point(119, 121);
             this.btnLive.Name = "btnLive";
             this.tablePanel1.SetRow(this.btnLive, 2);
-            this.btnLive.Size = new System.Drawing.Size(110, 41);
+            this.btnLive.Size = new System.Drawing.Size(110, 53);
             this.btnLive.TabIndex = 4;
             this.btnLive.Text = "Liveview";
             this.btnLive.ToolTip = "Liveview";
@@ -417,10 +398,10 @@
             this.btnInspection.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnInspection.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnInspection.ImageOptions.Image")));
             this.btnInspection.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.btnInspection.Location = new System.Drawing.Point(234, 97);
+            this.btnInspection.Location = new System.Drawing.Point(234, 121);
             this.btnInspection.Name = "btnInspection";
             this.tablePanel1.SetRow(this.btnInspection, 2);
-            this.btnInspection.Size = new System.Drawing.Size(110, 41);
+            this.btnInspection.Size = new System.Drawing.Size(110, 53);
             this.btnInspection.TabIndex = 5;
             this.btnInspection.Text = "Manual Inspection";
             this.btnInspection.ToolTip = "Manual Inspection";
@@ -437,10 +418,10 @@
             this.btnMaster.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnMaster.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnMaster.ImageOptions.Image")));
             this.btnMaster.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.btnMaster.Location = new System.Drawing.Point(3, 50);
+            this.btnMaster.Location = new System.Drawing.Point(3, 62);
             this.btnMaster.Name = "btnMaster";
             this.tablePanel1.SetRow(this.btnMaster, 1);
-            this.btnMaster.Size = new System.Drawing.Size(110, 41);
+            this.btnMaster.Size = new System.Drawing.Size(110, 53);
             this.btnMaster.TabIndex = 1;
             this.btnMaster.Text = "Master Image Save";
             this.btnMaster.ToolTip = "Master Image registration";
@@ -457,10 +438,10 @@
             this.btnOpenImg.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnOpenImg.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnOpenImg.ImageOptions.Image")));
             this.btnOpenImg.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.btnOpenImg.Location = new System.Drawing.Point(119, 50);
+            this.btnOpenImg.Location = new System.Drawing.Point(119, 62);
             this.btnOpenImg.Name = "btnOpenImg";
             this.tablePanel1.SetRow(this.btnOpenImg, 1);
-            this.btnOpenImg.Size = new System.Drawing.Size(110, 41);
+            this.btnOpenImg.Size = new System.Drawing.Size(110, 53);
             this.btnOpenImg.TabIndex = 0;
             this.btnOpenImg.Text = "Open Image";
             this.btnOpenImg.ToolTip = "Open Image";
@@ -477,10 +458,10 @@
             this.btnToolEdit.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnToolEdit.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnToolEdit.ImageOptions.Image")));
             this.btnToolEdit.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.btnToolEdit.Location = new System.Drawing.Point(234, 50);
+            this.btnToolEdit.Location = new System.Drawing.Point(234, 62);
             this.btnToolEdit.Name = "btnToolEdit";
             this.tablePanel1.SetRow(this.btnToolEdit, 1);
-            this.btnToolEdit.Size = new System.Drawing.Size(110, 41);
+            this.btnToolEdit.Size = new System.Drawing.Size(110, 53);
             this.btnToolEdit.TabIndex = 2;
             this.btnToolEdit.Text = "Tool Edit";
             this.btnToolEdit.ToolTip = "Tool Edit";
@@ -494,22 +475,6 @@
             this.lblMenu.Size = new System.Drawing.Size(351, 0);
             this.lblMenu.TabIndex = 14;
             this.lblMenu.Text = "labelControl3";
-            // 
-            // chkCamUse
-            // 
-            this.chkCamUse.AutoSizeInLayoutControl = true;
-            this.tablePanel5.SetColumn(this.chkCamUse, 0);
-            this.chkCamUse.Location = new System.Drawing.Point(3, 25);
-            this.chkCamUse.Name = "chkCamUse";
-            this.chkCamUse.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkCamUse.Properties.Appearance.Options.UseFont = true;
-            this.chkCamUse.Properties.Caption = "사용 안함";
-            this.tablePanel5.SetRow(this.chkCamUse, 1);
-            this.chkCamUse.Size = new System.Drawing.Size(104, 23);
-            this.chkCamUse.TabIndex = 20;
-            this.chkCamUse.ToolTip = "사용 안함";
-            this.chkCamUse.Visible = false;
-            this.chkCamUse.CheckedChanged += new System.EventHandler(this.chkCamUse_CheckedChanged);
             // 
             // simpleButton3
             // 
@@ -843,6 +808,13 @@
             this.flyoutPanelControl4.Name = "flyoutPanelControl4";
             this.flyoutPanelControl4.Size = new System.Drawing.Size(659, 616);
             this.flyoutPanelControl4.TabIndex = 0;
+            // 
+            // scVproBar
+            // 
+            this.scVproBar.Location = new System.Drawing.Point(3, 221);
+            this.scVproBar.Name = "scVproBar";
+            this.scVproBar.Size = new System.Drawing.Size(648, 332);
+            this.scVproBar.TabIndex = 77;
             // 
             // btnChkSave
             // 
@@ -1226,12 +1198,19 @@
             this.cogDisp.Size = new System.Drawing.Size(74, 134);
             this.cogDisp.TabIndex = 75;
             // 
-            // scVproBar
+            // chkPass
             // 
-            this.scVproBar.Location = new System.Drawing.Point(3, 221);
-            this.scVproBar.Name = "scVproBar";
-            this.scVproBar.Size = new System.Drawing.Size(648, 332);
-            this.scVproBar.TabIndex = 77;
+            this.tablePanel1.SetColumn(this.chkPass, 0);
+            this.chkPass.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chkPass.Location = new System.Drawing.Point(3, 180);
+            this.chkPass.Name = "chkPass";
+            this.chkPass.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkPass.Properties.Appearance.Options.UseFont = true;
+            this.chkPass.Properties.AutoHeight = false;
+            this.chkPass.Properties.Caption = "PASS";
+            this.tablePanel1.SetRow(this.chkPass, 3);
+            this.chkPass.Size = new System.Drawing.Size(110, 54);
+            this.chkPass.TabIndex = 79;
             // 
             // CAM
             // 
@@ -1257,9 +1236,6 @@
             this.flyoutPanelControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel1)).EndInit();
             this.tablePanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.tablePanel5)).EndInit();
-            this.tablePanel5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.chkPass.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkCamUse.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel2)).EndInit();
             this.tablePanel2.ResumeLayout(false);
@@ -1300,6 +1276,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pnlRes)).EndInit();
             this.pnlRes.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.cogDisp)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkPass.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1340,7 +1317,6 @@
         private DevExpress.XtraEditors.SimpleButton btnCamExpose;
         private DevExpress.XtraEditors.SimpleButton btnexloseClose;
         private DevExpress.XtraEditors.TrackBarControl BarExpose;
-        private DevExpress.XtraEditors.CheckEdit chkPass;
         private DevExpress.XtraEditors.CheckEdit chkCamUse;
         private DevExpress.XtraEditors.SimpleButton btmImgList;
         private DevExpress.Utils.Layout.TablePanel tablePanel4;
@@ -1379,9 +1355,9 @@
         private DevExpress.Utils.ToolTipController toolTipController6;
         private DevExpress.XtraEditors.PanelControl pnlRes;
         public Cognex.VisionPro.CogRecordDisplay cogDisp;
-        private DevExpress.Utils.Layout.TablePanel tablePanel5;
         private DevExpress.XtraEditors.ComboBoxEdit cbNGColor;
         private DevExpress.XtraEditors.XtraScrollableControl scVproBar;
+        private DevExpress.XtraEditors.CheckEdit chkPass;
         //private System.Windows.Forms.TreeView treeView1;
         //private DevExpress.XtraEditors.TrackBarControl BarConstract;
     }

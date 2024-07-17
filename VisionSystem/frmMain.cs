@@ -221,8 +221,7 @@ namespace VisionSystem
             txtDBID.Text = _dbInfo.strID;
             txtDBPW.Text = _dbInfo.strPW;
             txtDBName.Text = _dbInfo.strDBName;
-            lblDLpath.Text = _strDLPath;
-            lblDLFile.Text = _strDLFile;
+            
 
 
 
@@ -950,8 +949,6 @@ namespace VisionSystem
                 if (_graphicResParam == null)
                     _graphicResParam = new GraphicResViewParam[30];
 
-                if (_graphicVIDIParam == null)
-                    _graphicVIDIParam = new GraphicToolParam[30];
 
                 if (_camParam == null)
                     _camParam = new CamPram[30];
@@ -966,7 +963,7 @@ namespace VisionSystem
                     _modelParam[i] = new ModelParam();
                     _graphicVproParam[i] = new GraphicToolParam();
                     _graphicResParam[i] = new GraphicResViewParam();
-                    _graphicVIDIParam[i] = new GraphicToolParam();
+                    
                     _camParam[i] = new CamPram();
 
                     CamConn(i);
@@ -1611,7 +1608,7 @@ namespace VisionSystem
                 LoadSaveImgParam();
                 LoadPassword();
                 LoadModelList();
-                LoadModbusParam();
+                
                 LoadLightParam();
                 LoadIOParam();
 
@@ -1997,7 +1994,7 @@ namespace VisionSystem
                         nCamNGCnt[j] += nNG[1 + j];
                     }
                 }
-                //sql.GetCount(_strProcName, _strModelName, dateTimeStart, dateTimeEnd, _dbInfo, ref nTotal, ref nOK, ref nNG);
+                
 
                 double dOKrate = (nTotalCnt > 0) ? ((double)nTotalOKCnt / (double)nTotalCnt) * 100.0 : 0.0;
                 double dNGrate = dOKrate > 0.0 ? 100.0 - dOKrate : 0.0; ;
@@ -2017,7 +2014,7 @@ namespace VisionSystem
             }
             catch { }
 
-            sql.Dispose();
+            
 
             sql.Dispose();
         }
@@ -2042,48 +2039,10 @@ namespace VisionSystem
 
         }
 
-        private void LoadModbusParam()
-        {
-            SQL sql = new SQL();
-            sql.GetModbusParam(_strProcName, _dbInfo, ref _modbus);
-
-            if (_modbus.ResImgType == ResImgType.NETWORK)
-                radNetwork.Checked = true;
-            else if (_modbus.ResImgType == ResImgType.TCP)
-                radTcp.Checked = true;
-
-            txtSlaveIP.Text = _modbus.strIP;
-            txtSlavePort.Text = _modbus.strPort;
-            txtClientIP.Text = _modbus.strClientIP;
-
-            txtReadCnt.Text = _modbus.nReadCnt.ToString();
-            txtCamStatus.Text = _modbus.nCamStatus.ToString();
-            txtModel.Text = _modbus.nModelAddr.ToString();
-            txtLotNo.Text = _modbus.nLotIdAddr.ToString();
-            txtGrabStart.Text = _modbus.nGrabStart.ToString();
-            txtGrabEnd.Text = _modbus.nGrabEnd.ToString();
-            txtInspStart.Text = _modbus.nInspStart.ToString();
-            txtInspEnd.Text = _modbus.nInspEnd.ToString();
-            txtParamChangeAddr.Text = _modbus.nChangeParametersAddr.ToString();
-
-            txtCamStatus.Text = _modbus.nCamStatus.ToString();
-            txtInspStart.Text = _modbus.nInspStart.ToString();
-
-            txtTcpPort.Text = _modbus.strTcpPort;
-
-            sql.Dispose();
-
-        }
         #endregion
 
         #region Log & Alarm
-        private void OnPLCMessage(string strMsg, Color color, string strMsgType)
-        {
-            if (strMsgType == "Log")
-                AddMsg(string.Format("PLC message : {0}", strMsg), color, false, false, MsgType.Log);
-            else
-                AddMsg(string.Format("PLC message : {0}", strMsg), color, false, false, MsgType.Alarm);
-        }
+        
         private void Cam_OnMessage(string strMsg, Color color, bool bShowPopup, bool bError, MsgType msgType)
         {
             AddMsg(strMsg, color, bShowPopup, bError, msgType);
@@ -2382,33 +2341,12 @@ namespace VisionSystem
             else
                 flyImageSet.HideBeakForm();
         }
-        private void btnConfig_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            if (!flyLogin.IsPopupOpen)
-                flyLogin.ShowPopup();
-            else
-                flyLogin.HidePopup();
-        }
         private void btnClose_Click(object sender, EventArgs e)
         {
             flyLogin.HideBeakForm();
         }
         #endregion
 
-        #region PLC 연결 상태 
-        private void OnConnect(string strMsg)
-        {
-            lblPLC.BackColor = lime;
-            lblPLC.BackColor = black;
-            AddMsg(strMsg, green, false, false, MsgType.Alarm);
-        }
-        private void OnDisconnect(string strMsg)
-        {
-            lblPLC.BackColor = red;
-            lblPLC.BackColor = white;
-            AddMsg(strMsg, red, false, false, MsgType.Alarm);
-        }
-        #endregion
 
         #region 트리거 신호
         private void OnTrigger(int nCameraNo, int nTriggerCount)
@@ -2583,13 +2521,6 @@ namespace VisionSystem
             }));
 
         }
-        private void OnPassDataConfirm(string strData)
-        {
-            Invoke(new EventHandler(delegate
-            {
-                _strPassData = strData;
-            }));
-        }
         private void OnLotIDReceive(string strLotNo)
         {
             Invoke(new EventHandler(delegate
@@ -2604,18 +2535,6 @@ namespace VisionSystem
         }
         #endregion
 
-        #region 통신 데이터 
-        private void OnRecvData(string strMsg, byte[] bytes, ushort[] usData)
-        {
-            _strRecvData = strMsg;
-
-            _Readbytes = null;
-            _Readbytes = bytes;
-
-            _ReadShort = null;
-            _ReadShort = usData;
-        }
-        #endregion 
 
         #region Password Function
         private void btnChkPass_Click(object sender, EventArgs e)
@@ -3222,7 +3141,7 @@ namespace VisionSystem
             //btnAdmin.Caption = Str.Menu;
             //btnLog.Caption = Str.Log;
             btnReset.Text = Str.Reset;
-            btnSetModbus.Text = Str.SetModbus;
+            
             btnSetting.Text = Str.Setting;
             bntRecord.Text = Str.Record;
             btnSetCam.Text = Str.AddCamera;
@@ -3265,61 +3184,6 @@ namespace VisionSystem
         }
 
         #region Image 20 History
-        private void cogDisplay1_DoubleClick(object sender, EventArgs e)
-        {
-            if (_nImgListCamNo == -1)
-                return;
-
-            try
-            {
-                int.TryParse((sender as CogDisplay).Tag.ToString(), out _nDispNo);
-
-                //for (var i = 0; i < 20; i++)
-                //    _Pnl[i].Invalidate();
-
-                cogDispOrigin.AutoFit = true;
-                cogDispResult.AutoFit = true;
-
-                if (_CAM[_nImgListCamNo].GetOriginImg != null)
-                    cogDispOrigin.Image = _CAM[_nImgListCamNo].GetOriginImg[_nDispNo];
-
-                if (_CAM[_nImgListCamNo].GetResultImg != null)
-                    cogDispResult.Image = _CAM[_nImgListCamNo].GetResultImg[_nDispNo];
-
-                if (cogDispOrigin.Image == null && cogDispResult.Image == null)
-                    return;
-
-                if (!flyResImg.IsPopupOpen)
-                    flyResImg.ShowBeakForm();
-            }
-            catch { }
-        }
-        private void Pnl1_Paint(object sender, PaintEventArgs e)
-        {
-            if (_nDispNo == -1)
-                return;
-
-            if (_cogDisp[_nDispNo].Image == null)
-                return;
-
-            Invoke(new EventHandler(delegate
-            {
-                base.OnPaint(e);
-                int borderWidth = 2;
-                Color borderColor = lime;
-
-                if ((sender as Panel).Tag.ToString() != _nDispNo.ToString())
-                {
-                    borderWidth = 1;
-                    borderColor = black;
-                }
-
-                ControlPaint.DrawBorder(e.Graphics, e.ClipRectangle, borderColor, borderWidth, ButtonBorderStyle.Solid, borderColor, borderWidth,
-                ButtonBorderStyle.Solid, borderColor, borderWidth, ButtonBorderStyle.Solid,
-                borderColor, borderWidth, ButtonBorderStyle.Solid);
-            }));
-
-        }
         private void btnPrevious_Click(object sender, EventArgs e)
         {
             if (_nImgListCamNo == -1)
@@ -3534,51 +3398,6 @@ namespace VisionSystem
         }
 
         #region File Delete
-        public void ImageBackup(string path)
-        {
-            string strOriginImagePath = path;
-
-            DirectoryInfo dirInfo = new DirectoryInfo(strOriginImagePath);
-            DirectoryInfo[] dirInfoYear;
-            DirectoryInfo[] dirInfoMonth;
-            DirectoryInfo[] dirInfoDay;
-            DirectoryInfo[] dirInfoModelData;
-            DirectoryInfo[] dirInfoCam;
-
-            try
-            {
-                dirInfoYear = dirInfo.GetDirectories("*", SearchOption.TopDirectoryOnly);                   //경로내 년도 파일
-                dirInfoMonth = dirInfoYear[0].GetDirectories("*", SearchOption.TopDirectoryOnly);           //년도 파일 내 월 파일
-
-                if (dirInfoMonth.Length == 0)
-                    dirInfoYear[0].Delete(true);
-                else
-                {
-                    dirInfoDay = dirInfoMonth[0].GetDirectories("*", SearchOption.TopDirectoryOnly);           //월 파일 내 일 파일
-
-                    if (dirInfoDay.Length == 0)
-                        dirInfoMonth[0].Delete(true);
-                    else
-                    {
-                        dirInfoModelData = dirInfoDay[0].GetDirectories("*", SearchOption.TopDirectoryOnly);           //일 파일 내 Model Data 파일
-
-                        if (dirInfoModelData.Length == 0)
-                            dirInfoDay[0].Delete(true);
-                        else
-                        {
-                            FileCopyToJPG(dirInfoModelData[0].FullName);
-
-                            DirectoryInfo dirDel = new DirectoryInfo(dirInfoModelData[0].FullName);
-                            dirDel.Delete(true);
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                AddMsg("OriginImageBackup Err : " + ex.Message, red, false, false, MsgType.Alarm);
-            }
-        }
         public void ImageDelete(string path)
         {
             string strImagePath = path;
@@ -3720,96 +3539,6 @@ namespace VisionSystem
 
 
 
-        private void btnModbusClose_Click(object sender, EventArgs e)
-        {
-            flyModbus.HidePopup();
-        }
-
-        private void btnModbusSave_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                SQL sql = new SQL();
-
-                _modbus.strIP = txtSlaveIP.Text;
-                _modbus.strPort = txtSlavePort.Text;
-                _modbus.strClientIP = txtClientIP.Text;
-
-                int.TryParse(txtReadCnt.Text, out _modbus.nReadCnt);
-                int.TryParse(txtCamStatus.Text, out _modbus.nCamStatus);
-                int.TryParse(txtModel.Text, out _modbus.nModelAddr);
-                int.TryParse(txtLotNo.Text, out _modbus.nLotIdAddr);
-                int.TryParse(txtGrabStart.Text, out _modbus.nGrabStart);
-                int.TryParse(txtGrabEnd.Text, out _modbus.nGrabEnd);
-                int.TryParse(txtInspStart.Text, out _modbus.nInspStart);
-                int.TryParse(txtInspEnd.Text, out _modbus.nInspEnd);
-                int.TryParse(txtParamChangeAddr.Text, out _modbus.nChangeParametersAddr);
-
-                if (radNetwork.Checked)
-                {
-                    if (_modbus.ResImgType != ResImgType.NETWORK)
-                    {
-                        _modbus.ResImgType = ResImgType.NETWORK;
-                        CamReConnect();
-                    }
-                }
-                else if (radTcp.Checked)
-                {
-                    if (_modbus.ResImgType != ResImgType.TCP)
-                    {
-                        _modbus.ResImgType = ResImgType.TCP;
-                        CamReConnect();
-                    }
-                }
-
-                CamReConnect();
-                _paramCode = ParamCode.ModbusParamChange;
-                _modbus.strTcpPort = txtTcpPort.Text;
-
-                sql.SaveModubInfo(_strProcName, _dbInfo, _modbus);
-                sql.Dispose();
-
-
-
-                AddMsg("Client Communication Parameter Saved", green, true, false, MsgType.Alarm);
-            }
-            catch { }
-
-        }
-
-        private void CamReConnect()
-        {
-            SQL sql = new SQL();
-            try
-            {
-                if (_modbus.ResImgType == ResImgType.TCP)
-                {
-                    for (var i = 0; i < _nScreenCnt; i++)
-                    {
-                        if (!_camParam[i].bConnect)
-                        {
-                            _CAM[i].LoadCamParam();
-                            CamConn(i);
-                        }
-                    }
-                }
-                else
-                {
-                    for (var i = 0; i < _nScreenCnt; i++)
-                    {
-                        if (_camParam[i].bConnect)
-                        {
-                            _CAM[i].CamDisconnect();
-                            sql.SaveCamInfo(i, _strProcName, DateTime.Now, _camParam[i], _dbInfo);
-                        }
-                    }
-                }
-            }
-            catch { }
-
-            sql.Dispose();
-        }
-
 
 
 
@@ -3827,80 +3556,6 @@ namespace VisionSystem
             }
         }
 
-        private ushort[] StrToUshort(string strFileName)
-        {
-            var strFile = strFileName;
-            if (strFileName.Length % 2 == 1)
-                strFile += " ";
-
-            ushort[] usData = new ushort[(strFile.Length / 2)];
-            byte[] bytes = Encoding.UTF8.GetBytes(strFile);
-
-            for (var i = 0; i < usData.Length; i++)
-                usData[i] = MAKEWORD(bytes[i * 2], bytes[(i * 2) + 1]);
-
-            return usData;
-        }
-
-        private ushort[] GetData(string strData)
-        {
-            ushort[] usData = new ushort[2];
-
-            double.TryParse(strData, out var dValue);
-
-            if (dValue < 0)
-                usData[0] = 1;
-
-            usData[1] = (ushort)(dValue * 100.0);
-
-            return usData;
-        }
-
-        private ushort[] StrtouShort(string strValue)
-        {
-            ushort[] usValue = null;
-            byte[] bytes = null;
-            try
-            {
-                if (strValue.Length % 2 == 1)
-                    strValue += " ";
-
-                bytes = Encoding.UTF8.GetBytes(strValue);
-                usValue = new ushort[bytes.Length / 2];
-
-                for (var i = 0; i < bytes.Length / 2; i++)
-                    usValue[i] = MAKEWORD(bytes[(i * 2) + 1], bytes[i * 2]);
-            }
-            catch { }
-
-            return usValue;
-        }
-
-        public static UInt16 MAKEWORD(byte low, byte high)
-        {
-            return (UInt16)((high << 8) | low);
-        }
-
-        private void AlarmPopup(string strMessage)
-        {
-            Delay(500);
-
-            var strMsg = strMessage;
-            Invoke(new EventHandler(delegate
-            {
-                frmAlarm Alarm = new frmAlarm();
-                Alarm.Opacity = 0;
-                Alarm.SetMsg(strMsg, _strProcName);
-                Alarm.Show();
-                Alarm.TopMost = true;
-
-                Delay(100);
-                Alarm.Opacity = 100;
-
-            }));
-        }
-
-
 
         private void radNetwork_CheckedChanged(object sender, EventArgs e)
         {
@@ -3910,13 +3565,6 @@ namespace VisionSystem
                 (sender as RadioButton).ForeColor = white;
         }
 
-        private void btnSetModbus_Click(object sender, EventArgs e)
-        {
-            if (flyModbus.IsPopupOpen)
-                flyModbus.HidePopup();
-            else
-                flyModbus.ShowPopup();
-        }
 
         private void btnSetting_Click(object sender, EventArgs e)
         {
@@ -3943,7 +3591,7 @@ namespace VisionSystem
                 _dbInfo.strID = txtDBID.Text;
                 _dbInfo.strPW = txtDBPW.Text;
                 _dbInfo.strDBName = txtDBName.Text;
-                _strDLPath = lblDLpath.Text;
+               
 
 
                 ini.WriteIniFile("DBIP", "Value", _dbInfo.strIP, _strConfigPath, "Config.ini");

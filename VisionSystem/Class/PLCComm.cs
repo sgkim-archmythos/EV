@@ -50,7 +50,7 @@ public class PLCComm
     //ushort[] _ushData = null;
     byte[] _bytes;
     bool _bReadPLC = false;
-    
+
     Queue<string> _qdata = new Queue<string>();
     //Queue<string> _qGrabEnd = new Queue<string>();
 
@@ -73,7 +73,7 @@ public class PLCComm
 
                 return _bConnect;
             }
-                
+
             int.TryParse(_plcParam.strPLCPort, out var nPort);
 
             if (_plcParam.plcType == PLCType.MX) // 미쯔비시 or LS or simens
@@ -90,7 +90,7 @@ public class PLCComm
             else if (_plcParam.plcType == PLCType.LS)
             {
                 _lsPLC = new FEnetClient(new TcpChannel(_plcParam.strPLCIP, nPort));
-                
+
                 var Logger = new ChannelOpenEventLog(_lsPLC.Channel);
 
                 if (Logger.ToString() == "Opened Channel")
@@ -147,7 +147,7 @@ public class PLCComm
 
     public string SetData
     {
-        set {_qdata.Enqueue(value); }
+        set { _qdata.Enqueue(value); }
     }
 
 
@@ -223,7 +223,7 @@ public class PLCComm
                 _qdata.Enqueue(string.Format("{0},{1},{2}", _plcParam.strWriteDev, _plcParam.strWriteModelChange, nWriteData));
             }
         }
-        catch { }                   
+        catch { }
     }
 
     public void LotNoReceive()
@@ -302,7 +302,7 @@ public class PLCComm
                         strWriteData = strWidth[0];
                     else
                     {
-                        for (var i =0; i<strWidth.Length; i++)
+                        for (var i = 0; i < strWidth.Length; i++)
                         {
                             if (strWriteData == "")
                                 strWriteData += strWidth[i];
@@ -374,13 +374,13 @@ public class PLCComm
                 int.TryParse(_plcParam.strReadTriggerCnt, out var nTriggerCnt);
 
                 if (nTriggerCnt == 1)
-                  _qdata.Enqueue(string.Format("{0},{1},{2}", _plcParam.strWriteDev, nAddr, nWriteData));
+                    _qdata.Enqueue(string.Format("{0},{1},{2}", _plcParam.strWriteDev, nAddr, nWriteData));
                 else if (nTriggerCnt >= 2)
-                 _qdata.Enqueue(string.Format("{0},{1},{2}", _plcParam.strWriteDev, nAddr + nCamNo, nWriteData));
+                    _qdata.Enqueue(string.Format("{0},{1},{2}", _plcParam.strWriteDev, nAddr + nCamNo, nWriteData));
             }
         }
         catch { }
-        
+
     }
 
     private string GetStToIntStr(string strValue)
@@ -558,7 +558,7 @@ public class PLCComm
                         _bytes = new byte[nReadCnt * 2];
                     else
                     {
-                        if (_bytes.Length  != nReadCnt * 2)
+                        if (_bytes.Length != nReadCnt * 2)
                             _bytes = new byte[nReadCnt * 2];
                     }
 
@@ -623,34 +623,18 @@ public class PLCComm
                             strData = IntToStr(nReadAddr, nReadModel, nReadModelCnt, nReadData, null, _plcParam.SignalFormat, PLCType.MX);
 
 
-                            if (_plcParam.strReadModelDetailNo != "" && _plcParam.strReadModelDetailNoCnt != "")
-                            {
-                                int.TryParse(_plcParam.strReadModel, out nReadModelDetailNo);
 
-                                if (strData != "")
-                                {
-                                    if (strData != strModelNo || (nDetailNo != nReadData[nReadModelDetailNo - nReadAddr]) || !(_strModelNo.Contains(string.Format("{0}_{1}", strModelNo, nDetailNo))))
-                                    {
-                                        strModelNo = strData;
-                                        nDetailNo = nReadData[nReadModelDetailNo - nReadAddr];
-                                        if (_OnModelChange != null)
-                                            _OnModelChange(string.Format("{0}_{1}", strModelNo, nDetailNo));
-                                    }
-                                }
-                            }
-                            else
+                            if (strData != "")
                             {
-                                if (strData != "")
+                                if (strData != strModelNo)
                                 {
-                                    if (strData != strModelNo)
-                                    {
-                                        strModelNo = strData;
-                                        nDetailNo = nReadData[3];
-                                        if (_OnModelChange != null)
-                                            _OnModelChange(strModelNo);
-                                    }
+                                    strModelNo = strData;
+                                    nDetailNo = nReadData[3];
+                                    if (_OnModelChange != null)
+                                        _OnModelChange(strModelNo);
                                 }
                             }
+
                         }
 
                         //Lot
@@ -701,7 +685,7 @@ public class PLCComm
                                         {
                                             if (_nScreenCnt > nReadTriggerCnt)
                                             {
-                                                for (var j = 0; j<_nScreenCnt; j++)
+                                                for (var j = 0; j < _nScreenCnt; j++)
                                                 {
                                                     if (!bTrigger[j])
                                                     {
@@ -722,7 +706,7 @@ public class PLCComm
                                                         _OnTrigger(i, nReadTriggerCnt);
                                                 }
                                             }
-                                            
+
                                         }
                                         else if (nReadData[nReadTrigger - nReadAddr] == 0)
                                         {
@@ -773,7 +757,7 @@ public class PLCComm
                         //_nData = nReadData;
 
                         //MX Write
-                        for (var i =0; i<_qdata.Count; i++)
+                        for (var i = 0; i < _qdata.Count; i++)
                         {
                             strWriteData = _qdata.Dequeue().Split(',');
 
@@ -857,49 +841,18 @@ public class PLCComm
 
                             strData = IntToStr(nReadAddr, nReadModel, nReadModelCnt, null, usReadData, _plcParam.SignalFormat, PLCType.LS);
 
-                            if (_plcParam.strReadModelDetailNo != "" && _plcParam.strReadModelDetailNoCnt != "")
-                            {
-                                int.TryParse(_plcParam.strReadModelDetailNo, out nReadModelDetailNo);
 
-                                if (strData != "")
-                                {
-                                    if (strData != strModelNo || (nDetailNo != usReadData[nReadModelDetailNo - nReadAddr]))
-                                    {
-                                        strModelNo = strData;
-                                        nDetailNo = usReadData[nReadModelDetailNo - nReadAddr];
-                                        if (_OnModelChange != null)
-                                            _OnModelChange(string.Format("{0}_{1}", strModelNo, nDetailNo));
-                                    }
-                                }
-                            }
-                            else
+                            if (strData != "")
                             {
-                                if (strData != "")
+                                if (strData != strModelNo)
                                 {
-                                    if (strData != strModelNo)
-                                    {
-                                        strModelNo = strData;
-                                        //nDetailNo = nReadData[3];
-                                        if (_OnModelChange != null)
-                                            _OnModelChange(strModelNo);
-                                    }
+                                    strModelNo = strData;
+                                    //nDetailNo = nReadData[3];
+                                    if (_OnModelChange != null)
+                                        _OnModelChange(strModelNo);
                                 }
                             }
 
-                            //int.TryParse(_plcParam.strReadModel, out nReadModel);
-                            //int.TryParse(_plcParam.strReadModelCnt, out nReadModelCnt);
-
-                            //strData = IntToStr(nReadAddr, nReadModel, nReadModelCnt, null, usReadData, _plcParam.SignalFormat, PLCType.LS);
-
-                            //if (strData != "")
-                            //{
-                            //    if (strData != strModelNo)
-                            //    {
-                            //        strModelNo = strData;
-                            //        if (_OnModelChange != null)
-                            //            _OnModelChange(strModelNo);
-                            //    }
-                            //}
                         }
 
                         //Lot
@@ -1054,7 +1007,7 @@ public class PLCComm
                             int.TryParse(strWriteData[1], out nWriteData[1]);
 
                             byteSend = new byte[(strWriteData.Length - 2) * 2];
-                            for (var j = 0; j<strWriteData.Length - 2; j++)
+                            for (var j = 0; j < strWriteData.Length - 2; j++)
                             {
                                 int.TryParse(strWriteData[2 + j], out nWriteData[2]);
                                 byteTemp = BitConverter.GetBytes((ushort)nWriteData[2]);
@@ -1062,7 +1015,7 @@ public class PLCComm
                             }
 
                             _lsPLC.Write((DeviceType)nWriteData[0], (uint)(nWriteData[1] * 2), byteSend);
-                           // _OnMessage(strWriteData[0] + "," + strWriteData[1] + "," + strWriteData[2]);
+                            // _OnMessage(strWriteData[0] + "," + strWriteData[1] + "," + strWriteData[2]);
 
                         }
                     }
@@ -1253,7 +1206,7 @@ public class PLCComm
                     Delay(5000);
                 }
             }
-            catch(Exception ex) 
+            catch (Exception ex)
             {
                 if (_OnMessage != null)
                     _OnMessage(ex.Message);
@@ -1265,7 +1218,7 @@ public class PLCComm
 
     private ushort[] byteToushort(byte[] bytes, GlovalVar.PLCType pLCType)
     {
-        ushort[] usData = new ushort[bytes.Length/2];
+        ushort[] usData = new ushort[bytes.Length / 2];
 
         try
         {
@@ -1309,7 +1262,7 @@ public class PLCComm
                     if (pLCType == GlovalVar.PLCType.LS)
                         nReadAddr = nReadStart - nStartAdd + i;
                     else if (pLCType == GlovalVar.PLCType.Simens)
-                        nReadAddr = ((nReadStart - nStartAdd) /2) + i;
+                        nReadAddr = ((nReadStart - nStartAdd) / 2) + i;
 
                     if (usData[nReadAddr] > 0)
                     {
@@ -1322,7 +1275,7 @@ public class PLCComm
             }
         }
         catch { }
-        
+
         return strData;
     }
 
@@ -1331,7 +1284,7 @@ public class PLCComm
         return (UInt16)((high << 8) | low);
     }
 
-    private void HexToBytes(string[]strData, ref byte[] bytes)
+    private void HexToBytes(string[] strData, ref byte[] bytes)
     {
         try
         {
@@ -1343,11 +1296,11 @@ public class PLCComm
             }
             else
             {
-                for (var i = 0; i<strData.Length - 2; i++)
+                for (var i = 0; i < strData.Length - 2; i++)
                 {
                     int.TryParse(strData[2], out var nValue);
                     bytes[i * 2] = Convert.ToByte(nValue.ToString("X4").Substring(2, 2), 16);
-                    bytes[(i * 2) +1] = Convert.ToByte(nValue.ToString("X4").Substring(0, 2), 16);
+                    bytes[(i * 2) + 1] = Convert.ToByte(nValue.ToString("X4").Substring(0, 2), 16);
                 }
             }
         }

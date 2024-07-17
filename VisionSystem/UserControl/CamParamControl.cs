@@ -445,10 +445,6 @@ namespace VisionSystem
                     modelParam.strPinMasterResult = txtPinMasterResult.Text;
                     
 
-                    if (modelParam.listVIDIParam == null)
-                        modelParam.listVIDIParam = new List<string>();
-
-                    modelParam.listVIDIParam.Clear();
                     
                     modelParam.strTriggerNo = txtTriggerNo.Text;
                     modelParam.strLightNo = txtLightNo.Text;

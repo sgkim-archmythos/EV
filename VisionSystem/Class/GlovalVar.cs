@@ -106,22 +106,7 @@ public class GlovalVar
         CamConnect,
         CamDisconnect
     }
-
-
-   
-
-    public enum VIDIInspType
-    {
-        MODEL,
-        DEFECT,
-        OCR,
-        CLASSIFICATION
-    }
-    public enum VIDIDefectMode
-    {
-        SCORE,
-        AREA
-    }
+       
 
     public enum Result
     {
@@ -172,7 +157,7 @@ public class GlovalVar
         PLCInfoChange,
         SaveImgParamChage,
         GraphicParamChange,
-        ModbusParamChange,
+        
         ModelListChangeEnd,
         ModelChangeEnd,
         LotNoChangeEnd,
@@ -180,7 +165,7 @@ public class GlovalVar
         PLCInfoChangeEnd,
         SaveImgParamChageEnd,
         GraphicParamChangeEnd,
-        ModbusParamChangeEnd
+        
     }
 
     public enum IOCardType
@@ -297,7 +282,7 @@ public class GlovalVar
         public string strBCRData;
         public string strBCRLen;
         public bool bPinChange;
-        public bool bPinInfo;
+        
         public double dCenterMass;
         public double dAlignMasterX;
         public double dAlignMasterY;
@@ -313,18 +298,16 @@ public class GlovalVar
         public double dResoluton;
         public string strPinMaster;
         public string strPinMasterResult;
-        public string strPinInfoMaster;
-        public string strPinInfoMasterResult;
         
-        public string strStreamName;
-        public List<string> listVIDIParam;
+        
+        
+        
         public List<string> listAreaParam;
         public string strTriggerNo;
         public string strLightNo;
-        public bool bDLUse;
-        public double dScore;
-        public string strDLPath;
-        public string strDLFile;
+        
+        
+     
         public double dMaxX;
         public double dMaxY;
     }
@@ -369,27 +352,9 @@ public class GlovalVar
         public string strWriteHeight;
         public string strWritePinChange;
         public bool bConnect;
-        public string strReadModelDetailNo;
-        public string strReadModelDetailNoCnt;
+       
     }
 
-    public struct ModbusParam
-    {
-        public string strIP;
-        public string strPort;
-        public string strClientIP;
-        public int nReadCnt;
-        public int nCamStatus;
-        public int nGrabStart;
-        public int nGrabEnd;
-        public int nInspStart;
-        public int nInspEnd;
-        public int nModelAddr;
-        public int nLotIdAddr;
-        public ResImgType ResImgType;
-        public string strTcpPort;
-        public int nChangeParametersAddr;
-    }
 
 
     public struct GraphicToolParam
@@ -482,21 +447,20 @@ public class GlovalVar
     public static string _strCommInfoPath = Application.StartupPath + "\\Communication";
     public static string _strMasterImagePath = Application.StartupPath + "\\MasterImage";
     public static string _strModelPath = Application.StartupPath + "\\Model";
-    public static string _strDLPath = "";
-    public static string _strDLFile = "";
+ 
 
     public static string _strAdminPW = "0000";
     public static string _strOPPW = "9999";
     //public static string _tsReset = "";
 
     public static List<string> _strlistLocation = new List<string>();
-    public static ModbusParam _modbus = new ModbusParam();
+    
     public static DBInfo _dbInfo = new DBInfo();
     public static SaveImageParam _SaveImgParam = new SaveImageParam();
     public static ModelParam[] _modelParam = new ModelParam[30];
     public static GraphicToolParam[] _graphicVproParam = new GraphicToolParam[30];
     public static GraphicResViewParam[] _graphicResParam = new GraphicResViewParam[30];
-    public static GraphicToolParam[] _graphicVIDIParam = new GraphicToolParam[30];
+    
     public static CamPram[] _camParam = new CamPram[30];
     public static PLCPram _plcParam = new PLCPram();
     public static CamSet[] _camSet = null;

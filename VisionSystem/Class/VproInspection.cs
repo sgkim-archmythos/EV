@@ -357,22 +357,7 @@ public class VproInspection
 
         try
         {
-            if (modelParam.bPinInfo)
-            {
-                if (modelParam.strPinInfoMaster != "" && modelParam.strPinInfoMaster != "")
-                {
-                    if (modelParam.strPinInfoMaster[nIdx] == strPingData[nIdx] || (modelParam.strPinInfoMasterResult[nIdx] == strPingData[nIdx]))
-                        color = (CogColorConstants)Enum.Parse(typeof(CogColorConstants), _graphicVpro.strOKColor[nIdx]);
-                    else
-                        color = (CogColorConstants)Enum.Parse(typeof(CogColorConstants), _graphicVpro.strNGColor[nIdx]);
-
-                    //nCnt++;
-
-                }
-                else
-                    color = (nFindCnt > 0) ? (CogColorConstants)Enum.Parse(typeof(CogColorConstants), _graphicVpro.strOKColor[nIdx]) : (CogColorConstants)Enum.Parse(typeof(CogColorConstants), _graphicVpro.strNGColor[nIdx]);
-            }
-            else if (modelParam.bPinChange)
+            if (modelParam.bPinChange)
             {
                 if (modelParam.strPinMaster != "" && modelParam.strPinMasterResult != "")
                 {
@@ -381,7 +366,7 @@ public class VproInspection
                     else
                         color = (CogColorConstants)Enum.Parse(typeof(CogColorConstants), _graphicVpro.strNGColor[nIdx]);
 
-                    //nCnt++;
+                   
                 }
                 else
                     color = CogColorConstants.Red;

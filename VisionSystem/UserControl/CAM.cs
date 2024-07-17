@@ -90,12 +90,8 @@ namespace VisionSystem
         ComboBoxEdit[] _cbVproOKColor = null;
         ComboBoxEdit[] _cbVproNGColor = null;
         ComboBoxEdit[] _cbVProLine = null;
-
-        bool[] _bVIDIUse = null;
-        CheckEdit[] _chkVIDIUse = null;
-        ComboBoxEdit[] _cbVIDIOKColor = null;
-        ComboBoxEdit[] _cbVIDINGColor = null;
-        ComboBoxEdit[] _cbVIDILine = null;
+               
+        
 
         public ICogImage _cogGrabImg = null;
 
@@ -118,8 +114,7 @@ namespace VisionSystem
         public bool _bpopup = false;
 
         bool _bVppInspRes = false;
-        bool _bVIDIInspRes = false;
-        bool _bVIDIInspEnd = false;
+      
         bool _bVppInspEnd = false;
         //bool _bPythonRes = false;
         //bool _bPythonEnd = false;
@@ -289,10 +284,7 @@ namespace VisionSystem
                 SQL sql = new SQL();
                 sql.GetRecipe(_strProcName, _dbInfo, _nIdx, _strModelName, ref _modelParam[_nIdx]);
 
-                //string path = null;
-                //path = _modelParam[_nIdx].strDLPath;
-                GlovalVar._strDLPath = _modelParam[_nIdx].strDLPath;
-                GlovalVar._strDLFile = _modelParam[_nIdx].strDLFile;
+               
 
                 ModelChange(bChange);
                 SetGraphicview();
@@ -598,14 +590,6 @@ namespace VisionSystem
                         cogResDisp.Image = cogImg;
 
 
-                        if (_requestMode != RequestMode.NONE)
-                        {
-                            if (_requestMode != RequestMode.AUTO)
-                            {
-                                Thread threadSendImg = new Thread(() => SendImage(cogImg.ToBitmap()));
-                                threadSendImg.Start();
-                            }
-                        }
 
                         if (!_bLive)
                         {
@@ -1228,8 +1212,7 @@ namespace VisionSystem
                 threadInspStart.Start();
 
                 _bVppInspRes = false;
-                _bVIDIInspRes = false;
-                _bVIDIInspEnd = false;
+           
                 _bVppInspEnd = false;
 
 
@@ -1509,11 +1492,6 @@ namespace VisionSystem
             return null;
         }
 
-        private void OnVIDIMsg(int nCameraNo, string strMsg)
-        {
-            if (_OnMessage != null)
-                _OnMessage(string.Format("#{0} {1}", nCameraNo, strMsg), Color.Red, false, false, MsgType.Alarm);
-        }
 
         public void LoadModelImage()
         {
@@ -1556,50 +1534,6 @@ namespace VisionSystem
             catch { }
         }
 
-        public void LoadGrabImg()
-        {
-            Thread threadLoadImg = new Thread(LoadImg);
-            threadLoadImg.Start();
-        }
-
-        private void LoadImg()
-        {
-            try
-            {
-                cogDisp.StaticGraphics.Clear();
-                cogDisp.InteractiveGraphics.Clear();
-                cogDisp.Image = null;
-                cogDisp.AutoFit = true;
-
-                cogResDisp.StaticGraphics.Clear();
-                cogResDisp.InteractiveGraphics.Clear();
-                cogResDisp.Image = null;
-                cogResDisp.AutoFit = true;
-
-
-                var strFile = string.Format(@"\\{0}\Vasim\GrabImage\Cam{1}.{2}", _modbus.strClientIP, _nIdx + 1, _SaveImgParam._OriginImageFormat == IMGFormat.bmp ? "bmp" : "jpg");
-
-
-
-                using (FileStream fs = File.OpenRead(strFile))
-                {
-                    using (Image img = Image.FromStream(fs))
-                    {
-                        using (var cogImg = new CogImage24PlanarColor((Bitmap)img.Clone()))
-                        {
-                            cogDisp.Image = cogImg.CopyBase(CogImageCopyModeConstants.CopyPixels);
-                            cogResDisp.Image = cogImg.CopyBase(CogImageCopyModeConstants.CopyPixels);
-
-
-                            _cogSendImg = cogImg.CopyBase(CogImageCopyModeConstants.CopyPixels);
-                        }
-                    }
-                }
-
-                File.Delete(strFile);
-            }
-            catch { }
-        }
 
         public void LoadGraphicParam()
         {
@@ -1724,81 +1658,6 @@ namespace VisionSystem
 
         }
 
-        private void SendImage(Bitmap bmpImg)
-        {
-            try
-            {
-                Image Img = (Bitmap)bmpImg.Clone();
-                if (_modbus.ResImgType == ResImgType.TCP)
-                {
-                    byte[] bytes = null;
-
-                    if (_requestMode == RequestMode.LIVE)
-                    {
-                        MemoryStream ms = new MemoryStream();
-                        Img.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
-                        bytes = ms.ToArray();
-                    }
-                    else
-                    {
-                        ImageConverter imageConverter = new ImageConverter();
-                        bytes = (byte[])imageConverter.ConvertTo(Img, typeof(byte[]));
-                    }
-
-                    if (bytes != null && bytes.Length > 0)
-                    {
-                        if (_OnSendImg != null)
-                            _OnSendImg(_nIdx, bytes);
-                    }
-
-                    _cogSendImg = null;
-                }
-                else
-                {
-                    if (Img != null)
-                    {
-                        var strPath = string.Format(@"C:\\Vasim\\GrabImage", _modbus.strClientIP);
-                        DirectoryInfo dr = new DirectoryInfo(strPath);
-                        if (!dr.Exists)
-                            dr.Create();
-
-                        ICogImage cogImg = null;
-                        if (Img.PixelFormat == PixelFormat.Format8bppIndexed)
-                            cogImg = new CogImage8Grey((Bitmap)Img);
-                        else
-                            cogImg = new CogImage24PlanarColor((Bitmap)Img);
-
-                        if (_SaveImgParam._OriginImageFormat == IMGFormat.bmp)
-                        {
-                            using (CogImageFileBMP cogBMP = new CogImageFileBMP())
-                            {
-                                cogBMP.Open(strPath + "\\" + "Cam" + (_nIdx + 1).ToString() + ".bmp", CogImageFileModeConstants.Write);
-                                cogBMP.Append(cogImg.CopyBase(CogImageCopyModeConstants.CopyPixels));
-                                cogBMP.Close();
-                                cogBMP.Dispose();
-                            }
-                        }
-                        else
-                        {
-                            using (CogImageFileJPEG cogJPG = new CogImageFileJPEG())
-                            {
-                                cogJPG.Open(strPath + "\\" + "Cam" + (_nIdx + 1).ToString() + ".jpg", CogImageFileModeConstants.Write);
-                                cogJPG.Append(cogImg.CopyBase(CogImageCopyModeConstants.CopyPixels));
-                                cogJPG.Close();
-                                cogJPG.Dispose();
-                            }
-                        }
-
-                        Delay(200);
-                        _bGrabEnd = true;
-
-                        Img.Dispose();
-                        Img = null;
-                    }
-                }
-            }
-            catch { }
-        }
         private bool GetDimension(string strWidth, string strHeight, ref int nGrabphicCnt)
         {
             bool bRes = true;
@@ -1881,8 +1740,12 @@ namespace VisionSystem
         private bool GetPinData(PinInsp pinInsp, string strData, ref int nGraphicCnt)
         {
             bool bRes = true;
+            bool bInsp = false;
 
-            bool bInsp = (pinInsp == PinInsp.PinMaster) ? _modelParam[_nIdx].bPinChange : _modelParam[_nIdx].bPinInfo;
+
+            if (pinInsp == PinInsp.PinMaster)            
+                bInsp = _modelParam[_nIdx].bPinChange;         
+
             if (bInsp)
             {
                 CogGraphicLabel[] coglbl = new CogGraphicLabel[2];
@@ -1890,12 +1753,7 @@ namespace VisionSystem
                 coglbl[0] = new CogGraphicLabel();
                 coglbl[1] = new CogGraphicLabel();
 
-                if (_modelParam[_nIdx].bPinInfo)
-                {
-                    strPinMaster[0] = _modelParam[_nIdx].strPinInfoMaster;
-                    strPinMaster[1] = _modelParam[_nIdx].strPinInfoMasterResult;
-                }
-                else if (_modelParam[_nIdx].bPinChange)
+                if (_modelParam[_nIdx].bPinChange)
                 {
                     strPinMaster[0] = _modelParam[_nIdx].strPinMaster;
                     strPinMaster[1] = _modelParam[_nIdx].strPinMasterResult;
@@ -1939,18 +1797,7 @@ namespace VisionSystem
             return bRes;
         }
 
-        private bool GetPointData(string strData)
-        {
-            bool bRes = true;
-            if (!_modelParam[_nIdx].bDefectInsp)
-            {
-                if (strData == "1")
-                    bRes = true;
-                else
-                    bRes = false;
-            }
-            return bRes;
-        }
+       
 
         #endregion
 
@@ -2257,19 +2104,10 @@ namespace VisionSystem
                         }
                     }
 
-                    _bVIDIInspEnd = true;
+                    
                     Delay(200);
 
 
-                    if (_requestMode != RequestMode.NONE)
-                    {
-                        using (CogImage24PlanarColor cogSaveImg = new CogImage24PlanarColor((Bitmap)cogResDisp.CreateContentBitmap(Cognex.VisionPro.Display.CogDisplayContentBitmapConstants.Display)))
-                        {
-                            _cogSaveImg = cogSaveImg.CopyBase(CogImageCopyModeConstants.CopyPixels);
-                            Thread threadSendImg = new Thread(() => SendImage(_cogSaveImg.ToBitmap()));
-                            threadSendImg.Start();
-                        }
-                    }
 
                     if (_SaveImgParam._bOriginImageSave)
                     {
@@ -2574,11 +2412,7 @@ namespace VisionSystem
                         _cbVproOKColor[i].SelectedIndex = cbOKColor.SelectedIndex;
                 }
 
-                if (_cbVIDIOKColor != null)
-                {
-                    for (var i = 0; i < _cbVIDIOKColor.Length; i++)
-                        _cbVIDIOKColor[i].SelectedIndex = cbOKColor.SelectedIndex;
-                }
+              
             }
             catch { }
         }
@@ -2593,11 +2427,7 @@ namespace VisionSystem
                         _cbVproNGColor[i].SelectedIndex = cbNGColor.SelectedIndex;
                 }
 
-                if (_cbVIDINGColor != null)
-                {
-                    for (var i = 0; i < _cbVIDINGColor.Length; i++)
-                        _cbVIDINGColor[i].SelectedIndex = cbNGColor.SelectedIndex;
-                }
+                
             }
             catch { }
         }

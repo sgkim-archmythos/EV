@@ -213,8 +213,7 @@ namespace VisionSystem
                 txtWidth.Text = _plcParam.strWriteWidth;
                 txtHeight.Text = _plcParam.strWriteHeight;
                 txtPinChange.Text = _plcParam.strWritePinChange;
-                txtReadModelDetailNo.Text = _plcParam.strReadModelDetailNo;
-                txtReadModelDetailNoCnt.Text = _plcParam.strReadModelDetailNoCnt;
+               
 
                 if (_plcParam.ReadFormat == PLCDataType.Binary)
                     radReadBinary.Checked = true;
@@ -299,8 +298,7 @@ namespace VisionSystem
                 _plcParam.strWriteWidth = txtWidth.Text;
                 _plcParam.strWriteHeight = txtHeight.Text;
                 _plcParam.strWritePinChange = txtPinChange.Text;
-                _plcParam.strReadModelDetailNo = txtReadModelDetailNo.Text;
-                _plcParam.strReadModelDetailNoCnt = txtReadModelDetailNoCnt.Text;
+               
 
                 if (radReadBinary.Checked)
                     _plcParam.ReadFormat = PLCDataType.Binary;

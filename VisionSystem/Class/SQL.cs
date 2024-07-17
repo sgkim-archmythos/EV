@@ -612,149 +612,6 @@ public class SQL
         Conn.Dispose();
     }
 
-    public void GetModbusParam(string strProcess, DBInfo dbInfo, ref ModbusParam modbusParam)
-    {
-        if (string.IsNullOrEmpty(strProcess))
-            return;
-
-        var Conn = new SqlConnection();
-
-        try
-        {
-            if (DBConnect(ref Conn, dbInfo))
-            {
-                using (SqlCommand CMD = new SqlCommand("Select * from MODBUSPARAM where [PROCESSNAME] = @PROCESSNAME", Conn))
-                {
-                    CMD.Parameters.AddWithValue("@PROCESSNAME", strProcess);
-
-                    using (var adapter = new SqlDataAdapter())
-                    {
-                        using (var ds = new DataSet())
-                        {
-                            adapter.SelectCommand = CMD;
-                            adapter.SelectCommand.ExecuteNonQuery();
-
-                            ds.Clear();
-                            adapter.Fill(ds);
-
-                            if (ds.Tables[0].Rows.Count > 0)
-                            {
-                                modbusParam.strIP = ds.Tables[0].Rows[0].ItemArray[2].ToString();
-                                modbusParam.strPort = ds.Tables[0].Rows[0].ItemArray[3].ToString();
-                                modbusParam.strClientIP = ds.Tables[0].Rows[0].ItemArray[4].ToString();
-                                int.TryParse(ds.Tables[0].Rows[0].ItemArray[5].ToString(), out modbusParam.nReadCnt);
-                                int.TryParse(ds.Tables[0].Rows[0].ItemArray[6].ToString(), out modbusParam.nCamStatus);
-                                int.TryParse(ds.Tables[0].Rows[0].ItemArray[7].ToString(), out modbusParam.nGrabStart);
-                                int.TryParse(ds.Tables[0].Rows[0].ItemArray[8].ToString(), out modbusParam.nGrabEnd);
-                                int.TryParse(ds.Tables[0].Rows[0].ItemArray[9].ToString(), out modbusParam.nInspStart);
-                                int.TryParse(ds.Tables[0].Rows[0].ItemArray[10].ToString(), out modbusParam.nInspEnd);
-                                int.TryParse(ds.Tables[0].Rows[0].ItemArray[11].ToString(), out modbusParam.nModelAddr);
-                                int.TryParse(ds.Tables[0].Rows[0].ItemArray[12].ToString(), out modbusParam.nLotIdAddr);
-                                int.TryParse(ds.Tables[0].Rows[0].ItemArray[13].ToString(), out modbusParam.nChangeParametersAddr);
-
-                                modbusParam.ResImgType = ds.Tables[0].Rows[0].ItemArray[14].ToString() == "" ? ResImgType.NETWORK : (ResImgType)Enum.Parse(typeof(ResImgType), ds.Tables[0].Rows[0].ItemArray[14].ToString());
-                                modbusParam.strTcpPort = ds.Tables[0].Rows[0].ItemArray[15].ToString();
-                            }
-                        }
-                    }
-                }
-
-                Conn.Close();
-            }
-        }
-        catch { }
-
-        Conn.Dispose();
-    }
-
-    public void SaveModubInfo(string strProcess, DBInfo dbInfo, ModbusParam modbusParam)
-    {
-        if (string.IsNullOrEmpty(strProcess))
-            return;
-
-        var Conn = new SqlConnection();
-
-        try
-        {
-            if (DBConnect(ref Conn, dbInfo))
-            {
-                using (SqlCommand CMD = new SqlCommand("Select * from MODBUSPARAM where [PROCESSNAME] = @PROCESSNAME", Conn))
-                {
-                    CMD.Parameters.AddWithValue("@PROCESSNAME", strProcess);
-
-                    using (var adapter = new SqlDataAdapter())
-                    {
-                        using (var ds = new DataSet())
-                        {
-                            adapter.SelectCommand = CMD;
-                            adapter.SelectCommand.ExecuteNonQuery();
-
-                            ds.Clear();
-                            adapter.Fill(ds);
-
-                            if (ds.Tables[0].Rows.Count > 0)
-                            {
-                                CMD.CommandText = "Update MODBUSPARAM Set [IP] = @IP, [PORT] = @PORT, [CLIENTIP] = @CLIENTIP, [READCNT] = @READCNT, [CAMSTATUSADDR] = @CAMSTATUSADDR," +
-                                    "[GRABSTARTADDR] = @GRABSTARTADDR, [GRABENDADDR] = @GRABENDADDR, [INSPSTARTADDR] = @INSPSTARTADDR, [INSPENDADDR] = @INSPENDADDR, [MODELCHANGEADDR] = @MODELCHANGEADDR, [LOTNOCHANGEADDR] = @LOTNOCHANGEADDR, " +
-                                    "[CHANGEPARAMADDR] = @CHANGEPARAMADDR, [RESULTIMGTYPE] = @RESULTIMGTYPE, [TCPPORT] = @TCPPORT where [PROCESSNAME] = @PROCESSNAME";
-
-                                CMD.Parameters.Clear();
-
-                                CMD.Parameters.AddWithValue("@IP", modbusParam.strIP);
-                                CMD.Parameters.AddWithValue("@PORT", modbusParam.strPort);
-                                CMD.Parameters.AddWithValue("@CLIENTIP", modbusParam.strClientIP);
-                                CMD.Parameters.AddWithValue("@READCNT", modbusParam.nReadCnt);
-                                CMD.Parameters.AddWithValue("@CAMSTATUSADDR", modbusParam.nCamStatus);
-                                CMD.Parameters.AddWithValue("@GRABSTARTADDR", modbusParam.nGrabStart);
-                                CMD.Parameters.AddWithValue("@GRABENDADDR", modbusParam.nGrabEnd);
-                                CMD.Parameters.AddWithValue("@INSPSTARTADDR", modbusParam.nInspStart);
-                                CMD.Parameters.AddWithValue("@INSPENDADDR", modbusParam.nInspEnd);
-                                CMD.Parameters.AddWithValue("@MODELCHANGEADDR", modbusParam.nModelAddr);
-                                CMD.Parameters.AddWithValue("@LOTNOCHANGEADDR", modbusParam.nLotIdAddr);
-                                CMD.Parameters.AddWithValue("@CHANGEPARAMADDR", modbusParam.nChangeParametersAddr);
-                                CMD.Parameters.AddWithValue("@RESULTIMGTYPE", modbusParam.ResImgType.ToString());
-                                CMD.Parameters.AddWithValue("@TCPPORT", modbusParam.strTcpPort);
-                                CMD.Parameters.AddWithValue("@PROCESSNAME", strProcess);
-                            }
-                            else
-                            {
-                                CMD.CommandText = "INSERT INTO MODBUSPARAM ([PROCESSNAME], [IP], [PORT], [CLIENTIP], [READCNT], [CAMSTATUSADDR], [INSPSTARTADDR]," +
-                                    "[GRABSTARTADDR], [GRABENDADDR], [INSPENDADDR], [MODELCHANGEADDR], [LOTNOCHANGEADDR], [CHANGEPARAMADDR], [RESULTIMGTYPE], [TCPPORT]) Values " +
-                                    "(@PROCESSNAME, @IP, @PORT, @CLIENTIP, @READCNT, @CAMSTATUSADDR, @GRABSTARTADDR, @GRABENDADDR, @INSPSTARTADDR, @INSPENDADDR, @MODELCHANGEADDR, @LOTNOCHANGEADDR, @CHANGEPARAMADDR," +
-                                    "@RESULTIMGTYPE, @TCPPORT)";
-
-                                CMD.Parameters.Clear();
-
-                                CMD.Parameters.AddWithValue("@PROCESSNAME", strProcess);
-                                CMD.Parameters.AddWithValue("@IP", modbusParam.strIP);
-                                CMD.Parameters.AddWithValue("@PORT", modbusParam.strPort);
-                                CMD.Parameters.AddWithValue("@CLIENTIP", modbusParam.strClientIP);
-                                CMD.Parameters.AddWithValue("@READCNT", modbusParam.nReadCnt);
-                                CMD.Parameters.AddWithValue("@CAMSTATUSADDR", modbusParam.nCamStatus);
-                                CMD.Parameters.AddWithValue("@GRABSTARTADDR", modbusParam.nGrabStart);
-                                CMD.Parameters.AddWithValue("@GRABENDADDR", modbusParam.nGrabEnd);
-                                CMD.Parameters.AddWithValue("@INSPSTARTADDR", modbusParam.nInspStart);
-                                CMD.Parameters.AddWithValue("@INSPENDADDR", modbusParam.nInspEnd);
-                                CMD.Parameters.AddWithValue("@MODELCHANGEADDR", modbusParam.nModelAddr);
-                                CMD.Parameters.AddWithValue("@LOTNOCHANGEADDR", modbusParam.nLotIdAddr);
-                                CMD.Parameters.AddWithValue("@CHANGEPARAMADDR", modbusParam.nChangeParametersAddr);
-                                CMD.Parameters.AddWithValue("@RESULTIMGTYPE", modbusParam.ResImgType.ToString());
-                                CMD.Parameters.AddWithValue("@TCPPORT", modbusParam.strTcpPort);
-                            }
-
-                            CMD.ExecuteNonQuery();
-                        }
-                    }
-                }
-
-                Conn.Close();
-            }
-        }
-        catch { }
-
-        Conn.Dispose();
-    }
-
     public void GetCamInfo(string strProcName, int nCamNo, DBInfo dbInfo, ref CamPram camParam)
     {
         if (string.IsNullOrEmpty(strProcName))
@@ -839,11 +696,11 @@ public class SQL
                                 CMD.CommandText = "Update PLCINFO Set [PLCTYPE] = @PLCTYPE, [IP] = @IP, [PORT] = @PORT, [RACKNO] = @RACKNO, [SLOTNO] = @SLOTNO," +
                                     "[HEARTBEAT] = @HEARTBEAT, [HEARTTIME] = @HEARTTIME, [TRIGGERSIGNAL] = @TRIGGERSIGNAL, [OKSIGNAL] = @OKSIGNAL, " +
                                     "[NGSIGNAL] = @NGSIGNAL, [SIGNALFORMAT] = @SIGNALFORMAT, [READTIME] = @READTIME, [READADDR] = @READADDR, [READADDRDEV] = @READADDRDEV, [READCNT] = @READCNT, " +
-                                    "[READFORMAT] = @READFORMAT, [READTRIGGERADDR] = @READTRIGGERADDR, [READTRIGGERCNTADDR] = @READTRIGGERCNTADDR, [READMODELADDR] = @READMODELADDR, [READMODELADDRCNT] = @READMODELADDRCNT, [READLOTNOADDR] = @READLOTNOADDR, [READNOTNOADDRCNT] = @READNOTNOADDRCNT, " +
-                                    "[WRITESTARTADDR] = @WRITESTARTADDR, [WRITESTAARTADDRDEV] = @WRITESTAARTADDRDEV, [WRITEGRABCOMPLETEADDR] = @WRITEGRABCOMPLETEADDR, [WRITEMODELADDR] = @WRITEMODELADDR, [WRITELOTADDR] = @WRITELOTADDR," +
+                                    "[READFORMAT] = @READFORMAT, [READTRIGGERADDR] = @READTRIGGERADDR, [READTRIGGERCNTADDR] = @READTRIGGERCNTADDR, [READMODELADDR] = @READMODELADDR, [READMODELCNTADDR] = @READMODELCNTADDR, [READLOTNOADDR] = @READLOTNOADDR, [READNOTNOCNTADDR] = @READNOTNOCNTADDR, " +
+                                    "[WRITESTARTADDR] = @WRITESTARTADDR, [WRITEDEVICE] = @WRITEDEVICE, [WRITEGRABCOMPLETEADDR] = @WRITEGRABCOMPLETEADDR, [WRITEMODELADDR] = @WRITEMODELADDR, [WRITELOTADDR] = @WRITELOTADDR," +
                                     "[WRITEPOINTRESADDR] = @WRITEPOINTRESADDR, [WRITETOTALRESADDR] = @WRITETOTALRESADDR, [WRITEBCRDATAADDR] = @WRITEBCRDATAADDR, [WRITEALIGNXADDR] = @WRITEALIGNXADDR, [WRITEALIGNYADDR] = @WRITEALIGNYADDR," +
                                     "[WRITEALIGNRADDR] = @WRITEALIGNRADDR, [WRITEWIDTHADDR] = @WRITEWIDTHADDR, [WRITEHEIGHTADDR] = @WRITEHEIGHTADDR, [WRITEPINCHANGEADDR] = @WRITEPINCHANGEADDR, [STATUS] = @STATUS," +
-                                    "[READMODELDETAILNO] = @READMODELDETAILNO, [READMODELDETAILNOCNT] = @READMODELDETAILNOCNT where [PROCESSNAME] = @PROCESSNAME";
+                                    "where [PROCESSNAME] = @PROCESSNAME";
 
 
                                 CMD.Parameters.Clear();
@@ -867,11 +724,11 @@ public class SQL
                                 CMD.Parameters.AddWithValue("@READTRIGGERADDR", plcParam.strReadTrigger);
                                 CMD.Parameters.AddWithValue("@READTRIGGERCNTADDR", plcParam.strReadTriggerCnt);
                                 CMD.Parameters.AddWithValue("@READMODELADDR", plcParam.strReadModel);
-                                CMD.Parameters.AddWithValue("@READMODELADDRCNT", plcParam.strReadModelCnt);
+                                CMD.Parameters.AddWithValue("@READMODELCNTADDR", plcParam.strReadModelCnt);
                                 CMD.Parameters.AddWithValue("@READLOTNOADDR", plcParam.strReadLot);
-                                CMD.Parameters.AddWithValue("@READNOTNOADDRCNT", plcParam.strReadLotCnt);
+                                CMD.Parameters.AddWithValue("@READNOTNOCNTADDR", plcParam.strReadLotCnt);
                                 CMD.Parameters.AddWithValue("@WRITESTARTADDR", plcParam.strWrite);
-                                CMD.Parameters.AddWithValue("@WRITESTAARTADDRDEV", plcParam.strWriteDev);
+                                CMD.Parameters.AddWithValue("@WRITEDEVICE", plcParam.strWriteDev);
                                 CMD.Parameters.AddWithValue("@WRITEGRABCOMPLETEADDR", plcParam.strWriteGrabComplete);
                                 CMD.Parameters.AddWithValue("@WRITEMODELADDR", plcParam.strWriteModelChange);
                                 CMD.Parameters.AddWithValue("@WRITELOTADDR", plcParam.strWriteLotComplete);
@@ -885,19 +742,18 @@ public class SQL
                                 CMD.Parameters.AddWithValue("@WRITEHEIGHTADDR", plcParam.strWriteHeight);
                                 CMD.Parameters.AddWithValue("@WRITEPINCHANGEADDR", plcParam.strWritePinChange);
                                 CMD.Parameters.AddWithValue("@STATUS", plcParam.bConnect);
-                                CMD.Parameters.AddWithValue("@READMODELDETAILNO", plcParam.strReadModelDetailNo);
-                                CMD.Parameters.AddWithValue("@READMODELDETAILNOCNT", plcParam.strReadModelDetailNoCnt);
+                               
                                 CMD.Parameters.AddWithValue("@PROCESSNAME", strProcess);
                             }
                             else
                             {
                                 CMD.CommandText = "INSERT INTO PLCINFO ([PROCESSNAME], [PLCTYPE], [IP], [PORT], [RACKNO], [SLOTNO]," +
                                     "[HEARTBEAT], [HEARTTIME], [TRIGGERSIGNAL], [OKSIGNAL], [NGSIGNAL], [SIGNALFORMAT], [READTIME], [READADDR], [READADDRDEV], [READCNT], " +
-                                    "[READFORMAT], [READTRIGGERADDR], [READTRIGGERCNTADDR], [READMODELADDR], [READMODELADDRCNT], [READLOTNOADDR], [READNOTNOADDRCNT], [WRITESTARTADDR], [WRITESTAARTADDRDEV], [WRITEGRABCOMPLETEADDR], [WRITEMODELADDR], [WRITELOTADDR]," +
-                                    "[WRITEPOINTRESADDR], [WRITETOTALRESADDR], [WRITEBCRDATAADDR], [WRITEALIGNXADDR], [WRITEALIGNYADDR],[WRITEALIGNRADDR], [WRITEWIDTHADDR], [WRITEHEIGHTADDR], [WRITEPINCHANGEADDR], [STATUS], [READMODELTETAILNO], [READMODELTETAILNOCNT])" +
+                                    "[READFORMAT], [READTRIGGERADDR], [READTRIGGERCNTADDR], [READMODELADDR], [READMODELCNTADDR], [READLOTNOADDR], [READNOTNOCNTADDR], [WRITESTARTADDR], [WRITEDEVICE], [WRITEGRABCOMPLETEADDR], [WRITEMODELADDR], [WRITELOTADDR]," +
+                                    "[WRITEPOINTRESADDR], [WRITETOTALRESADDR], [WRITEBCRDATAADDR], [WRITEALIGNXADDR], [WRITEALIGNYADDR],[WRITEALIGNRADDR], [WRITEWIDTHADDR], [WRITEHEIGHTADDR], [WRITEPINCHANGEADDR], [STATUS])" +
                                     "Values (@PROCESSNAME, @PLCTYPE, @IP, @PORT, @RACKNO, @SLOTNO, @HEARTBEAT, @HEARTTIME, @TRIGGERSIGNAL, @OKSIGNAL, @NGSIGNAL, @SIGNALFORMAT, @READTIME, @READADDR, @READADDRDEV, @READCNT, " +
-                                    "@READFORMAT, @READTRIGGERADDR, @READTRIGGERCNTADDR, @READMODELADDR, @READMODELADDRCNT, @READLOTNOADDR, @READNOTNOADDRCNT, @WRITESTARTADDR, @WRITESTAARTADDRDEV, @WRITEGRABCOMPLETEADDR, @WRITEMODELADDR, @WRITELOTADDR," +
-                                    "@WRITEPOINTRESADDR, @WRITETOTALRESADDR, @WRITEBCRDATAADDR, @WRITEALIGNXADDR, @WRITEALIGNYADDR, @WRITEALIGNRADDR, @WRITEWIDTHADDR, @WRITEHEIGHTADDR, @WRITEPINCHANGEADDR, @STATUS, @READMODELDETAILNO, @READMODELDETAILNOCNT)";
+                                    "@READFORMAT, @READTRIGGERADDR, @READTRIGGERCNTADDR, @READMODELADDR, @READMODELCNTADDR, @READLOTNOADDR, @READNOTNOCNTADDR, @WRITESTARTADDR, @WRITEDEVICE, @WRITEGRABCOMPLETEADDR, @WRITEMODELADDR, @WRITELOTADDR," +
+                                    "@WRITEPOINTRESADDR, @WRITETOTALRESADDR, @WRITEBCRDATAADDR, @WRITEALIGNXADDR, @WRITEALIGNYADDR, @WRITEALIGNRADDR, @WRITEWIDTHADDR, @WRITEHEIGHTADDR, @WRITEPINCHANGEADDR, @STATUS)";
 
                                 CMD.Parameters.Clear();
 
@@ -921,11 +777,11 @@ public class SQL
                                 CMD.Parameters.AddWithValue("@READTRIGGERADDR", plcParam.strReadTrigger);
                                 CMD.Parameters.AddWithValue("@READTRIGGERCNTADDR", plcParam.strReadTrigger);
                                 CMD.Parameters.AddWithValue("@READMODELADDR", plcParam.strReadModel);
-                                CMD.Parameters.AddWithValue("@READMODELADDRCNT", plcParam.strReadModelCnt);
+                                CMD.Parameters.AddWithValue("@READMODELCNTADDR", plcParam.strReadModelCnt);
                                 CMD.Parameters.AddWithValue("@READLOTNOADDR", plcParam.strReadLot);
-                                CMD.Parameters.AddWithValue("@READNOTNOADDRCNT", plcParam.strReadLotCnt);
+                                CMD.Parameters.AddWithValue("@READNOTNOCNTADDR", plcParam.strReadLotCnt);
                                 CMD.Parameters.AddWithValue("@WRITESTARTADDR", plcParam.strWrite);
-                                CMD.Parameters.AddWithValue("@WRITESTAARTADDRDEV", plcParam.strWriteDev);
+                                CMD.Parameters.AddWithValue("@WRITEDEVICE", plcParam.strWriteDev);
                                 CMD.Parameters.AddWithValue("@WRITEGRABCOMPLETEADDR", plcParam.strWriteGrabComplete);
                                 CMD.Parameters.AddWithValue("@WRITEMODELADDR", plcParam.strWriteModelChange);
                                 CMD.Parameters.AddWithValue("@WRITELOTADDR", plcParam.strWriteLotComplete);
@@ -939,8 +795,7 @@ public class SQL
                                 CMD.Parameters.AddWithValue("@WRITEHEIGHTADDR", plcParam.strWriteHeight);
                                 CMD.Parameters.AddWithValue("@WRITEPINCHANGEADDR", plcParam.strWritePinChange);
                                 CMD.Parameters.AddWithValue("@STATUS", plcParam.bConnect.ToString());
-                                CMD.Parameters.AddWithValue("@READMODELDETAILNO", plcParam.strReadModelDetailNo);
-                                CMD.Parameters.AddWithValue("@READMODELDETAILNOCNT", plcParam.strReadModelDetailNoCnt);
+                                
 
                             }
 
@@ -1021,8 +876,7 @@ public class SQL
                                 plcParam.strWriteHeight = ds.Tables[0].Rows[0].ItemArray[36].ToString();
                                 plcParam.strWritePinChange = ds.Tables[0].Rows[0].ItemArray[37].ToString();
                                 bool.TryParse(ds.Tables[0].Rows[0].ItemArray[38].ToString(), out plcParam.bConnect);
-                                plcParam.strReadModelDetailNo = ds.Tables[0].Rows[0].ItemArray[39].ToString();
-                                plcParam.strReadModelDetailNoCnt = ds.Tables[0].Rows[0].ItemArray[40].ToString();
+                                
                             }
                         }
                     }
@@ -1067,7 +921,7 @@ public class SQL
                             {
                                 if (ds.Tables[0].Rows.Count > 0)
                                 {
-                                    CMD.CommandText = "Update GRAPHICTOOLPARAM Set [TOOLNAME] = @TOOLNAME, [GRAPHICUSE] = @GRAPHICUSE, [GRAPHICOKCOLOR] = @GRAPHICOKCOLOR, [GRAPHICNGCOLOR] = @GRAPHICNGCOLOR, [GRABHICLINETHICKNESS] = @GRABHICLINETHICKNESS, " +
+                                    CMD.CommandText = "Update GRAPHICTOOLPARAM Set [TOOLNAME] = @TOOLNAME, [GRAPHICUSE] = @GRAPHICUSE, [GRAPHICOKCOLOR] = @GRAPHICOKCOLOR, [GRAPHICNGCOLOR] = @GRAPHICNGCOLOR, [GRAPHICLINETHICKNESS] = @GRAPHICLINETHICKNESS, " +
                                         "where [PROCESSNAME] = @PROCESSNAME and [MODELNAME] = @MODELNAME and [CAMNO] = @CAMNO and [TOOLNO] = @TOOLNO";
 
                                     CMD.Parameters.Clear();
@@ -1076,7 +930,7 @@ public class SQL
                                     CMD.Parameters.AddWithValue("@GRAPHICUSE", graphicTool.bUse[i].ToString());
                                     CMD.Parameters.AddWithValue("@GRAPHICOKCOLOR", graphicTool.strOKColor[i]);
                                     CMD.Parameters.AddWithValue("@GRAPHICNGCOLOR", graphicTool.strNGColor[i]);
-                                    CMD.Parameters.AddWithValue("@GRABHICLINETHICKNESS", graphicTool.nLineThick[i]);
+                                    CMD.Parameters.AddWithValue("@GRAPHICLINETHICKNESS", graphicTool.nLineThick[i]);
                                     
                                     CMD.Parameters.AddWithValue("@PROCESSNAME", strProcName);
                                     CMD.Parameters.AddWithValue("@MODELNAME", strModelName);
@@ -1086,8 +940,8 @@ public class SQL
                                 else
                                 {
                                     CMD.CommandText = "INSERT INTO GRAPHICTOOLPARAM ([PROCESSNAME], [MODELNAME], [CAMNO], [TOOLNO], [TOOLNAME], [GRAPHICUSE]," +
-                                        "[GRAPHICOKCOLOR], [GRAPHICNGCOLOR], [GRABHICLINETHICKNESS]) " +
-                                        "Values (@PROCESSNAME, @MODELNAME, @CAMNO, @TOOLNO, @TOOLNAME, @GRAPHICUSE,@GRAPHICOKCOLOR, @GRAPHICNGCOLOR, @GRABHICLINETHICKNESS)";
+                                        "[GRAPHICOKCOLOR], [GRAPHICNGCOLOR], [GRAPHICLINETHICKNESS]) " +
+                                        "Values (@PROCESSNAME, @MODELNAME, @CAMNO, @TOOLNO, @TOOLNAME, @GRAPHICUSE,@GRAPHICOKCOLOR, @GRAPHICNGCOLOR, @GRAPHICLINETHICKNESS)";
 
                                     CMD.Parameters.Clear();
 
@@ -1099,7 +953,7 @@ public class SQL
                                     CMD.Parameters.AddWithValue("@GRAPHICUSE", graphicTool.bUse[i].ToString());
                                     CMD.Parameters.AddWithValue("@GRAPHICOKCOLOR", graphicTool.strOKColor[i]);
                                     CMD.Parameters.AddWithValue("@GRAPHICNGCOLOR", graphicTool.strNGColor[i]);
-                                    CMD.Parameters.AddWithValue("@GRABHICLINETHICKNESS", graphicTool.nLineThick[i]);
+                                    CMD.Parameters.AddWithValue("@GRAPHICLINETHICKNESS", graphicTool.nLineThick[i]);
                                     
 
                                 }
@@ -1186,7 +1040,7 @@ public class SQL
         {
             if (DBConnect(ref Conn, dbInfo))
             {
-                using (SqlCommand CMD = new SqlCommand("Select * from GRAPHICREWVIEWPARAM where [PROCESSNAME] = @PROCESSNAME and [MODELNAME] = @MODELNAME and [CAMNO] = @CAMNO", Conn))
+                using (SqlCommand CMD = new SqlCommand("Select * from GRAPHICRESVIEWPARAM where [PROCESSNAME] = @PROCESSNAME and [MODELNAME] = @MODELNAME and [CAMNO] = @CAMNO", Conn))
                 {
                     CMD.Parameters.AddWithValue("@PROCESSNAME", strProcName);
                     CMD.Parameters.AddWithValue("@MODELNAME", strModelName);
@@ -1204,7 +1058,7 @@ public class SQL
 
                             if (ds.Tables[0].Rows.Count > 0)
                             {
-                                CMD.CommandText = "Update GRAPHICREWVIEWPARAM Set [TXTALIGN] = @TXTALIGN, [FONTSIZE] = @FONTSIZE," +
+                                CMD.CommandText = "Update GRAPHICRESVIEWPARAM Set [TXTALIGN] = @TXTALIGN, [FONTSIZE] = @FONTSIZE," +
                                     "[TXTPOSX] = @TXTPOSX, [TXTPOSY] = @TXTPOSY, [RESULTFONTSIZE] = @RESULTFONTSIZE, [RESULTTXTPOSX] = @RESULTTXTPOSX, [RESULTTXTPOSY] = @RESULTTXTPOSY" +
                                     " where [PROCESSNAME] = @PROCESSNAME and [MODELNAME] = @MODELNAME and [CAMNO] = @CAMNO";
 
@@ -1224,7 +1078,7 @@ public class SQL
                             }
                             else
                             {
-                                CMD.CommandText = "INSERT INTO GRAPHICREWVIEWPARAM ([PROCESSNAME], [MODELNAME], [CAMNO], [TXTALIGN], [FONTSIZE]," +
+                                CMD.CommandText = "INSERT INTO GRAPHICRESVIEWPARAM ([PROCESSNAME], [MODELNAME], [CAMNO], [TXTALIGN], [FONTSIZE]," +
                                     "[TXTPOSX], [TXTPOSY], [RESULTFONTSIZE], [RESULTTXTPOSX], [RESULTTXTPOSY]) Values " +
                                     "(@PROCESSNAME, @MODELNAME, @CAMNO, @TXTALIGN, @FONTSIZE, @TXTPOSX, @TXTPOSY, @RESULTFONTSIZE, @RESULTTXTPOSX, @RESULTTXTPOSY)";
 
@@ -1266,7 +1120,7 @@ public class SQL
         {
             if (DBConnect(ref Conn, dbInfo))
             {
-                using (SqlCommand CMD = new SqlCommand("Select * from GRAPHICREWVIEWPARAM where [PROCESSNAME] = @PROCESSNAME and [MODELNAME] = @MODELNAME and [CAMNO] = @CAMNO", Conn))
+                using (SqlCommand CMD = new SqlCommand("Select * from GRAPHICRESVIEWPARAM where [PROCESSNAME] = @PROCESSNAME and [MODELNAME] = @MODELNAME and [CAMNO] = @CAMNO", Conn))
                 {
                     CMD.Parameters.AddWithValue("@PROCESSNAME", strProcName);
                     CMD.Parameters.AddWithValue("@MODELNAME", strModelName);
@@ -1331,13 +1185,13 @@ public class SQL
 
                             if (ds.Tables[0].Rows.Count > 0)
                             {
-                                CMD.CommandText = "Update VISIONCAMINFO Set [VENDER] = @VENDER, [CAMNO] = @CAMNO1, [STATUS] = @STATUS, [MODEL] = @MODEL, [RESOLUTION] = @RESOLUTION, " +
+                                CMD.CommandText = "Update VISIONCAMINFO Set [VENDER] = @VENDER, [CAMNO] = @CAMNO, [STATUS] = @STATUS, [MODEL] = @MODEL, [RESOLUTION] = @RESOLUTION, " +
                                     "[SERIALNO] = @SERIALNO, [CONNECTTYPE] = @CONNECTTYPE, [COPYTYPE] = @COPYTYPE, [IP] = @IP, [EXPOSURE] = @EXPOSURE, [CAMERATYPE] = @CAMERATYPE, [PIXELFORMAT] = @PIXELFORMAT, [FORMATVALUE] = @FORMATVALUE" +
-                                    " where [CAMNO] = @CAMNO2 and [PROCESSNAME] = @PROCESSNAME";
+                                    " where [PROCESSNAME] = @PROCESSNAME";
                                 CMD.Parameters.Clear();
 
                                 CMD.Parameters.AddWithValue("@VENDER", camParam.strVender);
-                                CMD.Parameters.AddWithValue("@CAMNO1", nCamNo + 1);
+                                CMD.Parameters.AddWithValue("@CAMNO", nCamNo + 1);
                                 CMD.Parameters.AddWithValue("@STATUS", camParam.bConnect ? "CONNECTED" : "DISCONNECTED");
                                 CMD.Parameters.AddWithValue("@Model", camParam.strModel);
                                 CMD.Parameters.AddWithValue("@RESOLUTION", camParam.strResolution);
@@ -1349,7 +1203,7 @@ public class SQL
                                 CMD.Parameters.AddWithValue("@CAMERATYPE", camParam.strCamType);
                                 CMD.Parameters.AddWithValue("@PIXELFORMAT", camParam.strCamFormat);
                                 CMD.Parameters.AddWithValue("@FORMATVALUE", camParam.strPixelFormats);
-                                CMD.Parameters.AddWithValue("@CAMNO2", nCamNo + 1);
+                                
                                 CMD.Parameters.AddWithValue("@PROCESSNAME", strProcName);
                             }
                             else
@@ -1436,7 +1290,7 @@ public class SQL
         {
             if (DBConnect(ref Conn, dbInfo))
             {
-                using (SqlCommand CMD = new SqlCommand("Delete from GRAPHICREWVIEWPARAM where [PROCESSNAME] = @PROCESSNAME and [MODELNAME] = @MODELNAME", Conn))
+                using (SqlCommand CMD = new SqlCommand("Delete from GRAPHICRESVIEWPARAM where [PROCESSNAME] = @PROCESSNAME and [MODELNAME] = @MODELNAME", Conn))
                 {
                     CMD.Parameters.AddWithValue("@PROCESSNAME", strProcName);
                     CMD.Parameters.AddWithValue("@MODELNAME", strModelName);
@@ -1500,7 +1354,7 @@ public class SQL
                                 bool.TryParse(ds.Tables[0].Rows[0].ItemArray[12].ToString(), out modelParam.bAlingInsp);
                                 bool.TryParse(ds.Tables[0].Rows[0].ItemArray[13].ToString(), out modelParam.bDimens);
                                 bool.TryParse(ds.Tables[0].Rows[0].ItemArray[14].ToString(), out modelParam.bPinChange);
-                                bool.TryParse(ds.Tables[0].Rows[0].ItemArray[15].ToString(), out modelParam.bPinInfo);
+                                
                                 
                                 double.TryParse(ds.Tables[0].Rows[0].ItemArray[17].ToString(), out modelParam.dResoluton);
                                 modelParam.strTriggerNo = ds.Tables[0].Rows[0].ItemArray[18].ToString();
@@ -1522,40 +1376,10 @@ public class SQL
                                 double.TryParse(ds.Tables[0].Rows[0].ItemArray[34].ToString(), out modelParam.dHeightMax);
                                 modelParam.strPinMaster = ds.Tables[0].Rows[0].ItemArray[35].ToString();
                                 modelParam.strPinMasterResult = ds.Tables[0].Rows[0].ItemArray[36].ToString();
-                                modelParam.strPinInfoMaster = ds.Tables[0].Rows[0].ItemArray[37].ToString();
-                                modelParam.strPinInfoMasterResult = ds.Tables[0].Rows[0].ItemArray[38].ToString();
-                                modelParam.strStreamName = ds.Tables[0].Rows[0].ItemArray[39].ToString();
-                                var strParam = ds.Tables[0].Rows[0].ItemArray[40].ToString().Split('|');
+                                
+                                
 
-                                if (modelParam.listVIDIParam == null)
-                                    modelParam.listVIDIParam = new List<string>();
-                                else
-                                {
-                                    modelParam.listVIDIParam.Clear();
-                                }
-
-                                foreach (string strValue in strParam)
-                                {
-                                    if (!string.IsNullOrEmpty(strValue))
-                                        modelParam.listVIDIParam.Add(strValue);
-                                }
-
-                                if (ds.Tables[0].Rows[0].ItemArray[41] != null)
-                                    bool.TryParse(ds.Tables[0].Rows[0].ItemArray[41].ToString(), out modelParam.bDLUse);
-                                else
-                                    modelParam.bDLUse = false;
-
-
-                                if (ds.Tables[0].Rows[0].ItemArray[42] != null)
-                                    double.TryParse(ds.Tables[0].Rows[0].ItemArray[42].ToString(), out modelParam.dScore);
-                                else
-                                    modelParam.dScore = 0.2;
-
-                                if (ds.Tables[0].Rows[0].ItemArray[43] != null)
-                                    modelParam.strDLPath = ds.Tables[0].Rows[0].ItemArray[43].ToString();
-
-                                if (ds.Tables[0].Rows[0].ItemArray[44] != null)
-                                    modelParam.strDLFile = ds.Tables[0].Rows[0].ItemArray[44].ToString();
+                               
 
                                 if (ds.Tables[0].Rows[0].ItemArray[45] != null)
                                     double.TryParse(ds.Tables[0].Rows[0].ItemArray[45].ToString(), out modelParam.dMaxX);
@@ -1606,11 +1430,11 @@ public class SQL
                             if (ds.Tables[0].Rows.Count > 0)
                             {
                                 CMD.CommandText = "Update MODELRECIPE Set [CODE] = @CODE, [INSPCNT] = @INSPCNT, [GRABDELAY] = @GRABDELAY, [EXPOSURE] = @EXPOSURE, [DEFECTGRABCNT] = @DEFECTGRABCNT, " +
-                                    "[EXPOSUREINC] = @EXPOSUREINC, [DEFECTINSP] = @DEFECTINSP, [DEFECTBCR] = @DEFECTBCR, [DEFCTALIGN] = @DEFCTALIGN, [DEFECTDIMENSION] = @DEFECTDIMENSION, [DEFECTPINCHANGE] = @DEFECTPINCHANGE, [DEFECTPININFOCHANGE] = @DEFECTPININFOCHANGE," +
-                                    "[RESOLUTION] = @RESOLUTION, [TRIGGERNO] = @TRIGGERNO, [LIGHTNO] = @LIGHTNO, [BCRDATA] = @BCRDATA, [BCRCNT] = @BCRCNT, [ALIGNFORMULA] = @ALIGNFORMULA, [CENTERMASS] = @CENTERMASS, [ALIGNMAXTERX] = @ALIGNMAXTERX," +
-                                    "[ALIGNMAXTERY] = @ALIGNMAXTERY, [ALIGNMAXTERR] = @ALIGNMAXTERR, [ALIGNOFFSETX] = @ALIGNOFFSETX, [ALIGNOFFSETY] = @ALIGNOFFSETY, [ALIGNOFFSETR] = @ALIGNOFFSETR, [ALIGNUNIT] = @ALIGNUNIT, [WIDTHMIN] = @WIDTHMIN, [WIDTHMAX] = @WIDTHMAX," +
-                                    "[HEIGHTMIN] = @HEIGHTMIN, [HEIGHTMAX] = @HEIGHTMAX, [PINMASTER] = @PINMASTER, [PINMASTERRES] = @PINMASTERRES, [PININFOMASTER] = @PININFOMASTER, [PININFOMASTERRES] = @PININFOMASTERRES, [STREAMNAME] = @STREAMNAME, [VIDIPARAM] = @VIDIPARAM, [USEDL] = @USEDL, " +
-                                    "[SCORE] = @SCORE, [DLPATH] = @DLPATH, [DLFILE] = @DLFILE, [MAXX] = @MAXX, [MAXY] = @MAXY" +
+                                    "[EXPOSUREINC] = @EXPOSUREINC, [DEFECTINSP] = @DEFECTINSP, [DEFECTBCR] = @DEFECTBCR, [DEFECTALIGN] = @DEFECTALIGN, [DEFECTDIMENSION] = @DEFECTDIMENSION, [DEFECTPINCHANGE] = @DEFECTPINCHANGE, [DEFECTPININFOCHANGE] = @DEFECTPININFOCHANGE," +
+                                    "[RESOLUTION] = @RESOLUTION, [TRIGGERNO] = @TRIGGERNO, [LIGHTNO] = @LIGHTNO, [BCRDATA] = @BCRDATA, [BCRCNT] = @BCRCNT, [ALIGNFORMULA] = @ALIGNFORMULA, [CENTERMASS] = @CENTERMASS, [ALIGNMASTERX] = @ALIGNMASTERX," +
+                                    "[ALIGNMASTERY] = @ALIGNMASTERY, [ALIGNMASTERR] = @ALIGNMASTERR, [ALIGNOFFSETX] = @ALIGNOFFSETX, [ALIGNOFFSETY] = @ALIGNOFFSETY, [ALIGNOFFSETR] = @ALIGNOFFSETR, [ALIGNUNIT] = @ALIGNUNIT, [WIDTHMIN] = @WIDTHMIN, [WIDTHMAX] = @WIDTHMAX," +
+                                    "[HEIGHTMIN] = @HEIGHTMIN, [HEIGHTMAX] = @HEIGHTMAX, [PINMASTER] = @PINMASTER, [PINMASTERRES] = @PINMASTERRES," +
+                                    "[MAXX] = @MAXX, [MAXY] = @MAXY" +
                                     " where [PROCESSNAME] = @PROCESSNAME and [CAMNO] = @CAMNO and [MODELNAME] = @MODELNAME";
 
                                 CMD.Parameters.Clear();
@@ -1622,10 +1446,10 @@ public class SQL
                                 CMD.Parameters.AddWithValue("@EXPOSUREINC", modelParam.strExposeInc);
                                 CMD.Parameters.AddWithValue("@DEFECTINSP", modelParam.bDefectInsp.ToString());
                                 CMD.Parameters.AddWithValue("@DEFECTBCR", modelParam.bBCRInsp.ToString());
-                                CMD.Parameters.AddWithValue("@DEFCTALIGN", modelParam.bAlingInsp.ToString());
+                                CMD.Parameters.AddWithValue("@DEFECTALIGN", modelParam.bAlingInsp.ToString());
                                 CMD.Parameters.AddWithValue("@DEFECTDIMENSION", modelParam.bDimens.ToString());
                                 CMD.Parameters.AddWithValue("@DEFECTPINCHANGE", modelParam.bPinChange.ToString());
-                                CMD.Parameters.AddWithValue("@DEFECTPININFOCHANGE", modelParam.bPinInfo.ToString());
+                                
                                 
                                 CMD.Parameters.AddWithValue("@RESOLUTION", modelParam.dResoluton);
                                 CMD.Parameters.AddWithValue("@TRIGGERNO", modelParam.strTriggerNo);
@@ -1634,9 +1458,9 @@ public class SQL
                                 CMD.Parameters.AddWithValue("@BCRCNT", modelParam.strBCRLen);
                                 CMD.Parameters.AddWithValue("@ALIGNFORMULA", modelParam.bAlignFormula.ToString());
                                 CMD.Parameters.AddWithValue("@CENTERMASS", modelParam.dCenterMass);
-                                CMD.Parameters.AddWithValue("@ALIGNMAXTERX", modelParam.dAlignMasterX);
-                                CMD.Parameters.AddWithValue("@ALIGNMAXTERY", modelParam.dAlignMasterY);
-                                CMD.Parameters.AddWithValue("@ALIGNMAXTERR", modelParam.dAlignMasterR);
+                                CMD.Parameters.AddWithValue("@ALIGNMASTERX", modelParam.dAlignMasterX);
+                                CMD.Parameters.AddWithValue("@ALIGNMASTERY", modelParam.dAlignMasterY);
+                                CMD.Parameters.AddWithValue("@ALIGNMASTERR", modelParam.dAlignMasterR);
                                 CMD.Parameters.AddWithValue("@ALIGNOFFSETX", modelParam.dAlignOffsetX);
                                 CMD.Parameters.AddWithValue("@ALIGNOFFSETY", modelParam.dAlignOffsetY);
                                 CMD.Parameters.AddWithValue("@ALIGNOFFSETR", modelParam.dAlignOffsetR);
@@ -1647,25 +1471,9 @@ public class SQL
                                 CMD.Parameters.AddWithValue("@HEIGHTMAX", modelParam.dHeightMax);
                                 CMD.Parameters.AddWithValue("@PINMASTER", modelParam.strPinMaster);
                                 CMD.Parameters.AddWithValue("@PINMASTERRES", modelParam.strPinMasterResult);
-                                CMD.Parameters.AddWithValue("@PININFOMASTER", modelParam.strPinInfoMaster);
-                                CMD.Parameters.AddWithValue("@PININFOMASTERRES", modelParam.strPinInfoMasterResult);
-                                CMD.Parameters.AddWithValue("@STREAMNAME", modelParam.strStreamName);
-
-                                var strParam = "";
-
-                                foreach (var param in modelParam.listVIDIParam)
-                                {
-                                    if (strParam == "")
-                                        strParam += param;
-                                    else
-                                        strParam += "|" + param;
-                                }
-
-                                CMD.Parameters.AddWithValue("@VIDIPARAM", strParam);
-                                CMD.Parameters.AddWithValue("@USEDL", modelParam.bDLUse.ToString());
-                                CMD.Parameters.AddWithValue("@SCORE", modelParam.dScore);
-                                CMD.Parameters.AddWithValue("@DLPATH", modelParam.strDLPath);
-                                CMD.Parameters.AddWithValue("@DLFILE", modelParam.strDLFile);
+                                
+                                
+                                
                                 CMD.Parameters.AddWithValue("@MAXX", modelParam.dMaxX);
                                 CMD.Parameters.AddWithValue("@MAXY", modelParam.dMaxY);
                                 CMD.Parameters.AddWithValue("@PROCESSNAME", strProcName);
@@ -1674,12 +1482,12 @@ public class SQL
                             }
                             else
                             {
-                                CMD.CommandText = "INSERT INTO MODELRECIPE ([PROCESSNAME], [MODELNAME], [CAMNO], [CODE], [INSPCNT], [GRABDELAY], [EXPOSURE], [DEFECTGRABCNT], [EXPOSUREINC], [DEFECTINSP], [DEFECTBCR], [DEFCTALIGN], [DEFECTDIMENSION], [DEFECTPINCHANGE], [DEFECTPININFOCHANGE]," +
-                                    "[RESOLUTION], [TRIGGERNO], [LIGHTNO], [BCRDATA], [BCRCNT], [ALIGNFORMULA], [CENTERMASS], [ALIGNMAXTERX], [ALIGNMAXTERY], [ALIGNMAXTERR], [ALIGNOFFSETX], [ALIGNOFFSETY], [ALIGNOFFSETR], [ALIGNUNIT], [WIDTHMIN], [WIDTHMAX]," +
-                                    "[HEIGHTMIN], [HEIGHTMAX], [PINMASTER], [PINMASTERRES], [PININFOMASTER], [PININFOMASTERRES], [STREAMNAME], [VIDIPARAM], [USEDL], [SCORE], [DLPATH],[DLFILE],[MAXX],[MAXY])" +
-                                    " VALUES (@PROCESSNAME, @MODELNAME, @CAMNO, @CODE, @INSPCNT, @GRABDELAY, @EXPOSURE, @DEFECTGRABCNT, @EXPOSUREINC, @DEFECTINSP, @DEFECTBCR, @DEFCTALIGN, @DEFECTDIMENSION, @DEFECTPINCHANGE, @DEFECTPININFOCHANGE," +
-                                    "@RESOLUTION, @TRIGGERNO, @LIGHTNO, @BCRDATA, @BCRCNT, @ALIGNFORMULA, @CENTERMASS, @ALIGNMAXTERX, @ALIGNMAXTERY, @ALIGNMAXTERR, @ALIGNOFFSETX, @ALIGNOFFSETY, @ALIGNOFFSETR, @ALIGNUNIT, @WIDTHMIN, @WIDTHMAX," +
-                                    "@HEIGHTMIN, @HEIGHTMAX, @PINMASTER, @PINMASTERRES, @PININFOMASTER, @PININFOMASTERRES, @STREAMNAME, @VIDIPARAM, @USEDL, @SCORE, @DLPATH,@DLFILE,@MAXX,@MAXY)";
+                                CMD.CommandText = "INSERT INTO MODELRECIPE ([PROCESSNAME], [MODELNAME], [CAMNO], [CODE], [INSPCNT], [GRABDELAY], [EXPOSURE], [DEFECTGRABCNT], [EXPOSUREINC], [DEFECTINSP], [DEFECTBCR], [DEFECTALIGN], [DEFECTDIMENSION], [DEFECTPINCHANGE]," +
+                                    "[RESOLUTION], [TRIGGERNO], [LIGHTNO], [BCRDATA], [BCRCNT], [ALIGNFORMULA], [CENTERMASS], [ALIGNMASTERX], [ALIGNMASTERY], [ALIGNMASTERR], [ALIGNOFFSETX], [ALIGNOFFSETY], [ALIGNOFFSETR], [ALIGNUNIT], [WIDTHMIN], [WIDTHMAX]," +
+                                    "[HEIGHTMIN], [HEIGHTMAX], [PINMASTER], [PINMASTERRES], [MAXX], [MAXY])" +
+                                    " VALUES (@PROCESSNAME, @MODELNAME, @CAMNO, @CODE, @INSPCNT, @GRABDELAY, @EXPOSURE, @DEFECTGRABCNT, @EXPOSUREINC, @DEFECTINSP, @DEFECTBCR, @DEFECTALIGN, @DEFECTDIMENSION, @DEFECTPINCHANGE," +
+                                    "@RESOLUTION, @TRIGGERNO, @LIGHTNO, @BCRDATA, @BCRCNT, @ALIGNFORMULA, @CENTERMASS, @ALIGNMASTERX, @ALIGNMASTERY, @ALIGNMASTERR, @ALIGNOFFSETX, @ALIGNOFFSETY, @ALIGNOFFSETR, @ALIGNUNIT, @WIDTHMIN, @WIDTHMAX," +
+                                    "@HEIGHTMIN, @HEIGHTMAX, @PINMASTER, @PINMASTERRES, @MAXX,@MAXY)";
 
                                 CMD.Parameters.Clear();
                                 CMD.Parameters.AddWithValue("@PROCESSNAME", strProcName);
@@ -1693,10 +1501,10 @@ public class SQL
                                 CMD.Parameters.AddWithValue("@EXPOSUREINC", modelParam.strExposeInc);
                                 CMD.Parameters.AddWithValue("@DEFECTINSP", modelParam.bDefectInsp.ToString());
                                 CMD.Parameters.AddWithValue("@DEFECTBCR", modelParam.bBCRInsp.ToString());
-                                CMD.Parameters.AddWithValue("@DEFCTALIGN", modelParam.bAlingInsp.ToString());
+                                CMD.Parameters.AddWithValue("@DEFECTALIGN", modelParam.bAlingInsp.ToString());
                                 CMD.Parameters.AddWithValue("@DEFECTDIMENSION", modelParam.bDimens.ToString());
                                 CMD.Parameters.AddWithValue("@DEFECTPINCHANGE", modelParam.bPinChange.ToString());
-                                CMD.Parameters.AddWithValue("@DEFECTPININFOCHANGE", modelParam.bPinInfo.ToString());
+                                
                                 
                                 CMD.Parameters.AddWithValue("@RESOLUTION", modelParam.dResoluton);
                                 CMD.Parameters.AddWithValue("@TRIGGERNO", modelParam.strTriggerNo);
@@ -1705,9 +1513,9 @@ public class SQL
                                 CMD.Parameters.AddWithValue("@BCRCNT", modelParam.strBCRLen);
                                 CMD.Parameters.AddWithValue("@ALIGNFORMULA", modelParam.bAlignFormula.ToString());
                                 CMD.Parameters.AddWithValue("@CENTERMASS", modelParam.dCenterMass);
-                                CMD.Parameters.AddWithValue("@ALIGNMAXTERX", modelParam.dAlignMasterX);
-                                CMD.Parameters.AddWithValue("@ALIGNMAXTERY", modelParam.dAlignMasterY);
-                                CMD.Parameters.AddWithValue("@ALIGNMAXTERR", modelParam.dAlignMasterR);
+                                CMD.Parameters.AddWithValue("@ALIGNMASTERX", modelParam.dAlignMasterX);
+                                CMD.Parameters.AddWithValue("@ALIGNMASTERY", modelParam.dAlignMasterY);
+                                CMD.Parameters.AddWithValue("@ALIGNMASTERR", modelParam.dAlignMasterR);
                                 CMD.Parameters.AddWithValue("@ALIGNOFFSETX", modelParam.dAlignOffsetX);
                                 CMD.Parameters.AddWithValue("@ALIGNOFFSETY", modelParam.dAlignOffsetY);
                                 CMD.Parameters.AddWithValue("@ALIGNOFFSETR", modelParam.dAlignOffsetR);
@@ -1718,25 +1526,9 @@ public class SQL
                                 CMD.Parameters.AddWithValue("@HEIGHTMAX", modelParam.dHeightMax);
                                 CMD.Parameters.AddWithValue("@PINMASTER", modelParam.strPinMaster);
                                 CMD.Parameters.AddWithValue("@PINMASTERRES", modelParam.strPinMasterResult);
-                                CMD.Parameters.AddWithValue("@PININFOMASTER", modelParam.strPinInfoMaster);
-                                CMD.Parameters.AddWithValue("@PININFOMASTERRES", modelParam.strPinInfoMasterResult);
-                                CMD.Parameters.AddWithValue("@STREAMNAME", modelParam.strStreamName);
                                 
-                                var strParam = "";
-
-                                foreach (var param in modelParam.listVIDIParam)
-                                {
-                                    if (strParam == "")
-                                        strParam += param;
-                                    else
-                                        strParam += "|" + param;
-                                }
-
-                                CMD.Parameters.AddWithValue("@VIDIPARAM", strParam);
-                                CMD.Parameters.AddWithValue("@USEDL", modelParam.bDLUse.ToString());
-                                CMD.Parameters.AddWithValue("@SCORE", modelParam.dScore);
-                                CMD.Parameters.AddWithValue("@DLPATH", modelParam.strDLPath);
-                                CMD.Parameters.AddWithValue("@DLFILE", modelParam.strDLFile);
+                                
+                                
                                 CMD.Parameters.AddWithValue("@MAXX", modelParam.dMaxX);
                                 CMD.Parameters.AddWithValue("@MAXY", modelParam.dMaxY);
                             }
