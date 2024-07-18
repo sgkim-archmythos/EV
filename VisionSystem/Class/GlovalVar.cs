@@ -297,7 +297,7 @@ public class GlovalVar
         public double dHeightMax;
         public double dResoluton;
         public string strPinMaster;
-        public string strPinMasterResult;
+        
         
         
         
@@ -392,6 +392,7 @@ public class GlovalVar
         public string strConnectMode;
         public string strPortName;
         public string strBaudrate;
+        public int nChannelNo;
         public int[] nValue;
         public bool[] bLightUse;
     }

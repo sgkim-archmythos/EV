@@ -42,6 +42,7 @@ using DevExpress.XtraRichEdit.Import.Doc;
 using DevExpress.Pdf.Native;
 using CodeMeter;
 using DevExpress.Utils.Extensions;
+using VagabondK.Protocols.Logging;
 
 
 
@@ -113,11 +114,11 @@ namespace VisionSystem
         bool _bRobot = false;
         string tempModelData = "";
 
-        SerialPort[] _LightSerial = new SerialPort[2];
-        SocketUDPClient[] _LightClient = new SocketUDPClient[2];
+        SerialPort _LightSerial = new SerialPort();
+        SocketUDPClient _LightClient = new SocketUDPClient();
 
         RobotParam _robotParam = new RobotParam();
-        LightParam[] _LightParam = new LightParam[2];
+        LightParam _LightParam = new LightParam();
 
         bool _bReTryConn = false;
         string _strResult = "";
@@ -221,7 +222,7 @@ namespace VisionSystem
             txtDBID.Text = _dbInfo.strID;
             txtDBPW.Text = _dbInfo.strPW;
             txtDBName.Text = _dbInfo.strDBName;
-            
+
 
 
 
@@ -397,55 +398,55 @@ namespace VisionSystem
 
         }
 
-        private void LightConnecting(int nIdx)
+        private void LightConnecting()
         {
-            if (string.IsNullOrEmpty(_LightParam[nIdx].strConnectMode) || string.IsNullOrEmpty(_LightParam[nIdx].strPortName) || string.IsNullOrEmpty(_LightParam[nIdx].strBaudrate))
+            if (string.IsNullOrEmpty(_LightParam.strConnectMode) || string.IsNullOrEmpty(_LightParam.strPortName) || string.IsNullOrEmpty(_LightParam.strBaudrate))
             {
-                lblLight.Visible = false;
+                //lblLight.Visible = false;
                 return;
             }
 
             try
             {
-                lblLight.Visible = true;
                 lblLight.BackColor = red;
                 lblLight.ForeColor = white;
 
-                if (_LightParam[nIdx].strConnectMode == "SERIAL")
+                if (_LightParam.strConnectMode == "SERIAL")
                 {
-                    if (_LightClient[nIdx] != null)
+                    if (_LightClient != null)
                     {
-                        if (_LightClient[nIdx].Connected)
+                        if (_LightClient.Connected)
                         {
-                            _LightClient[nIdx].StopUDPClient();
-                            _LightClient[nIdx] = null;
+                            _LightClient.StopUDPClient();
+                            _LightClient = null;
                         }
                     }
 
-                    if (_LightSerial[nIdx] == null)
-                        _LightSerial[nIdx] = new SerialPort();
+                    if (_LightSerial == null)
+                        _LightSerial = new SerialPort();
 
-                    if (_LightSerial[nIdx].IsOpen)
-                        _LightSerial[nIdx].Close();
+                    if (_LightSerial.IsOpen)
+                        _LightSerial.Close();
 
-                    _LightSerial[nIdx].PortName = _LightParam[nIdx].strPortName;
+                    _LightSerial.PortName = _LightParam.strPortName;
 
-                    int.TryParse(_LightParam[nIdx].strBaudrate, out var nBaudrate);
-                    _LightSerial[nIdx].BaudRate = nBaudrate;
-                    _LightSerial[nIdx].Open();
+                    int.TryParse(_LightParam.strBaudrate, out var nBaudrate);
+                    _LightSerial.BaudRate = nBaudrate;
+                    _LightSerial.Open();
 
-                    if (_LightSerial[nIdx].IsOpen)
+                    if (_LightSerial.IsOpen)
                     {
                         _bLight = true;
 
-                        SetLightValue(nIdx);
+                        SetLightValue();
+                        for (int i = 0; i < _LightParam.nChannelNo; i++)
+                        {
+                            LightOnOff(false, i + 1);
+                        }
 
-                        for (var i = 0; i < 2; i++)
-                            LightOnOff(nIdx, false, i + 1);
+                        lblLightConStatus1.BackColor = Color.Lime;
 
 
-                        //lblLight.BackColor = lime;
-                        //lblLight.ForeColor = black;
                         //AddMsg("조명이 연결 되었습니다.", green, false, false, MsgType.Alarm);
                     }
                     else
@@ -453,10 +454,11 @@ namespace VisionSystem
                         //AddMsg("조명이 되지 않았습니다.", red, false, false, MsgType.Alarm);
                     }
 
-                    if (_LightSerial[0].IsOpen || _LightSerial[1].IsOpen)
+                    if (_LightSerial.IsOpen)
                     {
                         if (lblLight.BackColor != lime)
                         {
+                            lblLight.Visible = true;
                             lblLight.BackColor = lime;
                             lblLight.ForeColor = black;
                             AddMsg("조명이 연결 되었습니다.", green, false, false, MsgType.Alarm);
@@ -465,34 +467,34 @@ namespace VisionSystem
                     else
                         AddMsg("조명이 되지 않았습니다.", red, false, false, MsgType.Alarm);
                 }
-                else if (_LightParam[nIdx].strConnectMode == "UDP")
+                else if (_LightParam.strConnectMode == "UDP")
                 {
-                    if (_LightSerial[nIdx] != null)
+                    if (_LightSerial != null)
                     {
-                        if (_LightSerial[nIdx].IsOpen)
+                        if (_LightSerial.IsOpen)
                         {
-                            _LightSerial[nIdx].Close();
-                            _LightSerial[nIdx] = null;
+                            _LightSerial.Close();
+                            _LightSerial = null;
                         }
                     }
 
-                    if (_LightClient[nIdx] == null)
-                        _LightClient[nIdx] = new SocketUDPClient();
+                    if (_LightClient == null)
+                        _LightClient = new SocketUDPClient();
 
-                    if (_LightClient[nIdx].Connected)
-                        _LightClient[nIdx].StopUDPClient();
+                    if (_LightClient.Connected)
+                        _LightClient.StopUDPClient();
 
-                    int.TryParse(_LightParam[nIdx].strBaudrate, out var nPort);
-                    _LightClient[nIdx].Connect(_LightParam[nIdx].strPortName, "", nPort);
+                    int.TryParse(_LightParam.strBaudrate, out var nPort);
+                    _LightClient.Connect(_LightParam.strPortName, "", nPort);
 
-                    if (_LightClient[nIdx].Connected)
+                    if (_LightClient.Connected)
                     {
                         _bLight = true;
 
-                        SetLightValue(nIdx);
+                        //SetLightValue(nIdx);
 
-                        for (var i = 0; i < 2; i++)
-                            LightOnOff(nIdx, false, i + 1);
+                        //for (var i = 0; i < 2; i++)
+                        //LightOnOff(nIdx, false, i + 1);
 
                         //if (_LightClient[0].Connected || _LightClient[1].Connected)
                         //{
@@ -506,7 +508,7 @@ namespace VisionSystem
                         //AddMsg("조명이 되지 않았습니다.", red, false, false, MsgType.Alarm);
                     }
 
-                    if (_LightClient[0].Connected || _LightClient[1].Connected)
+                    if (_LightClient.Connected)
                     {
                         if (lblLight.BackColor != lime)
                         {
@@ -767,14 +769,14 @@ namespace VisionSystem
                         {
                             nRes = 1;
                         }
-                        else if ((_modelParam[0].strPinMasterResult == _strPinData[0]) && (_modelParam[1].strPinMasterResult == _strPinData[1]))
-                        {
-                            nRes = 2;
-                        }
-                        else
-                        {
-                            nRes = 3;
-                        }
+                        //else if ((_modelParam[0].strPinMasterResult == _strPinData[0]) && (_modelParam[1].strPinMasterResult == _strPinData[1]))
+                        //{
+                        //    nRes = 2;
+                        //}
+                        //else
+                        //{
+                        //    nRes = 3;
+                        //}
                     }
                     else
                     {
@@ -787,15 +789,6 @@ namespace VisionSystem
                             nRes = 3;
                         }
                     }
-
-                    //if (_bResult[0] && _bResult[1] && _bResult[2] && _bResult[3])
-                    //    nRes = 1;
-                    //else if (!_bResult[0] && !_bResult[1] && _bResult[2] && _bResult[3])
-                    //    nRes = 2;
-                    //else if (_bResult[0] && _bResult[1] && !_bResult[2] && !_bResult[3])
-                    //    nRes = 3;
-                    //else
-                    //    nRes = 4;
                 }
                 else
                 {
@@ -963,7 +956,7 @@ namespace VisionSystem
                     _modelParam[i] = new ModelParam();
                     _graphicVproParam[i] = new GraphicToolParam();
                     _graphicResParam[i] = new GraphicResViewParam();
-                    
+
                     _camParam[i] = new CamPram();
 
                     CamConn(i);
@@ -1063,7 +1056,7 @@ namespace VisionSystem
                             }
                         }
                     }
-                    else if (_LightSerial[0] != null || _LightSerial[1] != null || _LightClient[0] != null || _LightClient[1] != null)
+                    else if (_LightSerial != null || _LightClient != null)
                     {
                         if (strTemp.Length > 0)
                         {
@@ -1078,7 +1071,7 @@ namespace VisionSystem
                                     nChannle = nChannle - 2;
                                 }
 
-                                LightOnOff(nIdx, bOn, nChannle + 1);
+                                LightOnOff(bOn, nChannle + 1);
                             }
                         }
                         else
@@ -1094,7 +1087,7 @@ namespace VisionSystem
                                     nChannel = i - 2;
                                 }
 
-                                LightOnOff(nIdx, false, nCamNo + 1);
+                                LightOnOff(false, nCamNo + 1);
                             }
                         }
                     }
@@ -1172,15 +1165,11 @@ namespace VisionSystem
                                         }
                                     }
                                 }
-                                else if (_LightSerial[0] != null || _LightSerial[1] != null || _LightClient[0] != null || _LightClient[1] != null)
+                                else if (_LightSerial != null || _LightClient != null)
                                 {
-                                    for (var i = 0; i < 2; i++)
-                                    {
-                                        for (var j = 0; j < 2; j++)
-                                        {
-                                            LightOnOff(i, false, j + 1);
-                                        }
-                                    }
+
+                                    LightOnOff(false, _LightParam.nChannelNo);
+
                                 }
                             }
                         }
@@ -1216,15 +1205,10 @@ namespace VisionSystem
                                             }
                                         }
                                     }
-                                    else if (_LightSerial[0] != null || _LightSerial[1] != null || _LightClient[0] != null || _LightClient[1] != null)
+                                    else if (_LightSerial != null || _LightClient != null)
                                     {
-                                        for (var i = 0; i < 2; i++)
-                                        {
-                                            for (var j = 0; j < 2; j++)
-                                            {
-                                                LightOnOff(i, false, j + 1);
-                                            }
-                                        }
+                                        LightOnOff(false, _LightParam.nChannelNo);
+
                                     }
                                 }
                             }
@@ -1608,7 +1592,7 @@ namespace VisionSystem
                 LoadSaveImgParam();
                 LoadPassword();
                 LoadModelList();
-                
+
                 LoadLightParam();
                 LoadIOParam();
 
@@ -1626,72 +1610,55 @@ namespace VisionSystem
             {
                 SQL sql = new SQL();
 
-                _LightParam[0].nValue = new int[2];
-                _LightParam[0].bLightUse = new bool[2];
+                _LightParam.nValue[0] = 0;
+                _LightParam.bLightUse = new bool[2];
 
-                _LightParam[1].nValue = new int[2];
-                _LightParam[1].bLightUse = new bool[2];
 
-                for (var i = 0; i < 2; i++)
+
+
+                sql.GetLightParam(_strProcName, _dbInfo, ref _LightParam);
+
+                if (_LightParam.strConnectMode == "SERIAL")
                 {
-                    sql.GetLightParam(i, _strProcName, _dbInfo, ref _LightParam[i]);
+                    radLightSerial.Checked = true;
 
-                    if (_LightParam[i].strConnectMode == "SERIAL")
-                    {
-                        radLightSerial.Checked = true;
 
-                        if (i == 0)
-                        {
-                            cbPort_1.EditValue = _LightParam[i].strPortName;
-                            cbBaud_1.EditValue = _LightParam[i].strBaudrate;
-                        }
-                        else
-                        {
-                            cbPort_2.EditValue = _LightParam[i].strPortName;
-                            cbBaud_2.EditValue = _LightParam[i].strBaudrate;
-                        }
-                    }
-                    else if (_LightParam[i].strConnectMode == "UDP")
-                    {
-                        radLightUDP.Checked = true;
+                    cbPort_1.EditValue = _LightParam.strPortName;
+                    cbBaud_1.EditValue = _LightParam.strBaudrate;
 
-                        if (i == 0)
-                        {
-                            txtLightIP_1.Text = _LightParam[i].strPortName;
-                            txtLightPort_1.Text = _LightParam[i].strBaudrate;
-                        }
-                        else
-                        {
-                            txtLightIP_2.Text = _LightParam[i].strPortName;
-                            txtLightPort_2.Text = _LightParam[i].strBaudrate;
-                        }
-                    }
-
-                    if (i == 0)
-                    {
-                        chkLightUse1.Checked = _LightParam[i].bLightUse[0];
-                        chkLightUse2.Checked = _LightParam[i].bLightUse[1];
-
-                        txtValue1.Text = _LightParam[i].nValue[0].ToString();
-                        txtValue2.Text = _LightParam[i].nValue[1].ToString();
-
-                        barValue1.Value = _LightParam[i].nValue[0];
-                        barValue2.Value = _LightParam[i].nValue[1];
-                    }
-                    else
-                    {
-                        chkLightUse3.Checked = _LightParam[i].bLightUse[0];
-                        chkLightUse4.Checked = _LightParam[i].bLightUse[1];
-
-                        barValue3.Value = _LightParam[i].nValue[0];
-                        barValue4.Value = _LightParam[i].nValue[1];
-
-                        txtValue3.Text = _LightParam[i].nValue[0].ToString();
-                        txtValue4.Text = _LightParam[i].nValue[1].ToString();
-                    }
-
-                    LightConnecting(i);
                 }
+                else if (_LightParam.strConnectMode == "UDP")
+                {
+                    radLightUDP.Checked = true;
+
+
+                    txtLightIP_1.Text = _LightParam.strPortName;
+                    txtLightPort_1.Text = _LightParam.strBaudrate;
+
+                }
+
+
+                chkLightUse1.Checked = _LightParam.bLightUse[0];
+                chkLightUse2.Checked = _LightParam.bLightUse[1];
+
+                txtValue1.Text = _LightParam.nValue[0].ToString();
+
+
+                barValue1.Value = _LightParam.nValue[0];
+
+
+                chkLightUse3.Checked = _LightParam.bLightUse[0];
+                chkLightUse4.Checked = _LightParam.bLightUse[1];
+
+                barValue3.Value = _LightParam.nValue[2];
+
+
+                txtValue3.Text = _LightParam.nValue[2].ToString();
+
+
+
+                LightConnecting();
+
 
 
 
@@ -1706,42 +1673,48 @@ namespace VisionSystem
             {
                 if (radLightSerial.Checked)
                 {
-                    _LightParam[0].strConnectMode = "SERIAL";
-                    _LightParam[0].strPortName = cbPort_1.SelectedItem.ToString();
-                    _LightParam[0].strBaudrate = cbBaud_1.SelectedItem.ToString();
+                    if (cbPort_1.SelectedIndex > -1 && cbBaud_1.SelectedIndex > -1)
+                    {
+                        _LightParam.strConnectMode = "SERIAL";
+                        _LightParam.strPortName = cbPort_1.SelectedItem.ToString();
+                        _LightParam.strBaudrate = cbBaud_1.SelectedItem.ToString();
+                    }
+                    else
+                    {
+                        _LightParam.strConnectMode = "SERIAL";
+                        _LightParam.strPortName = "";
+                        _LightParam.strBaudrate = "";
+                    }
 
-                    _LightParam[1].strConnectMode = "SERIAL";
-                    _LightParam[1].strPortName = cbPort_2.SelectedItem.ToString();
-                    _LightParam[1].strBaudrate = cbBaud_2.SelectedItem.ToString();
+
+
                 }
                 else if (radLightUDP.Checked)
                 {
-                    _LightParam[0].strConnectMode = "UDP";
-                    _LightParam[0].strPortName = txtLightIP_1.Text;
-                    _LightParam[0].strBaudrate = txtLightPort_1.Text;
+                    _LightParam.strConnectMode = "UDP";
+                    _LightParam.strPortName = txtLightIP_1.Text;
+                    _LightParam.strBaudrate = txtLightPort_1.Text;
 
-                    _LightParam[1].strConnectMode = "UDP";
-                    _LightParam[1].strPortName = txtLightIP_2.Text;
-                    _LightParam[1].strBaudrate = txtLightPort_2.Text;
+
+
                 }
 
-                int.TryParse(txtValue1.Text, out _LightParam[0].nValue[0]);
-                int.TryParse(txtValue2.Text, out _LightParam[0].nValue[1]);
-                int.TryParse(txtValue3.Text, out _LightParam[1].nValue[0]);
-                int.TryParse(txtValue4.Text, out _LightParam[1].nValue[1]);
+                int.TryParse(txtValue1.Text, out _LightParam.nValue[0]);
 
-                _LightParam[0].bLightUse[0] = chkLightUse1.Checked;
-                _LightParam[0].bLightUse[1] = chkLightUse2.Checked;
-                _LightParam[1].bLightUse[0] = chkLightUse3.Checked;
-                _LightParam[1].bLightUse[1] = chkLightUse4.Checked;
+
+
+
+                _LightParam.bLightUse[0] = chkLightUse1.Checked;
+                _LightParam.bLightUse[1] = chkLightUse2.Checked;
+
 
                 SQL sql = new SQL();
                 for (var i = 0; i < 2; i++)
-                    sql.SaveLightParam(i, _strProcName, _dbInfo, _LightParam[i]);
+                    sql.SaveLightParam(i, _strProcName, _dbInfo, _LightParam);
                 sql.Dispose();
 
-                for (var i = 0; i < 2; i++)
-                    LightConnecting(i);
+                
+                    LightConnecting();
 
                 AddMsg("조명 설정 저장 완료", white, true, false, MsgType.Alarm);
             }
@@ -1994,7 +1967,7 @@ namespace VisionSystem
                         nCamNGCnt[j] += nNG[1 + j];
                     }
                 }
-                
+
 
                 double dOKrate = (nTotalCnt > 0) ? ((double)nTotalOKCnt / (double)nTotalCnt) * 100.0 : 0.0;
                 double dNGrate = dOKrate > 0.0 ? 100.0 - dOKrate : 0.0; ;
@@ -2014,7 +1987,7 @@ namespace VisionSystem
             }
             catch { }
 
-            
+
 
             sql.Dispose();
         }
@@ -2042,7 +2015,7 @@ namespace VisionSystem
         #endregion
 
         #region Log & Alarm
-        
+
         private void Cam_OnMessage(string strMsg, Color color, bool bShowPopup, bool bError, MsgType msgType)
         {
             AddMsg(strMsg, color, bShowPopup, bError, msgType);
@@ -2212,20 +2185,19 @@ namespace VisionSystem
                 }
             }
 
-            for (var i = 0; i < 2; i++)
-            {
-                if (_LightSerial[i] != null)
-                {
-                    if (_LightSerial[i].IsOpen)
-                        _LightSerial[i].Close();
-                }
 
-                if (_LightClient[i] != null)
-                {
-                    if (_LightClient[i].Connected)
-                        _LightClient[i].StopUDPClient();
-                }
+            if (_LightSerial != null)
+            {
+                if (_LightSerial.IsOpen)
+                    _LightSerial.Close();
             }
+
+            if (_LightClient != null)
+            {
+                if (_LightClient.Connected)
+                    _LightClient.StopUDPClient();
+            }
+
 
 
             if (_shDev == 0)
@@ -3141,7 +3113,7 @@ namespace VisionSystem
             //btnAdmin.Caption = Str.Menu;
             //btnLog.Caption = Str.Log;
             btnReset.Text = Str.Reset;
-            
+
             btnSetting.Text = Str.Setting;
             bntRecord.Text = Str.Record;
             btnSetCam.Text = Str.AddCamera;
@@ -3265,137 +3237,106 @@ namespace VisionSystem
             }
         }
 
+        static string STX = "\x02";
+        static string ETX = "\x03";
+        static string CR = "\x0D";
+        static string LF = "\x0A";
+        static string O = "\x4F";
+        static string V = "\x56";
+        static string W = "\x57";
 
-
-        private void LightOnOff(int nIdx, bool bOn, int nChannel)
+        private void LightAllOn(bool bLightOn, int nChannel)                                      // 조명 전체 On Off 함수.
         {
-            if (_LightParam[nIdx].strConnectMode == "SERIAL")
-            {
-                if (_LightSerial[nIdx] != null)
-                {
-                    if (!_LightSerial[nIdx].IsOpen)
-                        return;
-                }
-            }
-            else if (_LightParam[nIdx].strConnectMode == "UDP")
-            {
-                if (_LightClient[nIdx] != null)
-                {
-                    if (!_LightClient[nIdx].Connected)
-                        return;
-                }
-            }
-
-
-            byte[] bytesWrite = new byte[6];
-            try
-            {
-                if (bOn)
-                {
-                    bytesWrite[0] = 0x01;
-                    bytesWrite[1] = 0x00;
-                    bytesWrite[2] = 0x01;
-                    bytesWrite[3] = 0x34;
-                    _chLight[nIdx, 8 - nChannel] = '1';
-
-                    var strValue = "";
-                    for (var i = 0; i < 8; i++)
-                        strValue += _chLight.GetValue(nIdx, i).ToString();
-
-                    bytesWrite[4] = Convert.ToByte(Convert.ToInt32(strValue, 2));
-                    bytesWrite[5] = 0x04;
-
-                    if (_LightParam[nIdx].strConnectMode == "SERIAL")
-                        _LightSerial[nIdx].Write(bytesWrite, 0, bytesWrite.Length);
-                    else if (_LightParam[nIdx].strConnectMode == "UDP")
-                        _LightClient[nIdx].SendBytes(bytesWrite);
-
-                }
-                else
-                {
-                    bytesWrite[0] = 0x01;
-                    bytesWrite[1] = 0x00;
-                    bytesWrite[2] = 0x01;
-                    bytesWrite[3] = 0x34;
-                    _chLight[nIdx, 8 - nChannel] = '0';
-
-                    var strValue = "";
-                    for (var i = 0; i < 8; i++)
-                        strValue += _chLight.GetValue(nIdx, i).ToString();
-
-                    bytesWrite[4] = Convert.ToByte(Convert.ToInt32(strValue, 2));
-                    bytesWrite[5] = 0x04;
-
-                    if (_LightParam[nIdx].strConnectMode == "SERIAL")
-                        _LightSerial[nIdx].Write(bytesWrite, 0, bytesWrite.Length);
-                    else if (_LightParam[nIdx].strConnectMode == "UDP")
-                        _LightClient[nIdx].SendBytes(bytesWrite);
-                }
-            }
-            catch { }
-        }
-        private void SetLightValue(int nIdx)
-        {
-            if (!_bLight)
-                return;
+            bool bOn = bLightOn;
 
             try
             {
-                byte[] bytesWrite = new byte[6];
-                int nValue = 0;
-
-                for (var i = 0; i < 2; i++)
+                if (_LightSerial.IsOpen)
                 {
-                    //if (_LightParam[nIdx].bLightUse[i])
-                    // {
-                    nValue = _LightParam[nIdx].nValue[i];
+                    int startchnnel = 1; //01 = 시작번지 채널 12 = 채널 갯수
+                    int nValue = 0;
+                    string strValue = "";
+                    int nCnt = 0;
 
-                    if (nValue > 0)
+
+                    for (int i = 0; i < nChannel; i++)
                     {
-                        bytesWrite[0] = 0x01;
-                        bytesWrite[1] = 0x00;
-                        bytesWrite[2] = 0x01;
-                        bytesWrite[3] = 0x20;
-                        bytesWrite[4] = Convert.ToByte(i + 1);
-                        bytesWrite[5] = 0x04;
+                        if (bOn)
+                        {
+                            if (_LightParam.bLightUse[i])
+                            {
+                                nValue = 1;
+                                strValue += nValue.ToString("X2");
+                                nCnt++;
 
-                        if (_LightParam[nIdx].strConnectMode == "SERIAL")
-                        {
-                            if (_LightSerial[nIdx] != null)
-                                _LightSerial[nIdx].Write(bytesWrite, 0, bytesWrite.Length);
+                            }
                         }
-                        else if (_LightParam[nIdx].strConnectMode == "UDP")
+                        else
                         {
-                            if (_LightClient[nIdx] != null)
-                                _LightClient[nIdx].SendBytes(bytesWrite);
-                        }
-
-                        bytesWrite[0] = 0x01;
-                        bytesWrite[1] = 0x00;
-                        bytesWrite[2] = 0x01;
-                        bytesWrite[3] = 0x28;
-                        bytesWrite[4] = Convert.ToByte(Convert.ToString(nValue, 16), 16);
-                        bytesWrite[5] = 0x04;
-
-                        if (_LightParam[nIdx].strConnectMode == "SERIAL")
-                        {
-                            if (_LightSerial[nIdx] != null)
-                                _LightSerial[nIdx].Write(bytesWrite, 0, bytesWrite.Length);
-                        }
-                        else if (_LightParam[nIdx].strConnectMode == "UDP")
-                        {
-                            if (_LightClient[nIdx] != null)
-                                _LightClient[nIdx].SendBytes(bytesWrite);
+                            if (_LightParam.bLightUse[i])
+                            {
+                                nValue = 0;
+                                strValue += nValue.ToString("X2");
+                                nCnt++;
+                            }
                         }
                     }
-                    //}
+
+
+                    _LightSerial.Write(STX + O + W + startchnnel.ToString("X2") + nCnt.ToString("X2") + strValue + CR + LF);
+
+
                 }
             }
             catch (Exception ex)
             {
-                AddMsg("조명값 변경 오류 : " + ex.Message, red, false, false, MsgType.Alarm);
+
+                throw;
             }
         }
+
+        public void LightOnOff(bool bLightOn, int nChannel)                                       // 조명 On Off 함수.
+        {
+            if (!_LightSerial.IsOpen)
+            {
+                return;
+            }
+
+            var bOn = bLightOn;
+
+            LightAllOn(bOn, nChannel);
+        }
+
+        private void SetLightValue()                                    // 조명 값 설정 함수.
+        {
+            int nChannel = _LightParam.nChannelNo;
+            int startchnnel = 1;
+
+            for (int i = 0; i < nChannel; i++)
+            {
+                int nValue = _LightParam.nValue[i];
+                try
+                {
+                    if (_LightSerial.IsOpen)
+                    {
+                        string strSendMsg = string.Format("{0:X2}", startchnnel + i); //01 = 시작번지 채널 12 = 채널 갯수
+                        string strValue = nValue.ToString("X2");
+                        int ncount = 1;
+                        _LightSerial.Write(STX + V + W + strSendMsg + ncount.ToString("X2") + strValue + CR + LF);
+                    }
+                }
+
+                catch (Exception ex)
+                {
+
+                    throw;
+                }
+
+            }
+
+
+        }
+
 
         #region File Delete
         public void ImageDelete(string path)
@@ -3591,7 +3532,7 @@ namespace VisionSystem
                 _dbInfo.strID = txtDBID.Text;
                 _dbInfo.strPW = txtDBPW.Text;
                 _dbInfo.strDBName = txtDBName.Text;
-               
+
 
 
                 ini.WriteIniFile("DBIP", "Value", _dbInfo.strIP, _strConfigPath, "Config.ini");
@@ -3886,13 +3827,13 @@ namespace VisionSystem
                     bOn = true;
 
                 if (Tag == "0")
-                    LightOnOff(0, bOn, 1);
+                    LightOnOff(bOn, 1);
                 else if (Tag == "1")
-                    LightOnOff(0, bOn, 2);
+                    LightOnOff(bOn, 2);
                 else if (Tag == "2")
-                    LightOnOff(1, bOn, 1);
+                    LightOnOff(bOn, 3);
                 else if (Tag == "3")
-                    LightOnOff(1, bOn, 2);
+                    LightOnOff(bOn, 4);
             }
             catch { }
         }
@@ -3926,10 +3867,9 @@ namespace VisionSystem
             {
                 var Tag = (sender as TrackBarControl).Tag.ToString();
                 int.TryParse(Tag, out var nNo);
-                int nIdx = (nNo == 0 || nNo == 1) ? 0 : 1;
-                int nValueNo = (nNo == 0 || nNo == 1) ? nNo : 2 - nNo;
 
-                _LightParam[nIdx].nValue[nValueNo] = (sender as TrackBarControl).Value;
+
+                _LightParam.nValue[nNo] = (sender as TrackBarControl).Value;
 
                 if (Tag == "0")
                     txtValue1.Text = (sender as TrackBarControl).Value.ToString();
@@ -3940,10 +3880,12 @@ namespace VisionSystem
                 else if (Tag == "3")
                     txtValue4.Text = (sender as TrackBarControl).Value.ToString();
 
-                SetLightValue(nIdx);
+
+                SetLightValue();
             }
             catch { }
         }
+
 
         private void radLightTCP_CheckedChanged(object sender, EventArgs e)
         {
@@ -3957,28 +3899,22 @@ namespace VisionSystem
                     cbPort_1.Visible = true;
                     cbBaud_1.Visible = true;
 
-                    cbPort_2.Visible = true;
-                    cbBaud_2.Visible = true;
+
 
                     txtLightIP_1.Visible = false;
                     txtLightPort_1.Visible = false;
 
-                    txtLightIP_2.Visible = false;
-                    txtLightPort_2.Visible = false;
+
                 }
                 else
                 {
                     cbPort_1.Visible = false;
                     cbBaud_1.Visible = false;
 
-                    cbPort_2.Visible = false;
-                    cbBaud_2.Visible = false;
 
                     txtLightIP_1.Visible = true;
                     txtLightPort_1.Visible = true;
 
-                    txtLightIP_2.Visible = true;
-                    txtLightPort_2.Visible = true;
                 }
             }
             else

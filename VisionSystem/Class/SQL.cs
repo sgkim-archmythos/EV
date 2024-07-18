@@ -1375,7 +1375,7 @@ public class SQL
                                 double.TryParse(ds.Tables[0].Rows[0].ItemArray[33].ToString(), out modelParam.dHeightMin);
                                 double.TryParse(ds.Tables[0].Rows[0].ItemArray[34].ToString(), out modelParam.dHeightMax);
                                 modelParam.strPinMaster = ds.Tables[0].Rows[0].ItemArray[35].ToString();
-                                modelParam.strPinMasterResult = ds.Tables[0].Rows[0].ItemArray[36].ToString();
+                                
                                 
                                 
 
@@ -1433,7 +1433,7 @@ public class SQL
                                     "[EXPOSUREINC] = @EXPOSUREINC, [DEFECTINSP] = @DEFECTINSP, [DEFECTBCR] = @DEFECTBCR, [DEFECTALIGN] = @DEFECTALIGN, [DEFECTDIMENSION] = @DEFECTDIMENSION, [DEFECTPINCHANGE] = @DEFECTPINCHANGE, [DEFECTPININFOCHANGE] = @DEFECTPININFOCHANGE," +
                                     "[RESOLUTION] = @RESOLUTION, [TRIGGERNO] = @TRIGGERNO, [LIGHTNO] = @LIGHTNO, [BCRDATA] = @BCRDATA, [BCRCNT] = @BCRCNT, [ALIGNFORMULA] = @ALIGNFORMULA, [CENTERMASS] = @CENTERMASS, [ALIGNMASTERX] = @ALIGNMASTERX," +
                                     "[ALIGNMASTERY] = @ALIGNMASTERY, [ALIGNMASTERR] = @ALIGNMASTERR, [ALIGNOFFSETX] = @ALIGNOFFSETX, [ALIGNOFFSETY] = @ALIGNOFFSETY, [ALIGNOFFSETR] = @ALIGNOFFSETR, [ALIGNUNIT] = @ALIGNUNIT, [WIDTHMIN] = @WIDTHMIN, [WIDTHMAX] = @WIDTHMAX," +
-                                    "[HEIGHTMIN] = @HEIGHTMIN, [HEIGHTMAX] = @HEIGHTMAX, [PINMASTER] = @PINMASTER, [PINMASTERRES] = @PINMASTERRES," +
+                                    "[HEIGHTMIN] = @HEIGHTMIN, [HEIGHTMAX] = @HEIGHTMAX, [PINMASTER] = @PINMASTER," +
                                     "[MAXX] = @MAXX, [MAXY] = @MAXY" +
                                     " where [PROCESSNAME] = @PROCESSNAME and [CAMNO] = @CAMNO and [MODELNAME] = @MODELNAME";
 
@@ -1470,7 +1470,7 @@ public class SQL
                                 CMD.Parameters.AddWithValue("@HEIGHTMIN", modelParam.dHeightMin);
                                 CMD.Parameters.AddWithValue("@HEIGHTMAX", modelParam.dHeightMax);
                                 CMD.Parameters.AddWithValue("@PINMASTER", modelParam.strPinMaster);
-                                CMD.Parameters.AddWithValue("@PINMASTERRES", modelParam.strPinMasterResult);
+                                
                                 
                                 
                                 
@@ -1484,10 +1484,10 @@ public class SQL
                             {
                                 CMD.CommandText = "INSERT INTO MODELRECIPE ([PROCESSNAME], [MODELNAME], [CAMNO], [CODE], [INSPCNT], [GRABDELAY], [EXPOSURE], [DEFECTGRABCNT], [EXPOSUREINC], [DEFECTINSP], [DEFECTBCR], [DEFECTALIGN], [DEFECTDIMENSION], [DEFECTPINCHANGE]," +
                                     "[RESOLUTION], [TRIGGERNO], [LIGHTNO], [BCRDATA], [BCRCNT], [ALIGNFORMULA], [CENTERMASS], [ALIGNMASTERX], [ALIGNMASTERY], [ALIGNMASTERR], [ALIGNOFFSETX], [ALIGNOFFSETY], [ALIGNOFFSETR], [ALIGNUNIT], [WIDTHMIN], [WIDTHMAX]," +
-                                    "[HEIGHTMIN], [HEIGHTMAX], [PINMASTER], [PINMASTERRES], [MAXX], [MAXY])" +
+                                    "[HEIGHTMIN], [HEIGHTMAX], [PINMASTER], [MAXX], [MAXY])" +
                                     " VALUES (@PROCESSNAME, @MODELNAME, @CAMNO, @CODE, @INSPCNT, @GRABDELAY, @EXPOSURE, @DEFECTGRABCNT, @EXPOSUREINC, @DEFECTINSP, @DEFECTBCR, @DEFECTALIGN, @DEFECTDIMENSION, @DEFECTPINCHANGE," +
                                     "@RESOLUTION, @TRIGGERNO, @LIGHTNO, @BCRDATA, @BCRCNT, @ALIGNFORMULA, @CENTERMASS, @ALIGNMASTERX, @ALIGNMASTERY, @ALIGNMASTERR, @ALIGNOFFSETX, @ALIGNOFFSETY, @ALIGNOFFSETR, @ALIGNUNIT, @WIDTHMIN, @WIDTHMAX," +
-                                    "@HEIGHTMIN, @HEIGHTMAX, @PINMASTER, @PINMASTERRES, @MAXX,@MAXY)";
+                                    "@HEIGHTMIN, @HEIGHTMAX, @PINMASTER, @MAXX,@MAXY)";
 
                                 CMD.Parameters.Clear();
                                 CMD.Parameters.AddWithValue("@PROCESSNAME", strProcName);
@@ -1525,7 +1525,7 @@ public class SQL
                                 CMD.Parameters.AddWithValue("@HEIGHTMIN", modelParam.dHeightMin);
                                 CMD.Parameters.AddWithValue("@HEIGHTMAX", modelParam.dHeightMax);
                                 CMD.Parameters.AddWithValue("@PINMASTER", modelParam.strPinMaster);
-                                CMD.Parameters.AddWithValue("@PINMASTERRES", modelParam.strPinMasterResult);
+                                
                                 
                                 
                                 
@@ -1870,8 +1870,7 @@ public class SQL
                                 CMD.Parameters.AddWithValue("@CONNECTMODE", lightParam.strConnectMode);
                                 CMD.Parameters.AddWithValue("@PORT", lightParam.strPortName);
                                 CMD.Parameters.AddWithValue("@BAUDRATE", lightParam.strBaudrate);
-                                CMD.Parameters.AddWithValue("@VALUE_1", lightParam.nValue[0]);
-                                CMD.Parameters.AddWithValue("@VALUE_2", lightParam.nValue[1]);
+                                CMD.Parameters.AddWithValue("@VALUE_1", lightParam.nValue);
                                 CMD.Parameters.AddWithValue("@LIGHTUSE_1", lightParam.bLightUse[0].ToString());
                                 CMD.Parameters.AddWithValue("@LIGHTUSE_2", lightParam.bLightUse[1].ToString());
                                 CMD.Parameters.AddWithValue("@CONTROL_NO", nIdx);
@@ -1894,8 +1893,7 @@ public class SQL
                                 CMD.Parameters.AddWithValue("@CONNECTMODE", lightParam.strConnectMode);
                                 CMD.Parameters.AddWithValue("@PORT", lightParam.strPortName);
                                 CMD.Parameters.AddWithValue("@BAUDRATE", lightParam.strBaudrate);
-                                CMD.Parameters.AddWithValue("@VALUE_1", lightParam.nValue[0]);
-                                CMD.Parameters.AddWithValue("@VALUE_2", lightParam.nValue[1]);
+                                CMD.Parameters.AddWithValue("@VALUE_1", lightParam.nValue);
                                 CMD.Parameters.AddWithValue("@LIGHTUSE_1", lightParam.bLightUse[0].ToString());
                                 CMD.Parameters.AddWithValue("@LIGHTUSE_2", lightParam.bLightUse[1].ToString());
 
@@ -1910,7 +1908,7 @@ public class SQL
         catch(Exception ex) { }
     }
 
-    public void GetLightParam(int nIdx, string strProcName, DBInfo dbInfo, ref LightParam lightParam)
+    public void GetLightParam(string strProcName, DBInfo dbInfo, ref LightParam lightParam)
     {
         if (string.IsNullOrEmpty(strProcName))
             return;
@@ -1922,7 +1920,7 @@ public class SQL
             {
                 using (SqlCommand CMD = new SqlCommand("Select * from LIGHTPARAM where [CONTROL_NO] = @CONTROL_NO and [PROCESSNAME] = @PROCESSNAME", Conn))
                 {
-                    CMD.Parameters.AddWithValue("@CONTROL_NO", nIdx);
+                    
                     CMD.Parameters.AddWithValue("@PROCESSNAME", strProcName);
 
                     using (var adpter = new SqlDataAdapter())
@@ -1940,7 +1938,7 @@ public class SQL
                                 lightParam.strPortName = ds.Tables[0].Rows[0].ItemArray[4].ToString();
                                 lightParam.strBaudrate = ds.Tables[0].Rows[0].ItemArray[5].ToString();
                                 int.TryParse(ds.Tables[0].Rows[0].ItemArray[6].ToString(), out lightParam.nValue[0]);
-                                int.TryParse(ds.Tables[0].Rows[0].ItemArray[7].ToString(), out lightParam.nValue[1]);
+                                
                                 bool.TryParse(ds.Tables[0].Rows[0].ItemArray[8].ToString(), out lightParam.bLightUse[0]);
                                 bool.TryParse(ds.Tables[0].Rows[0].ItemArray[9].ToString(), out lightParam.bLightUse[1]);
                             }

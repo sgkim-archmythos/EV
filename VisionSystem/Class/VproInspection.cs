@@ -359,9 +359,9 @@ public class VproInspection
         {
             if (modelParam.bPinChange)
             {
-                if (modelParam.strPinMaster != "" && modelParam.strPinMasterResult != "")
+                if (modelParam.strPinMaster != "")
                 {
-                    if (modelParam.strPinMaster[nIdx] == strPingData[nIdx] || modelParam.strPinMasterResult[nIdx] == strPingData[nIdx])
+                    if (modelParam.strPinMaster[nIdx] == strPingData[nIdx])
                         color = (CogColorConstants)Enum.Parse(typeof(CogColorConstants), _graphicVpro.strOKColor[nIdx]);
                     else
                         color = (CogColorConstants)Enum.Parse(typeof(CogColorConstants), _graphicVpro.strNGColor[nIdx]);

@@ -1749,14 +1749,14 @@ namespace VisionSystem
             if (bInsp)
             {
                 CogGraphicLabel[] coglbl = new CogGraphicLabel[2];
-                string[] strPinMaster = new string[2];
+                string strPinMaster = "";
                 coglbl[0] = new CogGraphicLabel();
                 coglbl[1] = new CogGraphicLabel();
 
                 if (_modelParam[_nIdx].bPinChange)
                 {
-                    strPinMaster[0] = _modelParam[_nIdx].strPinMaster;
-                    strPinMaster[1] = _modelParam[_nIdx].strPinMasterResult;
+                    strPinMaster = _modelParam[_nIdx].strPinMaster;
+                    
                 }
 
                 if (_graphicResParam[_nIdx].nSubFontSize == 0)
@@ -1768,10 +1768,10 @@ namespace VisionSystem
                     coglbl[1].Font = font;
                 }
 
-                coglbl[0].Text = string.Format("Pin Master ({0}, {1})", strPinMaster[0], strPinMaster[1]);
+                coglbl[0].Text = string.Format("Pin Master ({0}, {1})", strPinMaster);
                 coglbl[1].Text = string.Format("Pin Data ({0})", strData);
                               
-                if (strPinMaster[0] == strData || strPinMaster[1] == strData)
+                if (strPinMaster == strData)
                     bRes = true;
                 else
                     bRes = false;

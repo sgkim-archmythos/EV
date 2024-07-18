@@ -140,7 +140,7 @@ namespace VisionSystem
                         txtResolution.Text = _modelParam[_nIdx].dResoluton.ToString();
                         txtPinMaster.Text = _modelParam[_nIdx].strPinMaster;
                         
-                        txtPinMasterResult.Text = _modelParam[_nIdx].strPinMasterResult;
+                        
                         
                         txtTriggerNo.Text = _modelParam[_nIdx].strTriggerNo;
                         txtLightNo.Text = _modelParam[_nIdx].strLightNo;
@@ -183,7 +183,7 @@ namespace VisionSystem
                         txtResolution.Text = modelParam.dResoluton.ToString();
                         txtPinMaster.Text = modelParam.strPinMaster;
                         
-                        txtPinMasterResult.Text = modelParam.strPinMasterResult;
+                        
                         
                         txtTriggerNo.Text = modelParam.strTriggerNo;
                         txtLightNo.Text = modelParam.strLightNo;
@@ -393,7 +393,7 @@ namespace VisionSystem
                     double.TryParse(txtMaxY.Text, out _modelParam[_nIdx].dMaxY);
 
                     _modelParam[_nIdx].strPinMaster = txtPinMaster.Text;
-                    _modelParam[_nIdx].strPinMasterResult = txtPinMasterResult.Text;
+                    
                     
 
                     _modelParam[_nIdx].strTriggerNo = txtTriggerNo.Text;
@@ -442,7 +442,7 @@ namespace VisionSystem
                     double.TryParse(txtMaxY.Text, out modelParam.dMaxY);
 
                     modelParam.strPinMaster = txtPinMaster.Text;
-                    modelParam.strPinMasterResult = txtPinMasterResult.Text;
+                    
                     
 
                     

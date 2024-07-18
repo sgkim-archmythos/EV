@@ -36,73 +36,52 @@
             this.txtTriggerNo = new DevExpress.XtraEditors.TextEdit();
             this.txtExpose = new DevExpress.XtraEditors.TextEdit();
             this.txtGrabDelay = new DevExpress.XtraEditors.TextEdit();
+            this.txtHeightMax = new DevExpress.XtraEditors.TextEdit();
+            this.txtWidthMax = new DevExpress.XtraEditors.TextEdit();
+            this.txtHeightMin = new DevExpress.XtraEditors.TextEdit();
+            this.txtWidthMin = new DevExpress.XtraEditors.TextEdit();
+            this.txtBCRLen = new DevExpress.XtraEditors.TextEdit();
+            this.txtBCRData = new DevExpress.XtraEditors.TextEdit();
+            this.txtPinMaster = new DevExpress.XtraEditors.TextEdit();
+            this.txtMaxY = new DevExpress.XtraEditors.TextEdit();
+            this.txtMaxX = new DevExpress.XtraEditors.TextEdit();
+            this.txtCenterMass = new DevExpress.XtraEditors.TextEdit();
+            this.txtAlingUnit = new DevExpress.XtraEditors.TextEdit();
+            this.txtAlignOffsetR = new DevExpress.XtraEditors.TextEdit();
+            this.txtAlignOffsetY = new DevExpress.XtraEditors.TextEdit();
+            this.txtAlignOffsetX = new DevExpress.XtraEditors.TextEdit();
+            this.txtAlignMasterR = new DevExpress.XtraEditors.TextEdit();
+            this.txtAlignMasterY = new DevExpress.XtraEditors.TextEdit();
+            this.txtAlignMasterX = new DevExpress.XtraEditors.TextEdit();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.gpBarcode = new DevExpress.XtraEditors.GroupControl();
-            this.gpDefect = new DevExpress.XtraEditors.GroupControl();
-            this.lblResolution = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
-            this.lblExpose = new DevExpress.XtraEditors.LabelControl();
-            this.lblCodeNo = new DevExpress.XtraEditors.LabelControl();
-            this.lblGrabDelay = new DevExpress.XtraEditors.LabelControl();
-            this.lblCode = new DevExpress.XtraEditors.LabelControl();
-            this.btnCode = new DevExpress.XtraEditors.SimpleButton();
-            this.fypnl = new DevExpress.Utils.FlyoutPanel();
-            this.flyoutPanelControl1 = new DevExpress.Utils.FlyoutPanelControl();
-            this.gpCamera = new DevExpress.XtraEditors.GroupControl();
-            this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.btnClose = new DevExpress.XtraEditors.SimpleButton();
-            this.btnSelect = new DevExpress.XtraEditors.SimpleButton();
             this.pnlVpro = new DevExpress.XtraEditors.PanelControl();
             this.panelControl5 = new DevExpress.XtraEditors.PanelControl();
             this.labelControl13 = new DevExpress.XtraEditors.LabelControl();
-            this.txtHeightMax = new DevExpress.XtraEditors.TextEdit();
             this.labelControl14 = new DevExpress.XtraEditors.LabelControl();
-            this.txtWidthMax = new DevExpress.XtraEditors.TextEdit();
             this.labelControl18 = new DevExpress.XtraEditors.LabelControl();
-            this.txtHeightMin = new DevExpress.XtraEditors.TextEdit();
             this.labelControl19 = new DevExpress.XtraEditors.LabelControl();
-            this.txtWidthMin = new DevExpress.XtraEditors.TextEdit();
             this.labelControl20 = new DevExpress.XtraEditors.LabelControl();
             this.swDimens = new DevExpress.XtraEditors.ToggleSwitch();
             this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
             this.lbl2DData = new DevExpress.XtraEditors.LabelControl();
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
-            this.txtBCRLen = new DevExpress.XtraEditors.TextEdit();
             this.lblDatadigit = new DevExpress.XtraEditors.LabelControl();
-            this.txtBCRData = new DevExpress.XtraEditors.TextEdit();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
-            this.labelControl21 = new DevExpress.XtraEditors.LabelControl();
-            this.txtPinMasterResult = new DevExpress.XtraEditors.TextEdit();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.txtPinMaster = new DevExpress.XtraEditors.TextEdit();
             this.pnlAlign = new DevExpress.XtraEditors.PanelControl();
-            this.txtMaxY = new DevExpress.XtraEditors.TextEdit();
-            this.txtMaxX = new DevExpress.XtraEditors.TextEdit();
             this.lblMaxY = new DevExpress.XtraEditors.LabelControl();
             this.lblMaxX = new DevExpress.XtraEditors.LabelControl();
             this.labelControl23 = new DevExpress.XtraEditors.LabelControl();
             this.chkMathematical = new DevExpress.XtraEditors.CheckEdit();
             this.labelControl22 = new DevExpress.XtraEditors.LabelControl();
-            this.txtCenterMass = new DevExpress.XtraEditors.TextEdit();
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
-            this.txtAlingUnit = new DevExpress.XtraEditors.TextEdit();
             this.lblOffsetR = new DevExpress.XtraEditors.LabelControl();
-            this.txtAlignOffsetR = new DevExpress.XtraEditors.TextEdit();
             this.lblOffsetY = new DevExpress.XtraEditors.LabelControl();
-            this.txtAlignOffsetY = new DevExpress.XtraEditors.TextEdit();
             this.lblOffsetX = new DevExpress.XtraEditors.LabelControl();
-            this.txtAlignOffsetX = new DevExpress.XtraEditors.TextEdit();
             this.lblMasterR = new DevExpress.XtraEditors.LabelControl();
-            this.txtAlignMasterR = new DevExpress.XtraEditors.TextEdit();
             this.lblMasterY = new DevExpress.XtraEditors.LabelControl();
-            this.txtAlignMasterY = new DevExpress.XtraEditors.TextEdit();
             this.lblMasterX = new DevExpress.XtraEditors.LabelControl();
-            this.txtAlignMasterX = new DevExpress.XtraEditors.TextEdit();
             this.labelControl17 = new DevExpress.XtraEditors.LabelControl();
             this.swBCR = new DevExpress.XtraEditors.ToggleSwitch();
             this.labelControl15 = new DevExpress.XtraEditors.LabelControl();
@@ -118,43 +97,39 @@
             this.txtDefectCnt = new DevExpress.XtraEditors.TextEdit();
             this.lblExposeVar = new DevExpress.XtraEditors.LabelControl();
             this.txtExposeIncrease = new DevExpress.XtraEditors.TextEdit();
+            this.gpDefect = new DevExpress.XtraEditors.GroupControl();
+            this.fypnl = new DevExpress.Utils.FlyoutPanel();
+            this.flyoutPanelControl1 = new DevExpress.Utils.FlyoutPanelControl();
+            this.gpCamera = new DevExpress.XtraEditors.GroupControl();
+            this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btnClose = new DevExpress.XtraEditors.SimpleButton();
+            this.btnSelect = new DevExpress.XtraEditors.SimpleButton();
+            this.btnCode = new DevExpress.XtraEditors.SimpleButton();
+            this.lblResolution = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
+            this.lblExpose = new DevExpress.XtraEditors.LabelControl();
+            this.lblCodeNo = new DevExpress.XtraEditors.LabelControl();
+            this.lblGrabDelay = new DevExpress.XtraEditors.LabelControl();
+            this.lblCode = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.txtResolution.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtLightNo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTriggerNo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtExpose.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtGrabDelay.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gpBarcode)).BeginInit();
-            this.gpBarcode.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gpDefect)).BeginInit();
-            this.gpDefect.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.fypnl)).BeginInit();
-            this.fypnl.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.flyoutPanelControl1)).BeginInit();
-            this.flyoutPanelControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gpCamera)).BeginInit();
-            this.gpCamera.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pnlVpro)).BeginInit();
-            this.pnlVpro.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).BeginInit();
-            this.panelControl5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtHeightMax.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtWidthMax.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtHeightMin.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtWidthMin.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.swDimens.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).BeginInit();
-            this.panelControl4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtBCRLen.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBCRData.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
-            this.panelControl3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPinMasterResult.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPinMaster.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pnlAlign)).BeginInit();
-            this.pnlAlign.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaxY.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaxX.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chkMathematical.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCenterMass.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAlingUnit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAlignOffsetR.Properties)).BeginInit();
@@ -163,6 +138,20 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtAlignMasterR.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAlignMasterY.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAlignMasterX.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gpBarcode)).BeginInit();
+            this.gpBarcode.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pnlVpro)).BeginInit();
+            this.pnlVpro.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).BeginInit();
+            this.panelControl5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.swDimens.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).BeginInit();
+            this.panelControl4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
+            this.panelControl3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pnlAlign)).BeginInit();
+            this.pnlAlign.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chkMathematical.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.swBCR.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPinCnt.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.swPin.Properties)).BeginInit();
@@ -170,6 +159,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.swAlign.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDefectCnt.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtExposeIncrease.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gpDefect)).BeginInit();
+            this.gpDefect.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.fypnl)).BeginInit();
+            this.fypnl.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.flyoutPanelControl1)).BeginInit();
+            this.flyoutPanelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gpCamera)).BeginInit();
+            this.gpCamera.SuspendLayout();
             this.SuspendLayout();
             // 
             // highlighter1
@@ -237,6 +234,210 @@
             this.txtGrabDelay.Size = new System.Drawing.Size(119, 24);
             this.txtGrabDelay.TabIndex = 21;
             // 
+            // txtHeightMax
+            // 
+            this.highlighter1.SetHighlightOnFocus(this.txtHeightMax, true);
+            this.txtHeightMax.Location = new System.Drawing.Point(396, 39);
+            this.txtHeightMax.Name = "txtHeightMax";
+            this.txtHeightMax.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtHeightMax.Properties.Appearance.Options.UseFont = true;
+            this.txtHeightMax.Properties.Appearance.Options.UseTextOptions = true;
+            this.txtHeightMax.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.txtHeightMax.Size = new System.Drawing.Size(108, 24);
+            this.txtHeightMax.TabIndex = 45;
+            // 
+            // txtWidthMax
+            // 
+            this.highlighter1.SetHighlightOnFocus(this.txtWidthMax, true);
+            this.txtWidthMax.Location = new System.Drawing.Point(396, 6);
+            this.txtWidthMax.Name = "txtWidthMax";
+            this.txtWidthMax.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtWidthMax.Properties.Appearance.Options.UseFont = true;
+            this.txtWidthMax.Properties.Appearance.Options.UseTextOptions = true;
+            this.txtWidthMax.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.txtWidthMax.Size = new System.Drawing.Size(108, 24);
+            this.txtWidthMax.TabIndex = 43;
+            // 
+            // txtHeightMin
+            // 
+            this.highlighter1.SetHighlightOnFocus(this.txtHeightMin, true);
+            this.txtHeightMin.Location = new System.Drawing.Point(132, 39);
+            this.txtHeightMin.Name = "txtHeightMin";
+            this.txtHeightMin.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtHeightMin.Properties.Appearance.Options.UseFont = true;
+            this.txtHeightMin.Properties.Appearance.Options.UseTextOptions = true;
+            this.txtHeightMin.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.txtHeightMin.Size = new System.Drawing.Size(108, 24);
+            this.txtHeightMin.TabIndex = 39;
+            // 
+            // txtWidthMin
+            // 
+            this.highlighter1.SetHighlightOnFocus(this.txtWidthMin, true);
+            this.txtWidthMin.Location = new System.Drawing.Point(132, 6);
+            this.txtWidthMin.Name = "txtWidthMin";
+            this.txtWidthMin.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtWidthMin.Properties.Appearance.Options.UseFont = true;
+            this.txtWidthMin.Properties.Appearance.Options.UseTextOptions = true;
+            this.txtWidthMin.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.txtWidthMin.Size = new System.Drawing.Size(108, 24);
+            this.txtWidthMin.TabIndex = 37;
+            // 
+            // txtBCRLen
+            // 
+            this.highlighter1.SetHighlightOnFocus(this.txtBCRLen, true);
+            this.txtBCRLen.Location = new System.Drawing.Point(172, 40);
+            this.txtBCRLen.Name = "txtBCRLen";
+            this.txtBCRLen.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBCRLen.Properties.Appearance.Options.UseFont = true;
+            this.txtBCRLen.Properties.Appearance.Options.UseTextOptions = true;
+            this.txtBCRLen.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.txtBCRLen.Size = new System.Drawing.Size(118, 24);
+            this.txtBCRLen.TabIndex = 21;
+            // 
+            // txtBCRData
+            // 
+            this.highlighter1.SetHighlightOnFocus(this.txtBCRData, true);
+            this.txtBCRData.Location = new System.Drawing.Point(172, 8);
+            this.txtBCRData.Name = "txtBCRData";
+            this.txtBCRData.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBCRData.Properties.Appearance.Options.UseFont = true;
+            this.txtBCRData.Properties.Appearance.Options.UseTextOptions = true;
+            this.txtBCRData.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.txtBCRData.Size = new System.Drawing.Size(207, 24);
+            this.txtBCRData.TabIndex = 17;
+            // 
+            // txtPinMaster
+            // 
+            this.highlighter1.SetHighlightOnFocus(this.txtPinMaster, true);
+            this.txtPinMaster.Location = new System.Drawing.Point(173, 6);
+            this.txtPinMaster.Name = "txtPinMaster";
+            this.txtPinMaster.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPinMaster.Properties.Appearance.Options.UseFont = true;
+            this.txtPinMaster.Properties.Appearance.Options.UseTextOptions = true;
+            this.txtPinMaster.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.txtPinMaster.Size = new System.Drawing.Size(191, 24);
+            this.txtPinMaster.TabIndex = 42;
+            // 
+            // txtMaxY
+            // 
+            this.highlighter1.SetHighlightOnFocus(this.txtMaxY, true);
+            this.txtMaxY.Location = new System.Drawing.Point(396, 164);
+            this.txtMaxY.Name = "txtMaxY";
+            this.txtMaxY.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMaxY.Properties.Appearance.Options.UseFont = true;
+            this.txtMaxY.Properties.Appearance.Options.UseTextOptions = true;
+            this.txtMaxY.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.txtMaxY.Size = new System.Drawing.Size(108, 24);
+            this.txtMaxY.TabIndex = 60;
+            // 
+            // txtMaxX
+            // 
+            this.highlighter1.SetHighlightOnFocus(this.txtMaxX, true);
+            this.txtMaxX.Location = new System.Drawing.Point(396, 132);
+            this.txtMaxX.Name = "txtMaxX";
+            this.txtMaxX.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMaxX.Properties.Appearance.Options.UseFont = true;
+            this.txtMaxX.Properties.Appearance.Options.UseTextOptions = true;
+            this.txtMaxX.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.txtMaxX.Size = new System.Drawing.Size(108, 24);
+            this.txtMaxX.TabIndex = 59;
+            // 
+            // txtCenterMass
+            // 
+            this.highlighter1.SetHighlightOnFocus(this.txtCenterMass, true);
+            this.txtCenterMass.Location = new System.Drawing.Point(173, 132);
+            this.txtCenterMass.Name = "txtCenterMass";
+            this.txtCenterMass.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCenterMass.Properties.Appearance.Options.UseFont = true;
+            this.txtCenterMass.Properties.Appearance.Options.UseTextOptions = true;
+            this.txtCenterMass.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.txtCenterMass.Size = new System.Drawing.Size(107, 24);
+            this.txtCenterMass.TabIndex = 51;
+            // 
+            // txtAlingUnit
+            // 
+            this.highlighter1.SetHighlightOnFocus(this.txtAlingUnit, true);
+            this.txtAlingUnit.Location = new System.Drawing.Point(173, 164);
+            this.txtAlingUnit.Name = "txtAlingUnit";
+            this.txtAlingUnit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAlingUnit.Properties.Appearance.Options.UseFont = true;
+            this.txtAlingUnit.Properties.Appearance.Options.UseTextOptions = true;
+            this.txtAlingUnit.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.txtAlingUnit.Size = new System.Drawing.Size(107, 24);
+            this.txtAlingUnit.TabIndex = 49;
+            // 
+            // txtAlignOffsetR
+            // 
+            this.highlighter1.SetHighlightOnFocus(this.txtAlignOffsetR, true);
+            this.txtAlignOffsetR.Location = new System.Drawing.Point(396, 100);
+            this.txtAlignOffsetR.Name = "txtAlignOffsetR";
+            this.txtAlignOffsetR.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAlignOffsetR.Properties.Appearance.Options.UseFont = true;
+            this.txtAlignOffsetR.Properties.Appearance.Options.UseTextOptions = true;
+            this.txtAlignOffsetR.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.txtAlignOffsetR.Size = new System.Drawing.Size(108, 24);
+            this.txtAlignOffsetR.TabIndex = 47;
+            // 
+            // txtAlignOffsetY
+            // 
+            this.highlighter1.SetHighlightOnFocus(this.txtAlignOffsetY, true);
+            this.txtAlignOffsetY.Location = new System.Drawing.Point(396, 68);
+            this.txtAlignOffsetY.Name = "txtAlignOffsetY";
+            this.txtAlignOffsetY.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAlignOffsetY.Properties.Appearance.Options.UseFont = true;
+            this.txtAlignOffsetY.Properties.Appearance.Options.UseTextOptions = true;
+            this.txtAlignOffsetY.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.txtAlignOffsetY.Size = new System.Drawing.Size(108, 24);
+            this.txtAlignOffsetY.TabIndex = 45;
+            // 
+            // txtAlignOffsetX
+            // 
+            this.highlighter1.SetHighlightOnFocus(this.txtAlignOffsetX, true);
+            this.txtAlignOffsetX.Location = new System.Drawing.Point(396, 35);
+            this.txtAlignOffsetX.Name = "txtAlignOffsetX";
+            this.txtAlignOffsetX.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAlignOffsetX.Properties.Appearance.Options.UseFont = true;
+            this.txtAlignOffsetX.Properties.Appearance.Options.UseTextOptions = true;
+            this.txtAlignOffsetX.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.txtAlignOffsetX.Size = new System.Drawing.Size(108, 24);
+            this.txtAlignOffsetX.TabIndex = 43;
+            // 
+            // txtAlignMasterR
+            // 
+            this.highlighter1.SetHighlightOnFocus(this.txtAlignMasterR, true);
+            this.txtAlignMasterR.Location = new System.Drawing.Point(172, 100);
+            this.txtAlignMasterR.Name = "txtAlignMasterR";
+            this.txtAlignMasterR.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAlignMasterR.Properties.Appearance.Options.UseFont = true;
+            this.txtAlignMasterR.Properties.Appearance.Options.UseTextOptions = true;
+            this.txtAlignMasterR.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.txtAlignMasterR.Size = new System.Drawing.Size(108, 24);
+            this.txtAlignMasterR.TabIndex = 41;
+            // 
+            // txtAlignMasterY
+            // 
+            this.highlighter1.SetHighlightOnFocus(this.txtAlignMasterY, true);
+            this.txtAlignMasterY.Location = new System.Drawing.Point(172, 68);
+            this.txtAlignMasterY.Name = "txtAlignMasterY";
+            this.txtAlignMasterY.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAlignMasterY.Properties.Appearance.Options.UseFont = true;
+            this.txtAlignMasterY.Properties.Appearance.Options.UseTextOptions = true;
+            this.txtAlignMasterY.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.txtAlignMasterY.Size = new System.Drawing.Size(108, 24);
+            this.txtAlignMasterY.TabIndex = 39;
+            // 
+            // txtAlignMasterX
+            // 
+            this.highlighter1.SetHighlightOnFocus(this.txtAlignMasterX, true);
+            this.txtAlignMasterX.Location = new System.Drawing.Point(172, 35);
+            this.txtAlignMasterX.Name = "txtAlignMasterX";
+            this.txtAlignMasterX.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAlignMasterX.Properties.Appearance.Options.UseFont = true;
+            this.txtAlignMasterX.Properties.Appearance.Options.UseTextOptions = true;
+            this.txtAlignMasterX.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.txtAlignMasterX.Size = new System.Drawing.Size(108, 24);
+            this.txtAlignMasterX.TabIndex = 37;
+            // 
             // imageList1
             // 
             this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
@@ -252,283 +453,6 @@
             this.gpBarcode.Size = new System.Drawing.Size(1300, 604);
             this.gpBarcode.TabIndex = 27;
             this.gpBarcode.Text = "Detail Settings";
-            // 
-            // gpDefect
-            // 
-            this.gpDefect.Controls.Add(this.fypnl);
-            this.gpDefect.Controls.Add(this.lblResolution);
-            this.gpDefect.Controls.Add(this.txtResolution);
-            this.gpDefect.Controls.Add(this.labelControl4);
-            this.gpDefect.Controls.Add(this.txtLightNo);
-            this.gpDefect.Controls.Add(this.txtTriggerNo);
-            this.gpDefect.Controls.Add(this.labelControl5);
-            this.gpDefect.Controls.Add(this.lblExpose);
-            this.gpDefect.Controls.Add(this.txtExpose);
-            this.gpDefect.Controls.Add(this.txtGrabDelay);
-            this.gpDefect.Controls.Add(this.lblCodeNo);
-            this.gpDefect.Controls.Add(this.lblGrabDelay);
-            this.gpDefect.Controls.Add(this.lblCode);
-            this.gpDefect.Controls.Add(this.btnCode);
-            this.gpDefect.Dock = System.Windows.Forms.DockStyle.Top;
-            this.gpDefect.Images = this.imageList1;
-            this.gpDefect.Location = new System.Drawing.Point(0, 0);
-            this.gpDefect.Name = "gpDefect";
-            this.gpDefect.Size = new System.Drawing.Size(1300, 141);
-            this.gpDefect.TabIndex = 26;
-            this.gpDefect.Text = "Basic Settings";
-            // 
-            // lblResolution
-            // 
-            this.lblResolution.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblResolution.Appearance.Options.UseFont = true;
-            this.lblResolution.Appearance.Options.UseTextOptions = true;
-            this.lblResolution.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.lblResolution.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.lblResolution.Location = new System.Drawing.Point(536, 33);
-            this.lblResolution.Name = "lblResolution";
-            this.lblResolution.Size = new System.Drawing.Size(117, 27);
-            this.lblResolution.TabIndex = 32;
-            this.lblResolution.Text = "Resolution : ";
-            // 
-            // labelControl4
-            // 
-            this.labelControl4.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl4.Appearance.Options.UseFont = true;
-            this.labelControl4.Appearance.Options.UseTextOptions = true;
-            this.labelControl4.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.labelControl4.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl4.Location = new System.Drawing.Point(278, 65);
-            this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(97, 27);
-            this.labelControl4.TabIndex = 28;
-            this.labelControl4.Text = "Light No : ";
-            // 
-            // labelControl5
-            // 
-            this.labelControl5.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl5.Appearance.Options.UseFont = true;
-            this.labelControl5.Appearance.Options.UseTextOptions = true;
-            this.labelControl5.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.labelControl5.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl5.Location = new System.Drawing.Point(278, 33);
-            this.labelControl5.Name = "labelControl5";
-            this.labelControl5.Size = new System.Drawing.Size(117, 27);
-            this.labelControl5.TabIndex = 30;
-            this.labelControl5.Text = "Trigger No : ";
-            // 
-            // lblExpose
-            // 
-            this.lblExpose.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblExpose.Appearance.Options.UseFont = true;
-            this.lblExpose.Appearance.Options.UseTextOptions = true;
-            this.lblExpose.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.lblExpose.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.lblExpose.Location = new System.Drawing.Point(59, 64);
-            this.lblExpose.Name = "lblExpose";
-            this.lblExpose.Size = new System.Drawing.Size(84, 27);
-            this.lblExpose.TabIndex = 0;
-            this.lblExpose.Text = "Expose : ";
-            // 
-            // lblCodeNo
-            // 
-            this.lblCodeNo.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCodeNo.Appearance.Options.UseFont = true;
-            this.lblCodeNo.Appearance.Options.UseTextOptions = true;
-            this.lblCodeNo.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.lblCodeNo.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.lblCodeNo.Location = new System.Drawing.Point(-47, 96);
-            this.lblCodeNo.Name = "lblCodeNo";
-            this.lblCodeNo.Size = new System.Drawing.Size(188, 27);
-            this.lblCodeNo.TabIndex = 2;
-            this.lblCodeNo.Text = "Code : ";
-            // 
-            // lblGrabDelay
-            // 
-            this.lblGrabDelay.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGrabDelay.Appearance.Options.UseFont = true;
-            this.lblGrabDelay.Appearance.Options.UseTextOptions = true;
-            this.lblGrabDelay.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.lblGrabDelay.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.lblGrabDelay.Location = new System.Drawing.Point(-47, 32);
-            this.lblGrabDelay.Name = "lblGrabDelay";
-            this.lblGrabDelay.Size = new System.Drawing.Size(188, 27);
-            this.lblGrabDelay.TabIndex = 20;
-            this.lblGrabDelay.Text = "Grab Delay : ";
-            // 
-            // lblCode
-            // 
-            this.lblCode.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCode.Appearance.Options.UseFont = true;
-            this.lblCode.Appearance.Options.UseTextOptions = true;
-            this.lblCode.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.lblCode.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.lblCode.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            this.lblCode.Location = new System.Drawing.Point(154, 96);
-            this.lblCode.Name = "lblCode";
-            this.lblCode.Size = new System.Drawing.Size(119, 26);
-            this.lblCode.TabIndex = 3;
-            this.lblCode.Text = "-";
-            // 
-            // btnCode
-            // 
-            this.btnCode.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCode.Appearance.Options.UseFont = true;
-            this.btnCode.DialogResult = System.Windows.Forms.DialogResult.No;
-            this.btnCode.Location = new System.Drawing.Point(278, 96);
-            this.btnCode.Name = "btnCode";
-            this.btnCode.Size = new System.Drawing.Size(98, 26);
-            this.btnCode.TabIndex = 4;
-            this.btnCode.Text = "Code Table";
-            this.btnCode.Click += new System.EventHandler(this.btnCode_Click);
-            // 
-            // fypnl
-            // 
-            this.fypnl.AnimationRate = 75;
-            this.fypnl.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
-            this.fypnl.Controls.Add(this.flyoutPanelControl1);
-            this.fypnl.Location = new System.Drawing.Point(768, 78);
-            this.fypnl.Name = "fypnl";
-            this.fypnl.Options.AnimationType = DevExpress.Utils.Win.PopupToolWindowAnimation.Fade;
-            this.fypnl.Options.CloseOnHidingOwner = false;
-            this.fypnl.OptionsBeakPanel.BeakLocation = DevExpress.Utils.BeakPanelBeakLocation.Left;
-            this.fypnl.OptionsBeakPanel.CloseOnOuterClick = false;
-            this.fypnl.OptionsButtonPanel.ButtonPanelHeight = 32;
-            this.fypnl.OwnerControl = this.btnCode;
-            this.fypnl.Size = new System.Drawing.Size(525, 620);
-            this.fypnl.TabIndex = 28;
-            // 
-            // flyoutPanelControl1
-            // 
-            this.flyoutPanelControl1.Controls.Add(this.gpCamera);
-            this.flyoutPanelControl1.Controls.Add(this.btnClose);
-            this.flyoutPanelControl1.Controls.Add(this.btnSelect);
-            this.flyoutPanelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flyoutPanelControl1.FlyoutPanel = this.fypnl;
-            this.flyoutPanelControl1.Location = new System.Drawing.Point(0, 0);
-            this.flyoutPanelControl1.Name = "flyoutPanelControl1";
-            this.flyoutPanelControl1.Size = new System.Drawing.Size(525, 620);
-            this.flyoutPanelControl1.TabIndex = 0;
-            // 
-            // gpCamera
-            // 
-            this.gpCamera.Controls.Add(this.labelControl9);
-            this.gpCamera.Controls.Add(this.labelControl12);
-            this.gpCamera.Controls.Add(this.labelControl11);
-            this.gpCamera.Controls.Add(this.labelControl10);
-            this.gpCamera.Controls.Add(this.panel1);
-            this.gpCamera.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gpCamera.Images = this.imageList1;
-            this.gpCamera.Location = new System.Drawing.Point(2, 2);
-            this.gpCamera.Name = "gpCamera";
-            this.gpCamera.Size = new System.Drawing.Size(521, 616);
-            this.gpCamera.TabIndex = 25;
-            this.gpCamera.Text = "Camera_01";
-            // 
-            // labelControl9
-            // 
-            this.labelControl9.Appearance.BackColor = System.Drawing.Color.White;
-            this.labelControl9.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl9.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.labelControl9.Appearance.Options.UseBackColor = true;
-            this.labelControl9.Appearance.Options.UseFont = true;
-            this.labelControl9.Appearance.Options.UseForeColor = true;
-            this.labelControl9.Appearance.Options.UseTextOptions = true;
-            this.labelControl9.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.labelControl9.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl9.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
-            this.labelControl9.Location = new System.Drawing.Point(7, 30);
-            this.labelControl9.Name = "labelControl9";
-            this.labelControl9.Size = new System.Drawing.Size(49, 30);
-            this.labelControl9.TabIndex = 1;
-            this.labelControl9.Text = "Select";
-            // 
-            // labelControl12
-            // 
-            this.labelControl12.Appearance.BackColor = System.Drawing.Color.White;
-            this.labelControl12.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl12.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.labelControl12.Appearance.Options.UseBackColor = true;
-            this.labelControl12.Appearance.Options.UseFont = true;
-            this.labelControl12.Appearance.Options.UseForeColor = true;
-            this.labelControl12.Appearance.Options.UseTextOptions = true;
-            this.labelControl12.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.labelControl12.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl12.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
-            this.labelControl12.Location = new System.Drawing.Point(146, 30);
-            this.labelControl12.Name = "labelControl12";
-            this.labelControl12.Size = new System.Drawing.Size(198, 30);
-            this.labelControl12.TabIndex = 3;
-            this.labelControl12.Text = "Image";
-            // 
-            // labelControl11
-            // 
-            this.labelControl11.Appearance.BackColor = System.Drawing.Color.White;
-            this.labelControl11.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl11.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.labelControl11.Appearance.Options.UseBackColor = true;
-            this.labelControl11.Appearance.Options.UseFont = true;
-            this.labelControl11.Appearance.Options.UseForeColor = true;
-            this.labelControl11.Appearance.Options.UseTextOptions = true;
-            this.labelControl11.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.labelControl11.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl11.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
-            this.labelControl11.Location = new System.Drawing.Point(59, 30);
-            this.labelControl11.Name = "labelControl11";
-            this.labelControl11.Size = new System.Drawing.Size(84, 30);
-            this.labelControl11.TabIndex = 2;
-            this.labelControl11.Text = "Code";
-            // 
-            // labelControl10
-            // 
-            this.labelControl10.Appearance.BackColor = System.Drawing.Color.White;
-            this.labelControl10.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl10.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.labelControl10.Appearance.Options.UseBackColor = true;
-            this.labelControl10.Appearance.Options.UseFont = true;
-            this.labelControl10.Appearance.Options.UseForeColor = true;
-            this.labelControl10.Appearance.Options.UseTextOptions = true;
-            this.labelControl10.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.labelControl10.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl10.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
-            this.labelControl10.Location = new System.Drawing.Point(348, 30);
-            this.labelControl10.Name = "labelControl10";
-            this.labelControl10.Size = new System.Drawing.Size(148, 30);
-            this.labelControl10.TabIndex = 4;
-            this.labelControl10.Text = "Comment";
-            // 
-            // panel1
-            // 
-            this.panel1.AutoScroll = true;
-            this.panel1.Location = new System.Drawing.Point(2, 61);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(517, 551);
-            this.panel1.TabIndex = 2;
-            // 
-            // btnClose
-            // 
-            this.btnClose.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClose.Appearance.Options.UseFont = true;
-            this.btnClose.DialogResult = System.Windows.Forms.DialogResult.No;
-            this.btnClose.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.ImageOptions.Image")));
-            this.btnClose.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.btnClose.Location = new System.Drawing.Point(264, 586);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(86, 29);
-            this.btnClose.TabIndex = 7;
-            this.btnClose.Text = "Close";
-            // 
-            // btnSelect
-            // 
-            this.btnSelect.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSelect.Appearance.Options.UseFont = true;
-            this.btnSelect.DialogResult = System.Windows.Forms.DialogResult.No;
-            this.btnSelect.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSelect.ImageOptions.Image")));
-            this.btnSelect.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.btnSelect.Location = new System.Drawing.Point(175, 586);
-            this.btnSelect.Name = "btnSelect";
-            this.btnSelect.Size = new System.Drawing.Size(86, 29);
-            this.btnSelect.TabIndex = 6;
-            this.btnSelect.Text = "Select";
             // 
             // pnlVpro
             // 
@@ -587,18 +511,6 @@
             this.labelControl13.TabIndex = 44;
             this.labelControl13.Text = "Height Max : ";
             // 
-            // txtHeightMax
-            // 
-            this.highlighter1.SetHighlightOnFocus(this.txtHeightMax, true);
-            this.txtHeightMax.Location = new System.Drawing.Point(396, 39);
-            this.txtHeightMax.Name = "txtHeightMax";
-            this.txtHeightMax.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtHeightMax.Properties.Appearance.Options.UseFont = true;
-            this.txtHeightMax.Properties.Appearance.Options.UseTextOptions = true;
-            this.txtHeightMax.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.txtHeightMax.Size = new System.Drawing.Size(108, 24);
-            this.txtHeightMax.TabIndex = 45;
-            // 
             // labelControl14
             // 
             this.labelControl14.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -611,18 +523,6 @@
             this.labelControl14.Size = new System.Drawing.Size(117, 27);
             this.labelControl14.TabIndex = 42;
             this.labelControl14.Text = "Width Max : ";
-            // 
-            // txtWidthMax
-            // 
-            this.highlighter1.SetHighlightOnFocus(this.txtWidthMax, true);
-            this.txtWidthMax.Location = new System.Drawing.Point(396, 6);
-            this.txtWidthMax.Name = "txtWidthMax";
-            this.txtWidthMax.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtWidthMax.Properties.Appearance.Options.UseFont = true;
-            this.txtWidthMax.Properties.Appearance.Options.UseTextOptions = true;
-            this.txtWidthMax.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.txtWidthMax.Size = new System.Drawing.Size(108, 24);
-            this.txtWidthMax.TabIndex = 43;
             // 
             // labelControl18
             // 
@@ -637,18 +537,6 @@
             this.labelControl18.TabIndex = 38;
             this.labelControl18.Text = "Height Min : ";
             // 
-            // txtHeightMin
-            // 
-            this.highlighter1.SetHighlightOnFocus(this.txtHeightMin, true);
-            this.txtHeightMin.Location = new System.Drawing.Point(132, 39);
-            this.txtHeightMin.Name = "txtHeightMin";
-            this.txtHeightMin.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtHeightMin.Properties.Appearance.Options.UseFont = true;
-            this.txtHeightMin.Properties.Appearance.Options.UseTextOptions = true;
-            this.txtHeightMin.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.txtHeightMin.Size = new System.Drawing.Size(108, 24);
-            this.txtHeightMin.TabIndex = 39;
-            // 
             // labelControl19
             // 
             this.labelControl19.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -661,18 +549,6 @@
             this.labelControl19.Size = new System.Drawing.Size(117, 27);
             this.labelControl19.TabIndex = 36;
             this.labelControl19.Text = "Width Min : ";
-            // 
-            // txtWidthMin
-            // 
-            this.highlighter1.SetHighlightOnFocus(this.txtWidthMin, true);
-            this.txtWidthMin.Location = new System.Drawing.Point(132, 6);
-            this.txtWidthMin.Name = "txtWidthMin";
-            this.txtWidthMin.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtWidthMin.Properties.Appearance.Options.UseFont = true;
-            this.txtWidthMin.Properties.Appearance.Options.UseTextOptions = true;
-            this.txtWidthMin.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.txtWidthMin.Size = new System.Drawing.Size(108, 24);
-            this.txtWidthMin.TabIndex = 37;
             // 
             // labelControl20
             // 
@@ -736,18 +612,6 @@
             this.labelControl8.TabIndex = 32;
             this.labelControl8.Text = "(ex : 1~5)";
             // 
-            // txtBCRLen
-            // 
-            this.highlighter1.SetHighlightOnFocus(this.txtBCRLen, true);
-            this.txtBCRLen.Location = new System.Drawing.Point(172, 40);
-            this.txtBCRLen.Name = "txtBCRLen";
-            this.txtBCRLen.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBCRLen.Properties.Appearance.Options.UseFont = true;
-            this.txtBCRLen.Properties.Appearance.Options.UseTextOptions = true;
-            this.txtBCRLen.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.txtBCRLen.Size = new System.Drawing.Size(118, 24);
-            this.txtBCRLen.TabIndex = 21;
-            // 
             // lblDatadigit
             // 
             this.lblDatadigit.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -761,53 +625,14 @@
             this.lblDatadigit.TabIndex = 20;
             this.lblDatadigit.Text = "Data digit value :";
             // 
-            // txtBCRData
-            // 
-            this.highlighter1.SetHighlightOnFocus(this.txtBCRData, true);
-            this.txtBCRData.Location = new System.Drawing.Point(172, 8);
-            this.txtBCRData.Name = "txtBCRData";
-            this.txtBCRData.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBCRData.Properties.Appearance.Options.UseFont = true;
-            this.txtBCRData.Properties.Appearance.Options.UseTextOptions = true;
-            this.txtBCRData.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.txtBCRData.Size = new System.Drawing.Size(207, 24);
-            this.txtBCRData.TabIndex = 17;
-            // 
             // panelControl3
             // 
-            this.panelControl3.Controls.Add(this.labelControl21);
-            this.panelControl3.Controls.Add(this.txtPinMasterResult);
             this.panelControl3.Controls.Add(this.labelControl2);
             this.panelControl3.Controls.Add(this.txtPinMaster);
             this.panelControl3.Location = new System.Drawing.Point(204, 493);
             this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(515, 71);
+            this.panelControl3.Size = new System.Drawing.Size(515, 35);
             this.panelControl3.TabIndex = 43;
-            // 
-            // labelControl21
-            // 
-            this.labelControl21.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl21.Appearance.Options.UseFont = true;
-            this.labelControl21.Appearance.Options.UseTextOptions = true;
-            this.labelControl21.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.labelControl21.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl21.Location = new System.Drawing.Point(-6, 38);
-            this.labelControl21.Name = "labelControl21";
-            this.labelControl21.Size = new System.Drawing.Size(172, 27);
-            this.labelControl21.TabIndex = 45;
-            this.labelControl21.Text = "Pin Master Result : ";
-            // 
-            // txtPinMasterResult
-            // 
-            this.highlighter1.SetHighlightOnFocus(this.txtPinMasterResult, true);
-            this.txtPinMasterResult.Location = new System.Drawing.Point(172, 39);
-            this.txtPinMasterResult.Name = "txtPinMasterResult";
-            this.txtPinMasterResult.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPinMasterResult.Properties.Appearance.Options.UseFont = true;
-            this.txtPinMasterResult.Properties.Appearance.Options.UseTextOptions = true;
-            this.txtPinMasterResult.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.txtPinMasterResult.Size = new System.Drawing.Size(191, 24);
-            this.txtPinMasterResult.TabIndex = 44;
             // 
             // labelControl2
             // 
@@ -821,18 +646,6 @@
             this.labelControl2.Size = new System.Drawing.Size(117, 27);
             this.labelControl2.TabIndex = 43;
             this.labelControl2.Text = "Pin Master : ";
-            // 
-            // txtPinMaster
-            // 
-            this.highlighter1.SetHighlightOnFocus(this.txtPinMaster, true);
-            this.txtPinMaster.Location = new System.Drawing.Point(173, 6);
-            this.txtPinMaster.Name = "txtPinMaster";
-            this.txtPinMaster.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPinMaster.Properties.Appearance.Options.UseFont = true;
-            this.txtPinMaster.Properties.Appearance.Options.UseTextOptions = true;
-            this.txtPinMaster.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.txtPinMaster.Size = new System.Drawing.Size(191, 24);
-            this.txtPinMaster.TabIndex = 42;
             // 
             // pnlAlign
             // 
@@ -862,30 +675,6 @@
             this.pnlAlign.Name = "pnlAlign";
             this.pnlAlign.Size = new System.Drawing.Size(515, 198);
             this.pnlAlign.TabIndex = 39;
-            // 
-            // txtMaxY
-            // 
-            this.highlighter1.SetHighlightOnFocus(this.txtMaxY, true);
-            this.txtMaxY.Location = new System.Drawing.Point(396, 164);
-            this.txtMaxY.Name = "txtMaxY";
-            this.txtMaxY.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMaxY.Properties.Appearance.Options.UseFont = true;
-            this.txtMaxY.Properties.Appearance.Options.UseTextOptions = true;
-            this.txtMaxY.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.txtMaxY.Size = new System.Drawing.Size(108, 24);
-            this.txtMaxY.TabIndex = 60;
-            // 
-            // txtMaxX
-            // 
-            this.highlighter1.SetHighlightOnFocus(this.txtMaxX, true);
-            this.txtMaxX.Location = new System.Drawing.Point(396, 132);
-            this.txtMaxX.Name = "txtMaxX";
-            this.txtMaxX.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMaxX.Properties.Appearance.Options.UseFont = true;
-            this.txtMaxX.Properties.Appearance.Options.UseTextOptions = true;
-            this.txtMaxX.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.txtMaxX.Size = new System.Drawing.Size(108, 24);
-            this.txtMaxX.TabIndex = 59;
             // 
             // lblMaxY
             // 
@@ -952,18 +741,6 @@
             this.labelControl22.TabIndex = 50;
             this.labelControl22.Text = "Center of Mass : ";
             // 
-            // txtCenterMass
-            // 
-            this.highlighter1.SetHighlightOnFocus(this.txtCenterMass, true);
-            this.txtCenterMass.Location = new System.Drawing.Point(173, 132);
-            this.txtCenterMass.Name = "txtCenterMass";
-            this.txtCenterMass.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCenterMass.Properties.Appearance.Options.UseFont = true;
-            this.txtCenterMass.Properties.Appearance.Options.UseTextOptions = true;
-            this.txtCenterMass.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.txtCenterMass.Size = new System.Drawing.Size(107, 24);
-            this.txtCenterMass.TabIndex = 51;
-            // 
             // labelControl7
             // 
             this.labelControl7.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -976,18 +753,6 @@
             this.labelControl7.Size = new System.Drawing.Size(54, 27);
             this.labelControl7.TabIndex = 48;
             this.labelControl7.Text = "Unit: ";
-            // 
-            // txtAlingUnit
-            // 
-            this.highlighter1.SetHighlightOnFocus(this.txtAlingUnit, true);
-            this.txtAlingUnit.Location = new System.Drawing.Point(173, 164);
-            this.txtAlingUnit.Name = "txtAlingUnit";
-            this.txtAlingUnit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAlingUnit.Properties.Appearance.Options.UseFont = true;
-            this.txtAlingUnit.Properties.Appearance.Options.UseTextOptions = true;
-            this.txtAlingUnit.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.txtAlingUnit.Size = new System.Drawing.Size(107, 24);
-            this.txtAlingUnit.TabIndex = 49;
             // 
             // lblOffsetR
             // 
@@ -1002,18 +767,6 @@
             this.lblOffsetR.TabIndex = 46;
             this.lblOffsetR.Text = "Offset R : ";
             // 
-            // txtAlignOffsetR
-            // 
-            this.highlighter1.SetHighlightOnFocus(this.txtAlignOffsetR, true);
-            this.txtAlignOffsetR.Location = new System.Drawing.Point(396, 100);
-            this.txtAlignOffsetR.Name = "txtAlignOffsetR";
-            this.txtAlignOffsetR.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAlignOffsetR.Properties.Appearance.Options.UseFont = true;
-            this.txtAlignOffsetR.Properties.Appearance.Options.UseTextOptions = true;
-            this.txtAlignOffsetR.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.txtAlignOffsetR.Size = new System.Drawing.Size(108, 24);
-            this.txtAlignOffsetR.TabIndex = 47;
-            // 
             // lblOffsetY
             // 
             this.lblOffsetY.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1026,18 +779,6 @@
             this.lblOffsetY.Size = new System.Drawing.Size(87, 27);
             this.lblOffsetY.TabIndex = 44;
             this.lblOffsetY.Text = "Offset Y : ";
-            // 
-            // txtAlignOffsetY
-            // 
-            this.highlighter1.SetHighlightOnFocus(this.txtAlignOffsetY, true);
-            this.txtAlignOffsetY.Location = new System.Drawing.Point(396, 68);
-            this.txtAlignOffsetY.Name = "txtAlignOffsetY";
-            this.txtAlignOffsetY.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAlignOffsetY.Properties.Appearance.Options.UseFont = true;
-            this.txtAlignOffsetY.Properties.Appearance.Options.UseTextOptions = true;
-            this.txtAlignOffsetY.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.txtAlignOffsetY.Size = new System.Drawing.Size(108, 24);
-            this.txtAlignOffsetY.TabIndex = 45;
             // 
             // lblOffsetX
             // 
@@ -1052,18 +793,6 @@
             this.lblOffsetX.TabIndex = 42;
             this.lblOffsetX.Text = "Offset X : ";
             // 
-            // txtAlignOffsetX
-            // 
-            this.highlighter1.SetHighlightOnFocus(this.txtAlignOffsetX, true);
-            this.txtAlignOffsetX.Location = new System.Drawing.Point(396, 35);
-            this.txtAlignOffsetX.Name = "txtAlignOffsetX";
-            this.txtAlignOffsetX.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAlignOffsetX.Properties.Appearance.Options.UseFont = true;
-            this.txtAlignOffsetX.Properties.Appearance.Options.UseTextOptions = true;
-            this.txtAlignOffsetX.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.txtAlignOffsetX.Size = new System.Drawing.Size(108, 24);
-            this.txtAlignOffsetX.TabIndex = 43;
-            // 
             // lblMasterR
             // 
             this.lblMasterR.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1076,18 +805,6 @@
             this.lblMasterR.Size = new System.Drawing.Size(188, 27);
             this.lblMasterR.TabIndex = 40;
             this.lblMasterR.Text = "Master Location R : ";
-            // 
-            // txtAlignMasterR
-            // 
-            this.highlighter1.SetHighlightOnFocus(this.txtAlignMasterR, true);
-            this.txtAlignMasterR.Location = new System.Drawing.Point(172, 100);
-            this.txtAlignMasterR.Name = "txtAlignMasterR";
-            this.txtAlignMasterR.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAlignMasterR.Properties.Appearance.Options.UseFont = true;
-            this.txtAlignMasterR.Properties.Appearance.Options.UseTextOptions = true;
-            this.txtAlignMasterR.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.txtAlignMasterR.Size = new System.Drawing.Size(108, 24);
-            this.txtAlignMasterR.TabIndex = 41;
             // 
             // lblMasterY
             // 
@@ -1102,18 +819,6 @@
             this.lblMasterY.TabIndex = 38;
             this.lblMasterY.Text = "Master Location Y : ";
             // 
-            // txtAlignMasterY
-            // 
-            this.highlighter1.SetHighlightOnFocus(this.txtAlignMasterY, true);
-            this.txtAlignMasterY.Location = new System.Drawing.Point(172, 68);
-            this.txtAlignMasterY.Name = "txtAlignMasterY";
-            this.txtAlignMasterY.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAlignMasterY.Properties.Appearance.Options.UseFont = true;
-            this.txtAlignMasterY.Properties.Appearance.Options.UseTextOptions = true;
-            this.txtAlignMasterY.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.txtAlignMasterY.Size = new System.Drawing.Size(108, 24);
-            this.txtAlignMasterY.TabIndex = 39;
-            // 
             // lblMasterX
             // 
             this.lblMasterX.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1126,18 +831,6 @@
             this.lblMasterX.Size = new System.Drawing.Size(188, 27);
             this.lblMasterX.TabIndex = 36;
             this.lblMasterX.Text = "Master Location X : ";
-            // 
-            // txtAlignMasterX
-            // 
-            this.highlighter1.SetHighlightOnFocus(this.txtAlignMasterX, true);
-            this.txtAlignMasterX.Location = new System.Drawing.Point(172, 35);
-            this.txtAlignMasterX.Name = "txtAlignMasterX";
-            this.txtAlignMasterX.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAlignMasterX.Properties.Appearance.Options.UseFont = true;
-            this.txtAlignMasterX.Properties.Appearance.Options.UseTextOptions = true;
-            this.txtAlignMasterX.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.txtAlignMasterX.Size = new System.Drawing.Size(108, 24);
-            this.txtAlignMasterX.TabIndex = 37;
             // 
             // labelControl17
             // 
@@ -1327,6 +1020,283 @@
             this.txtExposeIncrease.TabIndex = 31;
             this.txtExposeIncrease.Visible = false;
             // 
+            // gpDefect
+            // 
+            this.gpDefect.Controls.Add(this.fypnl);
+            this.gpDefect.Controls.Add(this.lblResolution);
+            this.gpDefect.Controls.Add(this.txtResolution);
+            this.gpDefect.Controls.Add(this.labelControl4);
+            this.gpDefect.Controls.Add(this.txtLightNo);
+            this.gpDefect.Controls.Add(this.txtTriggerNo);
+            this.gpDefect.Controls.Add(this.labelControl5);
+            this.gpDefect.Controls.Add(this.lblExpose);
+            this.gpDefect.Controls.Add(this.txtExpose);
+            this.gpDefect.Controls.Add(this.txtGrabDelay);
+            this.gpDefect.Controls.Add(this.lblCodeNo);
+            this.gpDefect.Controls.Add(this.lblGrabDelay);
+            this.gpDefect.Controls.Add(this.lblCode);
+            this.gpDefect.Controls.Add(this.btnCode);
+            this.gpDefect.Dock = System.Windows.Forms.DockStyle.Top;
+            this.gpDefect.Images = this.imageList1;
+            this.gpDefect.Location = new System.Drawing.Point(0, 0);
+            this.gpDefect.Name = "gpDefect";
+            this.gpDefect.Size = new System.Drawing.Size(1300, 141);
+            this.gpDefect.TabIndex = 26;
+            this.gpDefect.Text = "Basic Settings";
+            // 
+            // fypnl
+            // 
+            this.fypnl.AnimationRate = 75;
+            this.fypnl.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
+            this.fypnl.Controls.Add(this.flyoutPanelControl1);
+            this.fypnl.Location = new System.Drawing.Point(768, 78);
+            this.fypnl.Name = "fypnl";
+            this.fypnl.Options.AnimationType = DevExpress.Utils.Win.PopupToolWindowAnimation.Fade;
+            this.fypnl.Options.CloseOnHidingOwner = false;
+            this.fypnl.OptionsBeakPanel.BeakLocation = DevExpress.Utils.BeakPanelBeakLocation.Left;
+            this.fypnl.OptionsBeakPanel.CloseOnOuterClick = false;
+            this.fypnl.OptionsButtonPanel.ButtonPanelHeight = 32;
+            this.fypnl.OwnerControl = this.btnCode;
+            this.fypnl.Size = new System.Drawing.Size(525, 620);
+            this.fypnl.TabIndex = 28;
+            // 
+            // flyoutPanelControl1
+            // 
+            this.flyoutPanelControl1.Controls.Add(this.gpCamera);
+            this.flyoutPanelControl1.Controls.Add(this.btnClose);
+            this.flyoutPanelControl1.Controls.Add(this.btnSelect);
+            this.flyoutPanelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flyoutPanelControl1.FlyoutPanel = this.fypnl;
+            this.flyoutPanelControl1.Location = new System.Drawing.Point(0, 0);
+            this.flyoutPanelControl1.Name = "flyoutPanelControl1";
+            this.flyoutPanelControl1.Size = new System.Drawing.Size(525, 620);
+            this.flyoutPanelControl1.TabIndex = 0;
+            // 
+            // gpCamera
+            // 
+            this.gpCamera.Controls.Add(this.labelControl9);
+            this.gpCamera.Controls.Add(this.labelControl12);
+            this.gpCamera.Controls.Add(this.labelControl11);
+            this.gpCamera.Controls.Add(this.labelControl10);
+            this.gpCamera.Controls.Add(this.panel1);
+            this.gpCamera.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gpCamera.Images = this.imageList1;
+            this.gpCamera.Location = new System.Drawing.Point(2, 2);
+            this.gpCamera.Name = "gpCamera";
+            this.gpCamera.Size = new System.Drawing.Size(521, 616);
+            this.gpCamera.TabIndex = 25;
+            this.gpCamera.Text = "Camera_01";
+            // 
+            // labelControl9
+            // 
+            this.labelControl9.Appearance.BackColor = System.Drawing.Color.White;
+            this.labelControl9.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl9.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.labelControl9.Appearance.Options.UseBackColor = true;
+            this.labelControl9.Appearance.Options.UseFont = true;
+            this.labelControl9.Appearance.Options.UseForeColor = true;
+            this.labelControl9.Appearance.Options.UseTextOptions = true;
+            this.labelControl9.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.labelControl9.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.labelControl9.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
+            this.labelControl9.Location = new System.Drawing.Point(7, 30);
+            this.labelControl9.Name = "labelControl9";
+            this.labelControl9.Size = new System.Drawing.Size(49, 30);
+            this.labelControl9.TabIndex = 1;
+            this.labelControl9.Text = "Select";
+            // 
+            // labelControl12
+            // 
+            this.labelControl12.Appearance.BackColor = System.Drawing.Color.White;
+            this.labelControl12.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl12.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.labelControl12.Appearance.Options.UseBackColor = true;
+            this.labelControl12.Appearance.Options.UseFont = true;
+            this.labelControl12.Appearance.Options.UseForeColor = true;
+            this.labelControl12.Appearance.Options.UseTextOptions = true;
+            this.labelControl12.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.labelControl12.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.labelControl12.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
+            this.labelControl12.Location = new System.Drawing.Point(146, 30);
+            this.labelControl12.Name = "labelControl12";
+            this.labelControl12.Size = new System.Drawing.Size(198, 30);
+            this.labelControl12.TabIndex = 3;
+            this.labelControl12.Text = "Image";
+            // 
+            // labelControl11
+            // 
+            this.labelControl11.Appearance.BackColor = System.Drawing.Color.White;
+            this.labelControl11.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl11.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.labelControl11.Appearance.Options.UseBackColor = true;
+            this.labelControl11.Appearance.Options.UseFont = true;
+            this.labelControl11.Appearance.Options.UseForeColor = true;
+            this.labelControl11.Appearance.Options.UseTextOptions = true;
+            this.labelControl11.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.labelControl11.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.labelControl11.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
+            this.labelControl11.Location = new System.Drawing.Point(59, 30);
+            this.labelControl11.Name = "labelControl11";
+            this.labelControl11.Size = new System.Drawing.Size(84, 30);
+            this.labelControl11.TabIndex = 2;
+            this.labelControl11.Text = "Code";
+            // 
+            // labelControl10
+            // 
+            this.labelControl10.Appearance.BackColor = System.Drawing.Color.White;
+            this.labelControl10.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl10.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.labelControl10.Appearance.Options.UseBackColor = true;
+            this.labelControl10.Appearance.Options.UseFont = true;
+            this.labelControl10.Appearance.Options.UseForeColor = true;
+            this.labelControl10.Appearance.Options.UseTextOptions = true;
+            this.labelControl10.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.labelControl10.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.labelControl10.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
+            this.labelControl10.Location = new System.Drawing.Point(348, 30);
+            this.labelControl10.Name = "labelControl10";
+            this.labelControl10.Size = new System.Drawing.Size(148, 30);
+            this.labelControl10.TabIndex = 4;
+            this.labelControl10.Text = "Comment";
+            // 
+            // panel1
+            // 
+            this.panel1.AutoScroll = true;
+            this.panel1.Location = new System.Drawing.Point(2, 61);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(517, 551);
+            this.panel1.TabIndex = 2;
+            // 
+            // btnClose
+            // 
+            this.btnClose.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.Appearance.Options.UseFont = true;
+            this.btnClose.DialogResult = System.Windows.Forms.DialogResult.No;
+            this.btnClose.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.ImageOptions.Image")));
+            this.btnClose.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.btnClose.Location = new System.Drawing.Point(264, 586);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(86, 29);
+            this.btnClose.TabIndex = 7;
+            this.btnClose.Text = "Close";
+            // 
+            // btnSelect
+            // 
+            this.btnSelect.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSelect.Appearance.Options.UseFont = true;
+            this.btnSelect.DialogResult = System.Windows.Forms.DialogResult.No;
+            this.btnSelect.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSelect.ImageOptions.Image")));
+            this.btnSelect.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.btnSelect.Location = new System.Drawing.Point(175, 586);
+            this.btnSelect.Name = "btnSelect";
+            this.btnSelect.Size = new System.Drawing.Size(86, 29);
+            this.btnSelect.TabIndex = 6;
+            this.btnSelect.Text = "Select";
+            // 
+            // btnCode
+            // 
+            this.btnCode.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCode.Appearance.Options.UseFont = true;
+            this.btnCode.DialogResult = System.Windows.Forms.DialogResult.No;
+            this.btnCode.Location = new System.Drawing.Point(278, 96);
+            this.btnCode.Name = "btnCode";
+            this.btnCode.Size = new System.Drawing.Size(98, 26);
+            this.btnCode.TabIndex = 4;
+            this.btnCode.Text = "Code Table";
+            this.btnCode.Click += new System.EventHandler(this.btnCode_Click);
+            // 
+            // lblResolution
+            // 
+            this.lblResolution.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblResolution.Appearance.Options.UseFont = true;
+            this.lblResolution.Appearance.Options.UseTextOptions = true;
+            this.lblResolution.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.lblResolution.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.lblResolution.Location = new System.Drawing.Point(536, 33);
+            this.lblResolution.Name = "lblResolution";
+            this.lblResolution.Size = new System.Drawing.Size(117, 27);
+            this.lblResolution.TabIndex = 32;
+            this.lblResolution.Text = "Resolution : ";
+            // 
+            // labelControl4
+            // 
+            this.labelControl4.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl4.Appearance.Options.UseFont = true;
+            this.labelControl4.Appearance.Options.UseTextOptions = true;
+            this.labelControl4.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.labelControl4.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.labelControl4.Location = new System.Drawing.Point(278, 65);
+            this.labelControl4.Name = "labelControl4";
+            this.labelControl4.Size = new System.Drawing.Size(97, 27);
+            this.labelControl4.TabIndex = 28;
+            this.labelControl4.Text = "Light No : ";
+            // 
+            // labelControl5
+            // 
+            this.labelControl5.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl5.Appearance.Options.UseFont = true;
+            this.labelControl5.Appearance.Options.UseTextOptions = true;
+            this.labelControl5.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.labelControl5.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.labelControl5.Location = new System.Drawing.Point(278, 33);
+            this.labelControl5.Name = "labelControl5";
+            this.labelControl5.Size = new System.Drawing.Size(117, 27);
+            this.labelControl5.TabIndex = 30;
+            this.labelControl5.Text = "Trigger No : ";
+            // 
+            // lblExpose
+            // 
+            this.lblExpose.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblExpose.Appearance.Options.UseFont = true;
+            this.lblExpose.Appearance.Options.UseTextOptions = true;
+            this.lblExpose.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.lblExpose.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.lblExpose.Location = new System.Drawing.Point(59, 64);
+            this.lblExpose.Name = "lblExpose";
+            this.lblExpose.Size = new System.Drawing.Size(84, 27);
+            this.lblExpose.TabIndex = 0;
+            this.lblExpose.Text = "Expose : ";
+            // 
+            // lblCodeNo
+            // 
+            this.lblCodeNo.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCodeNo.Appearance.Options.UseFont = true;
+            this.lblCodeNo.Appearance.Options.UseTextOptions = true;
+            this.lblCodeNo.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.lblCodeNo.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.lblCodeNo.Location = new System.Drawing.Point(-47, 96);
+            this.lblCodeNo.Name = "lblCodeNo";
+            this.lblCodeNo.Size = new System.Drawing.Size(188, 27);
+            this.lblCodeNo.TabIndex = 2;
+            this.lblCodeNo.Text = "Code : ";
+            // 
+            // lblGrabDelay
+            // 
+            this.lblGrabDelay.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGrabDelay.Appearance.Options.UseFont = true;
+            this.lblGrabDelay.Appearance.Options.UseTextOptions = true;
+            this.lblGrabDelay.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.lblGrabDelay.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.lblGrabDelay.Location = new System.Drawing.Point(-47, 32);
+            this.lblGrabDelay.Name = "lblGrabDelay";
+            this.lblGrabDelay.Size = new System.Drawing.Size(188, 27);
+            this.lblGrabDelay.TabIndex = 20;
+            this.lblGrabDelay.Text = "Grab Delay : ";
+            // 
+            // lblCode
+            // 
+            this.lblCode.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCode.Appearance.Options.UseFont = true;
+            this.lblCode.Appearance.Options.UseTextOptions = true;
+            this.lblCode.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.lblCode.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.lblCode.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.lblCode.Location = new System.Drawing.Point(154, 96);
+            this.lblCode.Name = "lblCode";
+            this.lblCode.Size = new System.Drawing.Size(119, 26);
+            this.lblCode.TabIndex = 3;
+            this.lblCode.Text = "-";
+            // 
             // CamParamControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -1340,38 +1310,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtTriggerNo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtExpose.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtGrabDelay.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gpBarcode)).EndInit();
-            this.gpBarcode.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gpDefect)).EndInit();
-            this.gpDefect.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.fypnl)).EndInit();
-            this.fypnl.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.flyoutPanelControl1)).EndInit();
-            this.flyoutPanelControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gpCamera)).EndInit();
-            this.gpCamera.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pnlVpro)).EndInit();
-            this.pnlVpro.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).EndInit();
-            this.panelControl5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtHeightMax.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtWidthMax.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtHeightMin.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtWidthMin.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.swDimens.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).EndInit();
-            this.panelControl4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtBCRLen.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBCRData.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
-            this.panelControl3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.txtPinMasterResult.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPinMaster.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pnlAlign)).EndInit();
-            this.pnlAlign.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtMaxY.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaxX.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chkMathematical.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCenterMass.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAlingUnit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAlignOffsetR.Properties)).EndInit();
@@ -1380,6 +1327,20 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtAlignMasterR.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAlignMasterY.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAlignMasterX.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gpBarcode)).EndInit();
+            this.gpBarcode.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pnlVpro)).EndInit();
+            this.pnlVpro.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).EndInit();
+            this.panelControl5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.swDimens.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).EndInit();
+            this.panelControl4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
+            this.panelControl3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pnlAlign)).EndInit();
+            this.pnlAlign.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chkMathematical.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.swBCR.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPinCnt.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.swPin.Properties)).EndInit();
@@ -1387,6 +1348,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.swAlign.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDefectCnt.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtExposeIncrease.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gpDefect)).EndInit();
+            this.gpDefect.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.fypnl)).EndInit();
+            this.fypnl.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.flyoutPanelControl1)).EndInit();
+            this.flyoutPanelControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gpCamera)).EndInit();
+            this.gpCamera.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1438,8 +1407,6 @@
         private DevExpress.XtraEditors.LabelControl lblDatadigit;
         private DevExpress.XtraEditors.TextEdit txtBCRData;
         private DevExpress.XtraEditors.PanelControl panelControl3;
-        private DevExpress.XtraEditors.LabelControl labelControl21;
-        private DevExpress.XtraEditors.TextEdit txtPinMasterResult;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.TextEdit txtPinMaster;
         private DevExpress.XtraEditors.PanelControl pnlAlign;
