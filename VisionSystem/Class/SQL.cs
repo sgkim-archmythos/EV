@@ -1836,7 +1836,7 @@ public class SQL
         return ds;
     }
 
-    public void SaveLightParam(int nIdx, string strProcName, DBInfo dbInfo, LightParam lightParam)
+    public void SaveLightParam(string strProcName, DBInfo dbInfo, LightParam lightParam)
     {
         if (string.IsNullOrEmpty(strProcName))
             return;
@@ -1846,9 +1846,9 @@ public class SQL
         {
             if (DBConnect(ref Conn, dbInfo))
             {
-                using (SqlCommand CMD = new SqlCommand("Select * from LIGHTPARAM where [CONTROL_NO] = @CONTROL_NO and [PROCESSNAME] = @PROCESSNAME", Conn))
+                using (SqlCommand CMD = new SqlCommand("Select * from LIGHTPARAM where [PROCESSNAME] = @PROCESSNAME", Conn))
                 {
-                    CMD.Parameters.AddWithValue("@CONTROL_NO", nIdx);
+                    
                     CMD.Parameters.AddWithValue("@PROCESSNAME", strProcName);
 
                     using (var adpter = new SqlDataAdapter())
@@ -1862,18 +1862,24 @@ public class SQL
 
                             if (ds.Tables[0].Rows.Count > 0)
                             {
-                                CMD.CommandText = "Update LIGHTPARAM Set [CONNECTMODE] = @CONNECTMODE, [PORT] = @PORT, [BAUDRATE] = @BAUDRATE, [VALUE_1] = @VALUE_1, [VALUE_2] = @VALUE_2, " +
-                                    "[LIGHTUSE_1] = @LIGHTUSE_1,[LIGHTUSE_2] = @LIGHTUSE_2 where [CONTROL_NO] = @CONTROL_NO and [PROCESSNAME] = @PROCESSNAME";
+                                CMD.CommandText = "Update LIGHTPARAM Set [CONNECTMODE] = @CONNECTMODE, [PORT] = @PORT, [BAUDRATE] = @BAUDRATE, [CHANNELNO] = @CHANNELNO, [VALUE_1] = @VALUE_1, [VALUE_2] = @VALUE_2, " +
+                                    "[VALUE_3] = @VALUE_3, [VALUE_4] = @VALUE_4, [LIGHTUSE_1] = @LIGHTUSE_1,[LIGHTUSE_2] = @LIGHTUSE_2, [LIGHTUSE_3] = @LIGHTUSE_3, [LIGHTUSE_4] = @LIGHTUSE_4 where [PROCESSNAME] = @PROCESSNAME";
 
                                 CMD.Parameters.Clear();
 
                                 CMD.Parameters.AddWithValue("@CONNECTMODE", lightParam.strConnectMode);
                                 CMD.Parameters.AddWithValue("@PORT", lightParam.strPortName);
                                 CMD.Parameters.AddWithValue("@BAUDRATE", lightParam.strBaudrate);
-                                CMD.Parameters.AddWithValue("@VALUE_1", lightParam.nValue);
+                                CMD.Parameters.AddWithValue("@CHANNELNO", lightParam.nChannelNo);
+                                CMD.Parameters.AddWithValue("@VALUE_1", lightParam.nValue[0]);
+                                CMD.Parameters.AddWithValue("@VALUE_2", lightParam.nValue[1]);
+                                CMD.Parameters.AddWithValue("@VALUE_3", lightParam.nValue[2]);
+                                CMD.Parameters.AddWithValue("@VALUE_4", lightParam.nValue[3]);
                                 CMD.Parameters.AddWithValue("@LIGHTUSE_1", lightParam.bLightUse[0].ToString());
                                 CMD.Parameters.AddWithValue("@LIGHTUSE_2", lightParam.bLightUse[1].ToString());
-                                CMD.Parameters.AddWithValue("@CONTROL_NO", nIdx);
+                                CMD.Parameters.AddWithValue("@LIGHTUSE_3", lightParam.bLightUse[2].ToString());
+                                CMD.Parameters.AddWithValue("@LIGHTUSE_4", lightParam.bLightUse[3].ToString());
+
                                 CMD.Parameters.AddWithValue("@PROCESSNAME", strProcName);
 
                                 adpter.UpdateCommand = CMD;
@@ -1881,21 +1887,27 @@ public class SQL
                             }
                             else
                             {
-                                CMD.CommandText = "INSERT INTO LIGHTPARAM ([CONTROL_NO], [PROCESSNAME], [CONNECTMODE], [PORT], [BAUDRATE], [VALUE_1], [VALUE_2]" +
-                                    ", [LIGHTUSE_1], [LIGHTUSE_2]";
-                                CMD.CommandText += ") VALUES (@CONTROL_NO, @PROCESSNAME, @CONNECTMODE, @PORT, @BAUDRATE, @VALUE_1, @VALUE_2," +
-                                    "@LIGHTUSE_1, @LIGHTUSE_2)";
+                                CMD.CommandText = "INSERT INTO LIGHTPARAM ([PROCESSNAME], [CONNECTMODE], [PORT], [BAUDRATE], [CHANNELNO], [VALUE_1], [VALUE_2]" +
+                                    ", [VALUE_3], [VALUE_4], [LIGHTUSE_1], [LIGHTUSE_2], [LIGHTUSE_3], [LIGHTUSE_4]";
+                                CMD.CommandText += ") VALUES (@PROCESSNAME, @CONNECTMODE, @PORT, @BAUDRATE, @CHANNELNO, @VALUE_1, @VALUE_2," +
+                                    "@VALUE_3, @VALUE_4, @LIGHTUSE_1, @LIGHTUSE_2, @LIGHTUSE_3, @LIGHTUSE_4)";
 
                                 CMD.Parameters.Clear();
 
-                                CMD.Parameters.AddWithValue("@CONTROL_NO", nIdx);
+                                
                                 CMD.Parameters.AddWithValue("@PROCESSNAME", strProcName);
                                 CMD.Parameters.AddWithValue("@CONNECTMODE", lightParam.strConnectMode);
                                 CMD.Parameters.AddWithValue("@PORT", lightParam.strPortName);
                                 CMD.Parameters.AddWithValue("@BAUDRATE", lightParam.strBaudrate);
-                                CMD.Parameters.AddWithValue("@VALUE_1", lightParam.nValue);
+                                CMD.Parameters.AddWithValue("@CHANNELNO", lightParam.nChannelNo);
+                                CMD.Parameters.AddWithValue("@VALUE_1", lightParam.nValue[0]);
+                                CMD.Parameters.AddWithValue("@VALUE_2", lightParam.nValue[1]);
+                                CMD.Parameters.AddWithValue("@VALUE_3", lightParam.nValue[2]);
+                                CMD.Parameters.AddWithValue("@VALUE_4", lightParam.nValue[3]);
                                 CMD.Parameters.AddWithValue("@LIGHTUSE_1", lightParam.bLightUse[0].ToString());
                                 CMD.Parameters.AddWithValue("@LIGHTUSE_2", lightParam.bLightUse[1].ToString());
+                                CMD.Parameters.AddWithValue("@LIGHTUSE_3", lightParam.bLightUse[2].ToString());
+                                CMD.Parameters.AddWithValue("@LIGHTUSE_4", lightParam.bLightUse[3].ToString());
 
                                 adpter.InsertCommand = CMD;
                                 adpter.InsertCommand.ExecuteNonQuery();
@@ -1918,7 +1930,7 @@ public class SQL
         {
             if (DBConnect(ref Conn, dbInfo))
             {
-                using (SqlCommand CMD = new SqlCommand("Select * from LIGHTPARAM where [CONTROL_NO] = @CONTROL_NO and [PROCESSNAME] = @PROCESSNAME", Conn))
+                using (SqlCommand CMD = new SqlCommand("Select * from LIGHTPARAM where [PROCESSNAME] = @PROCESSNAME", Conn))
                 {
                     
                     CMD.Parameters.AddWithValue("@PROCESSNAME", strProcName);
@@ -1934,13 +1946,19 @@ public class SQL
 
                             if (ds.Tables[0].Rows.Count > 0) 
                             {
-                                lightParam.strConnectMode = ds.Tables[0].Rows[0].ItemArray[3].ToString();
-                                lightParam.strPortName = ds.Tables[0].Rows[0].ItemArray[4].ToString();
-                                lightParam.strBaudrate = ds.Tables[0].Rows[0].ItemArray[5].ToString();
+                                lightParam.strConnectMode = ds.Tables[0].Rows[0].ItemArray[2].ToString();
+                                lightParam.strPortName = ds.Tables[0].Rows[0].ItemArray[3].ToString();
+                                lightParam.strBaudrate = ds.Tables[0].Rows[0].ItemArray[4].ToString();
+                                lightParam.nChannelNo = int.Parse(ds.Tables[0].Rows[0].ItemArray[5].ToString());
                                 int.TryParse(ds.Tables[0].Rows[0].ItemArray[6].ToString(), out lightParam.nValue[0]);
-                                
-                                bool.TryParse(ds.Tables[0].Rows[0].ItemArray[8].ToString(), out lightParam.bLightUse[0]);
-                                bool.TryParse(ds.Tables[0].Rows[0].ItemArray[9].ToString(), out lightParam.bLightUse[1]);
+                                int.TryParse(ds.Tables[0].Rows[0].ItemArray[7].ToString(), out lightParam.nValue[1]);
+                                int.TryParse(ds.Tables[0].Rows[0].ItemArray[8].ToString(), out lightParam.nValue[2]);
+                                int.TryParse(ds.Tables[0].Rows[0].ItemArray[9].ToString(), out lightParam.nValue[3]);
+
+                                bool.TryParse(ds.Tables[0].Rows[0].ItemArray[10].ToString(), out lightParam.bLightUse[0]);
+                                bool.TryParse(ds.Tables[0].Rows[0].ItemArray[11].ToString(), out lightParam.bLightUse[1]);
+                                bool.TryParse(ds.Tables[0].Rows[0].ItemArray[12].ToString(), out lightParam.bLightUse[2]);
+                                bool.TryParse(ds.Tables[0].Rows[0].ItemArray[13].ToString(), out lightParam.bLightUse[3]);
                             }
                         }
                     }
